@@ -5,6 +5,7 @@ h1 {
 .instructions {
   border-style:solid;
   border-color: red;
+  margin: 0;
   width: 50%;
   font-family: "Georgia", Times, serif;
   float: left;
