@@ -7,6 +7,7 @@ h1 {
   border-color: red;
   width: 50%;
   font-family: "Georgia", Times, serif;
+  float: left;
 }
 
   
