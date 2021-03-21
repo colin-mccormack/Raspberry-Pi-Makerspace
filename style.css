@@ -3,8 +3,10 @@ h1 {
 }
 
 .instructions {
-  border: 10x solid red;
+  border-style:solid;
+  border-color: red;
   width: 50%;
+  font-family: "Times New Roman", Times, serif;
 }
 
   
