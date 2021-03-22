@@ -37,3 +37,13 @@ body{
   color: #fff;
   font-size: large;
 }
+
+.small_img {
+  width: 50%;
+  float: left;
+}
+
+.small_p {
+  width: 50%;
+  float: right;
+}
