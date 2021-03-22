@@ -41,6 +41,7 @@ body{
 .small_img {
   width: 50%;
   float: left;
+  position: relative;
 }
 
 .small_p {
