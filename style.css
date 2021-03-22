@@ -5,7 +5,6 @@ h1 {
 .instructions {
   margin: 0;
   width: 50%;
-  font-family: "Georgia", Times, serif;
   float: left;
 }
 
@@ -20,6 +19,12 @@ h1 {
 
 * {
   font-family: "Georgia", Times, serif;
+}
+
+.text_over {
+  style="background-color;
+  lightgrey; width: 25%;
+  position: absoloute;
 }
 
   
