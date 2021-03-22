@@ -6,7 +6,6 @@ h1 {
   margin: 0;
   width: 50%;
   font-family: "Georgia", Times, serif;
-  font-size: 15px;
   float: left;
 }
 
@@ -16,7 +15,7 @@ h1 {
 }
 
 .paypal {
-  font-size: 15px;
+  font-size: medium;
 }
 
 * {
