@@ -45,8 +45,7 @@ body{
 }
 
 .small_p {
-  width: 35%;
-  height: 100px;
+  width: 50%;
+  height: 400px;
   float: right;
-  border: 10px;
 }
