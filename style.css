@@ -6,12 +6,18 @@ h1 {
   margin: 0;
   width: 50%;
   font-family: "Georgia", Times, serif;
+  font-size: 15px;
   float: left;
 }
 
 .title {
   border: 10px;
   margin-top: 50px;
+}
+
+.paypal {
+  font-family: "Georgia", Times, serif;
+  font-size: 15px;
 }
 
   
