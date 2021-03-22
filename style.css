@@ -40,12 +40,13 @@ body{
 
 .small_img {
   width: 50%;
-  height: 100px;
+  height: 10%;
   float: left;
 }
 
 .small_p {
-  width: 50%;
+  width: 35%;
   height: 100px;
   float: right;
+  border: 10px;
 }
