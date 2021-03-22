@@ -47,4 +47,5 @@ body{
 .small_p {
   width: 50%;
   float: right;
+  position: absoloute;
 }
