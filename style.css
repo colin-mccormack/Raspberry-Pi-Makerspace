@@ -22,12 +22,15 @@ h1 {
 }
 
 .text_over {
-  background-color: lightgrey; 
-  width: 25%;
-  position: absoloute;
-  z-index: 9999;
+  background-color: linear-gradient(rgba(0,0,0,0,.5),rgba(0,0,0,0.5)) url(raspberrypired.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
 }
-
+/*
 .raspberrypired {
   width:100%;
   margin: 0;
@@ -38,4 +41,4 @@ h1 {
   position: relative;
   display: block;
 }
-  
+*/
