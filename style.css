@@ -29,13 +29,13 @@ h1 {
 }
 
 .raspberrypired {
-  position: relative;
   width:100%;
   margin: 0;
 }
 
 .back_img {
   z-index: 1;
+  position: relative;
   display: block;
 }
   
