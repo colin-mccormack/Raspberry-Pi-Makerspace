@@ -16,8 +16,11 @@ h1 {
 }
 
 .paypal {
-  font-family: "Georgia", Times, serif;
   font-size: 15px;
+}
+
+* {
+  font-family: "Georgia", Times, serif;
 }
 
   
