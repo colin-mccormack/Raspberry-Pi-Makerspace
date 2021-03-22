@@ -29,10 +29,11 @@ h1 {
 .text_over {
   background-color: linear-gradient(rgba(0,0,0,0,.5),rgba(0,0,0,0.5));
   background-image: url('raspberrypired.jpg');
-  height: 600px;
+  height: 1000px;
   background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
+  font-size: large;
 }
