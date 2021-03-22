@@ -25,13 +25,12 @@ h1 {
   background-color: lightgrey; 
   width: 25%;
   position: absoloute;
-  z-index: 1;
+  z-index: 9999;
 }
 
 .raspberrypired {
   position: relative;
   width:100%;
   margin: 0;
-  z-index: 9999;
 }
   
