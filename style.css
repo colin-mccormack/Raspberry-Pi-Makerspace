@@ -20,6 +20,7 @@ body{
 
 .paypal {
   font-size: medium;
+  float: right;
 }
 
 * {
