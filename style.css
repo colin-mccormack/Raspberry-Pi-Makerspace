@@ -39,21 +39,15 @@ body{
   font-size: large;
 }
 
-.block_off {
-  width: 50%;
-  height: 250px;
-}
-
 .small_img {
-  max-width: 25%;
-  height: auto;
+  width: 25%;
   float: left;
   position: relative;
   object-fit: contain;
 }
 
 .small_p {
-  width: 50%;
+  width: 75%;
   height: 250px;
   float: right;
   position: absoloute;
