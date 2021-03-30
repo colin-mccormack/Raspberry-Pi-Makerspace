@@ -41,10 +41,10 @@ body{
 
 .block_off {
   width: 50%;
+  height: 250px;
 }
 
 .small_img {
-  height: 25%;
   float: left;
   position: relative;
   object-fit: contain;
