@@ -45,6 +45,7 @@ body{
 }
 
 .small_img {
+  height: 25%;
   float: left;
   position: relative;
   object-fit: contain;
