@@ -41,6 +41,7 @@ body{
 
 .small_img {
   width: 50%;
+  height: 500px;
   height: 25%;
   float: left;
   position: relative;
@@ -49,6 +50,7 @@ body{
 
 .small_p {
   width: 50%;
+  height: 500px;
   float: right;
   position: absoloute;
 }
