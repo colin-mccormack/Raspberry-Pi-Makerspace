@@ -39,6 +39,10 @@ body{
   font-size: large;
 }
 
+.block_off {
+  width: 50%;
+}
+
 .small_img {
   height: 25%;
   float: left;
