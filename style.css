@@ -40,6 +40,8 @@ body{
 }
 
 .small_img {
+  width: 50%;
+  height: 25%;
   float: left;
   position: relative;
   object-fit: contain;
