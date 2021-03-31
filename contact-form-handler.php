@@ -1,6 +1,6 @@
 <?php
+  $fname = $_POST['fname'];  
   $lname = $_POST['lname'];
-  $fname = $_POST['fname'];
   $email = $_POST['email'];
   $country = $_POST['country'];
   $message = $_POST['subject'];
