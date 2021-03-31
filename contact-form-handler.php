@@ -3,7 +3,7 @@
   $fname = $_POST['fname'];
   $email = $_POST['email'];
   $country = $_POST['country'];
-  $message = $_POST['message'];
+  $message = $_POST['subject'];
 
   $email_from = 'colin@slpv2.org';
   $email_subject = "New form submission";
