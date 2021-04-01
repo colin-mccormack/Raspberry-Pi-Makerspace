@@ -23,6 +23,12 @@ body{
   float: right;
 }
 
+.about {
+  text-align: center;
+  width: 75%;
+  background-color: lightgrey;
+}
+
 
 * {
   font-family: "Georgia", Times, serif;
