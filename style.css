@@ -24,8 +24,11 @@ body{
 }
 
 .about {
-  margin: 20px;
   background-color: lightgrey;
+}
+
+.abouttext {
+  marign: 50px;
 }
 
 
