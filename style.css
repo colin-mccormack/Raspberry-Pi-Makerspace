@@ -23,10 +23,6 @@ body{
   float: right;
 }
 
-.tabletype {
-  float: left;
-  font-weight:normal
-}
 
 * {
   font-family: "Georgia", Times, serif;
