@@ -24,8 +24,7 @@ body{
 }
 
 .about {
-  text-align: center;
-  width: 75%;
+  margin: 20px;
   background-color: lightgrey;
 }
 
@@ -49,15 +48,14 @@ body{
 .small_img {
   width: 25%;
   float: left;
-  position: relative;
   object-fit: contain;
+  height: 250px;
 }
 
 .small_p {
   width: 75%;
   height: 250px;
   float: right;
-  position: absoloute;
 }
 
 /* Style the header with a grey background and some padding */
