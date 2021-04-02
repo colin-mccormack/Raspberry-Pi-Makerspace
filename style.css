@@ -36,17 +36,16 @@ body{
   font-family: "Georgia", Times, serif;
 }
 
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
 .text_over {
- /* background-color: linear-gradient(rgba(0,0,0,0,.5),rgba(0,0,0,0.5));
-  background-image: url('cooltype.jpg');
-  height: 1000px;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff; */
-  font-size: large;
-  text-align: right;
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
 }
 
 .small_img {
