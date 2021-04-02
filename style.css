@@ -62,6 +62,7 @@ body{
   height: 250px;
   float: right;
   color: white;
+  margin: 0;
 }
 
 /* Style the header with a grey background and some padding */
