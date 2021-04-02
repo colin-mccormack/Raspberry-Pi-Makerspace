@@ -38,7 +38,7 @@ body{
 
 .text_over {
   background-color: linear-gradient(rgba(0,0,0,0,.5),rgba(0,0,0,0.5));
-  background-image: url('raspberrypired.jpg');
+  background-image: url('cooltype.jpg');
   height: 1000px;
   background-position: center;
   display: flex;
@@ -46,6 +46,7 @@ body{
   justify-content: center;
   color: #fff;
   font-size: large;
+  text-align: right;
 }
 
 .small_img {
