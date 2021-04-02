@@ -24,11 +24,12 @@ body{
 }
 
 .about {
-  background-color: lightgrey;
+  background-color: black;
 }
 
 .abouttext {
   marign: 50px;
+  color: white;
 }
 
 
@@ -60,6 +61,7 @@ body{
   width: 75%;
   height: 250px;
   float: right;
+  color: white;
 }
 
 /* Style the header with a grey background and some padding */
