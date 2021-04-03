@@ -28,6 +28,7 @@ body{
 }
 
 .abouttext {
+  position: absoloute;
   marign: 50px;
   color: white;
 }
