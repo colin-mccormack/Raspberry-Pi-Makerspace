@@ -10,6 +10,7 @@ body{
 .instructions {
   margin: 0;
   float: left;
+  width: 100%;
 }
 
 .title {
@@ -73,6 +74,10 @@ body{
 
 .bottom {
     background-color: white;
+}
+
+.product {
+  width: 100%;
 }
 
 /* Style the header with a grey background and some padding */
