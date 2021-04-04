@@ -19,7 +19,11 @@ body{
 
 .paypal {
   font-size: medium;
-  float: right;
+  float: center;
+}
+
+.product {
+  width: 100%;
 }
 
 .about {
@@ -63,6 +67,30 @@ body{
   float: right;
   color: white;
   margin: 0;
+}
+
+.top {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 50%;
+}
+
+.bottom {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 50%;
+}
+
+.top {
+    top: 0;
+    background-color: black;
+}
+
+.bottom {
+    bottom: 0;
+    background-color: white;
 }
 
 /* Style the header with a grey background and some padding */
