@@ -80,6 +80,13 @@ body{
   width: 100%;
 }
 
+.product-container {
+  width: 25%;
+  height: 25%;
+  padding: 20px 20px;
+  background-color: lightgrey;
+}
+
 /* Style the header with a grey background and some padding */
 .header {
   overflow: hidden;
