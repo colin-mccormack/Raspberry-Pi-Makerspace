@@ -83,7 +83,7 @@ body{
 .product-text {
   position: absoloute;
   padding: 20px 20px;
-  color: #CDCDCD;
+  background-color: #CDCDCD;
 }
 
 .product-container {
