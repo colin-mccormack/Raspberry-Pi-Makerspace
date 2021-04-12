@@ -82,7 +82,8 @@ body{
 
 .product-container {
   padding: 20px 20px;
-  background-color: #CDCDCD;
+  position: relative;
+  color: #CDCDCD;
 }
 
 /* Style the header with a grey background and some padding */
