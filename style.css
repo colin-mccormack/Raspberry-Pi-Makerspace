@@ -89,13 +89,13 @@ body{
   width  : 30em;
   height : 30em;
   border-radius: 100%;
-
+   top: 50%;
+   transform: translate(0, -50%)
 }
 
 .product-container {
   padding: 20px 20px;
   position: relative;
-  color: #CDCDCD;
 }
 
 
