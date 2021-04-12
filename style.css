@@ -85,15 +85,15 @@ body{
   background-color: #CDCDCD;
   text-align : center;
   vertical-align: middle;
-}
-
-.product-container {
-  padding: 20px 20px;
   padding : 1em;
   border : 0.5em solid grey;
   width  : 30em;
   height : 30em;
   border-radius: 100%;
+}
+
+.product-container {
+  padding: 20px 20px;
   position: relative;
 }
 
