@@ -81,8 +81,6 @@ body{
 }
 
 .product-container {
-  width: 25%;
-  height: 25%;
   padding: 20px 20px;
   background-color: lightgrey;
 }
