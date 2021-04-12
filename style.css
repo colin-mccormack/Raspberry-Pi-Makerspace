@@ -80,6 +80,10 @@ body{
   width: 100%;
 }
 
+.product-text {
+  position: absoloute;
+}
+
 .product-container {
   padding: 20px 20px;
   position: relative;
