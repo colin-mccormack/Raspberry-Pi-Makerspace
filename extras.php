@@ -37,7 +37,7 @@
   if (isset($_POST["submit"]))
   {
     $str = $_POST["search"];
-    $sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str'");
+    $sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str'");
     //$sth = $con->prepare("SELECT * FROM Elements WHERE name = 'Hydrogen'");
 
     $sth->setFetchMode(PDO:: FETCH_OBJ);
