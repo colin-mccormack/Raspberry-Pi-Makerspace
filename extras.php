@@ -39,7 +39,7 @@
       	</form>
 <?php
 
-  $con = new PDO("mysql:host=localhost;dbname=Chemistry",charset=utf8','colin','lego');
+  $con = new PDO("mysql:host=localhost;dbname=Chemistry",'charset=utf8','colin','lego');
   if (isset($_POST["submit"]))
   {
     $str = $_POST["search"];
