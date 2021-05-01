@@ -59,7 +59,7 @@
       print("<td>" . $row->symbol ."</td>");
       print("<td>" . $row->atomic_number ."</td>");
       print("<td>" . $row->atom . "</td>");
-      print("<td>" . $row->charge . "</td>");
+      print("<td>" . $row->charges . "</td>");
       print("<td>" . $row->multivalent . "</td>");
       print("</tr>");
       print("</table>");
