@@ -40,7 +40,6 @@
     //$sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str'");
     $sth = $con->prepare("SELECT * FROM Elements WHERE name = 'Hydrogen'");
 
-    print("***" .  $sth);
     $sth->setFetchMode(PDO:: FETCH_OBJ);
     $sth -> excecute();
 
