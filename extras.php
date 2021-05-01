@@ -56,11 +56,11 @@
       print("<th>Multivalent</th>");
       print("</tr><tr>");
       print("<td>" . $row->name . "</td>");
-      print("<td>" . $row["symbol"] ."</td>");
-      print("<td>" . $row["atomic number"] ."</td>");
-      print("<td>" . $row["atom"] . "</td>");
-      print("<td>" . $row["charge"] . "</td>");
-      print("<td>" . $row["multivalent"] . "</td>");
+      print("<td>" . $row->symbol ."</td>");
+      print("<td>" . $row->atomic number ."</td>");
+      print("<td>" . $row->atom . "</td>");
+      print("<td>" . $row->charge . "</td>");
+      print("<td>" . $row->multivalent . "</td>");
       print("</tr>");
       print("</table>");
     }
