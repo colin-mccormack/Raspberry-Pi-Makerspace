@@ -35,7 +35,7 @@
 </html>
 
 <?php
-  $con = new PDO("mysql:host=localhost;dbname=CodeFlix",'root','');
+  $con = new PDO("mysql:host=localhost;dbname=Elements",'colin','');
   if (isset($_POST["submit"])) {
     $str = $_POST["search"];
     $sth = $con->prepare("SELECT * FROM 'search' WHERE name = '$str'");
@@ -70,4 +70,5 @@
   else{
     echo "Name Does Not Exist";
   }
-  ?>
+}
+?>
