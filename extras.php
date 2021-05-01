@@ -55,7 +55,7 @@
       print("<th>Charge</th>");
       print("<th>Multivalent</th>");
       print("</tr><tr>");
-      print("<td>" . $row("name") . "</td>");
+      print("<td>" . $row->name . "</td>");
       print("<td>" . $row["symbol"] ."</td>");
       print("<td>" . $row["atomic number"] ."</td>");
       print("<td>" . $row["atom"] . "</td>");
