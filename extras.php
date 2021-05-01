@@ -25,12 +25,16 @@
 	    <div style="text-align:center">
 	      <h1>Extras</h1>
 	    </div>
+	    <div class="explain">
+		    <p>Our devellopers have created this search function using a mysql database with information for chemistry. We hope to set up a search function for easy verification regarding test answers. 
+			    This will hopefully reduce the amount of time you spend searching for answers. Currently you cna search by an Element's name or Symbol. We hope to vastly expand our database and we are always looking for suggestions for information that might be needed on a test. 
+			    Please visit our contact page and send us your suggestions for what we should add next!</p>
+	    </div>
 	  <form method="post">
-      <label>Search</label>
-      <input type="text" name="search">
-      <input type="submit" name="submit">
-      
-      </form>
+      		<label>Search</label>
+      		<input type="text" name="search">
+      		<input type="submit" name="submit">
+      	</form>
 <?php
 
   $con = new PDO("mysql:host=localhost;dbname=Chemistry",'colin','lego');
