@@ -97,6 +97,11 @@ body{
   position: relative;
 }
 
+.explain {
+  text-align : center;
+  width : 50%;
+  background-color: #778899;
+}
 
 /* Style the header with a grey background and some padding */
 .header {
