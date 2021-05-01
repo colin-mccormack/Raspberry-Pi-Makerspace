@@ -38,7 +38,7 @@
   $con = new PDO("mysql:host=localhost;dbname=Elements",'colin','lego');
   if (isset($_POST["submit"])) {
     $str = $_POST["search"];
-    $sth = $con -> prepare("SELECT * FROM 'search' WHERE name = '$str'");
+    $sth = $con -> prepare("SELECT * FROM 'Elements' WHERE name = '$str'");
 
     $sth->setFetchMode(PDO:: FETCH_OBJ);
     $sth -> excecute();
