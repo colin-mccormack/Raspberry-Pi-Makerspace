@@ -41,7 +41,7 @@
     $sth = $con->prepare("SELECT * FROM Elements WHERE name = 'Hydrogen'");
 
     $sth->setFetchMode(PDO:: FETCH_OBJ);
-    $sth -> excecute();
+    $sth -> execute();
 
     if($row = $sth->fetch())
     {
