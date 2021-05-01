@@ -31,16 +31,16 @@
       <input type="submit" name="submit">
       
       </form>
-  </body>
-</html>
-
 <?php
-  $con = new PDO("mysql:host=localhost;dbname=Elements",'colin','lego');
-  if (isset($_POST["submit"])) 
+
+  $con = new PDO("mysql:host=localhost;dbname=Chemistry",'colin','lego');
+  if (isset($_POST["submit"]))
   {
     $str = $_POST["search"];
-    $sth = $con->prepare("SELECT * FROM `Elements` WHERE name = '$str'");
+    //$sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str'");
+    $sth = $con->prepare("SELECT * FROM Elements WHERE name = 'Hydrogen'");
 
+    print("***" .  $sth);
     $sth->setFetchMode(PDO:: FETCH_OBJ);
     $sth -> excecute();
 
@@ -56,12 +56,12 @@
       print("<th>Charge</th>");
       print("<th>Multivalent</th>");
       print("</tr><tr>");
-      print("<td>" . $row->name . "</td>");
-      print("<td>" . $row->symbol ."</td>");
-      print("<td>" . $row->atomic number ."</td>");
-      print("<td>" . $row->atom . "</td>");
-      print("<td>" . $row->charge . "</td>");
-      print("<td>" . $row->multivalent . "</td>");
+      print("<td>" . $row["name"] . "</td>");
+      print("<td>" . $row["symbol"] ."</td>");
+      print("<td>" . $row["atomic number"] ."</td>");
+      print("<td>" . $row["atom"] . "</td>");
+      print("<td>" . $row["charge"] . "</td>");
+      print("<td>" . $row["multivalent"] . "</td>");
       print("</tr>");
       print("</table>");
     }
@@ -71,3 +71,6 @@
     }
   }
 ?>
+  </body>
+</html>
+
