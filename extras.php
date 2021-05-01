@@ -38,14 +38,14 @@
   $con = new PDO("mysql:host=localhost;dbname=Elements",'colin','lego');
   if (isset($_POST["submit"])) {
     $str = $_POST["search"];
-    $sth = $con -> prepare("SELECT * FROM 'Elements' WHERE name = '$str'");
+    $sth = $con->prepare("SELECT * FROM `Elements` WHERE name = '$str'");
 
     $sth->setFetchMode(PDO:: FETCH_OBJ);
     $sth -> excecute();
 
     if($row = $sth->fetch())
     {
-      ?>
+?>
        <br><br><br>
         <table>
              <tr>
@@ -65,7 +65,7 @@
             <td><?php echo $row->multivalent; ?></td>
           </tr>
   </table>
-  <?php  
+<?php  
   }
   else{
     echo "Name Does Not Exist";
