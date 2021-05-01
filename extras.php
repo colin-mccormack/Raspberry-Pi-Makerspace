@@ -36,7 +36,8 @@
 
 <?php
   $con = new PDO("mysql:host=localhost;dbname=Elements",'colin','lego');
-  if (isset($_POST["submit"])) {
+  if (isset($_POST["submit"])) 
+  {
     $str = $_POST["search"];
     $sth = $con->prepare("SELECT * FROM `Elements` WHERE name = '$str'");
 
@@ -45,30 +46,28 @@
 
     if($row = $sth->fetch())
     {
-?>
-       <br><br><br>
-        <table>
-             <tr>
-               <th>Name</th>
-               <th>Symbol</th>
-               <th>Atomic Number</th>
-               <th>Atom</th>
-               <th>Charge</th>
-               <th>Multivalent</th>
-          </tr>
-          <tr>
-            <td><?php echo $row->name; ?></td>
-            <td><?php echo $row->symbol; ?></td>
-            <td><?php echo $row->atomic number; ?></td>
-            <td><?php echo $row->atom; ?></td>
-            <td><?php echo $row->charge; ?></td>
-            <td><?php echo $row->multivalent; ?></td>
-          </tr>
-  </table>
-<?php  
+      print("<br><br><br>");
+      print("<table>");
+      print("<tr>");
+      print("<th>Name</th>");
+      print("<th>Symbol</th>");
+      print("<th>Atomic Number</th>");
+      print("<th>Atom</th>");
+      print("<th>Charge</th>");
+      print("<th>Multivalent</th>");
+      print("</tr><tr>");
+      print("<td>" . $row->name . "</td>");
+      print("<td>" . $row->symbol ."</td>");
+      print("<td>" . $row->atomic number ."</td>");
+      print("<td>" . $row->atom . "</td>");
+      print("<td>" . $row->charge . "</td>");
+      print("<td>" . $row->multivalent . "</td>");
+      print("</tr>");
+      print("</table>");
+    }
+    else
+    {
+      echo "Name Does Not Exist";
+    }
   }
-  else{
-    echo "Name Does Not Exist";
-  }
-}
 ?>
