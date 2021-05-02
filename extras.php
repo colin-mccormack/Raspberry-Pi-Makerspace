@@ -47,7 +47,7 @@
     $sth -> execute();
     $rows = $sth->fetch();
 		
-	    if($row = $sth->fetchAll())
+	    if($row = $sth->fetch())
 	    {
 	      print("<br><br><br>");
 	      print("<table>");
