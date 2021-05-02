@@ -89,10 +89,10 @@
     $sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol ='$str'");
     //$sth = $con->prepare("SELECT * FROM Elements WHERE name = 'Hydrogen'");
 
-    $sth->setFetchMode(PDO:: FETCH_OBJ);
+    $sth->setFetchMode(PDO::FETCH_ASSOC);
     $sth -> execute();
 
-    if($row = $sth->fetch())
+    while($row = $sth->fetch())
     {
       print("<br><br><br>");
       print("<table>");
@@ -111,11 +111,12 @@
       print("</tr>");
       print("</table>");
     }
-    else
+/*    else
     {
       	    print("<br><br><br>");
 	    echo "Name Does Not Match Abundance Table";
     }
+*/
   }
 ?>
   </body>
