@@ -85,7 +85,7 @@
     $sth -> execute();
 
 
-    while($row = $sth->fetchAll())
+    while($row = $sth->fetch())
     {
 
       print("<br><br><br>");
