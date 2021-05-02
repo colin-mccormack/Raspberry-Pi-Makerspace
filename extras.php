@@ -86,7 +86,15 @@
 
     while($row = $sth->fetchAll())
     {
-      print("<br><br><br>");
+	          print("<table>");
+     	          print("<tr>");
+      		  print("<th>Name</th>"); 
+	          print("</tr><tr>");
+	          print("</tr>");
+		  print("<td>" . $row->name . "</td>");
+		  print("</table>");
+
+      /*print("<br><br><br>");
       print("<table>");
       print("<tr>");
       print("<th>Name</th>");
@@ -101,7 +109,7 @@
       print("<td>" . $row->mass . "</td>");
       print("<td>" . $row->abundance . "</td>");
       print("</tr>");
-      print("</table>");
+      print("</table>");*/
     }
 /*    else
     {
