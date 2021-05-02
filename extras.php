@@ -50,7 +50,7 @@
     $sth -> execute();
     $rows = $sth->fetch();
 		
-	    if($row = $sth->fetchAll())
+	    if($row = $sth->fetch())
 	    {
 
 	      print("<br><br><br>");
@@ -84,7 +84,7 @@
     $sth->setFetchMode(PDO::FETCH_ASSOC);
     $sth -> execute();
 
-    while($row = $sth->fetch())
+    while($row = $sth->fetchAll())
     {
       print("<br><br><br>");
       print("<table>");
