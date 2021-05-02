@@ -92,26 +92,24 @@
 	      print("<th>Mass</th>");
 	      print("<th>Abundance %</th>");
 	      print("</tr>");
-     	      //print("</table>");
-
+		  while($row = $sth->fetch())
+		    {
+		      print("<tr>");
+		      print("<td>" . $row['name'] . "</td>");
+		      print("<td>" . $row['symbol'] . "</td>");
+		      print("<td>" . $row['avgweight'] . "</td>");
+		      print("<td>" . $row['mass'] . "</td>");
+		      print("<td>" . $row['abundance'] . "</td>");
+		      print("</tr>");
+		    }
+	      print("</table>");
 	    }
 	    else
 	    {
 		    print("<br><br><br>");
 		    echo "Name Does Not Match Abundance Table";
 	    }  
-    while($row = $sth->fetch())
-    {
-      //print("<table>");
-      print("<tr>");
-      print("<td>" . $row['name'] . "</td>");
-      print("<td>" . $row['symbol'] . "</td>");
-      print("<td>" . $row['avgweight'] . "</td>");
-      print("<td>" . $row['mass'] . "</td>");
-      print("<td>" . $row['abundance'] . "</td>");
-      print("</tr>");
-      print("</table>");
-    }
+   
   }
 ?>
   </body>
