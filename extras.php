@@ -86,13 +86,7 @@
 
     while($row = $sth->fetchAll())
     {
-	          print("<table>");
-     	          print("<tr>");
-      		  print("<th>Name</th>"); 
-	          print("</tr><tr>");
-	          print("</tr>");
-		  print("<td>" . $row[0]->name . "</td>");
-		  print("</table>");
+	    echo $name[0];
 
       /*print("<br><br><br>");
       print("<table>");
