@@ -30,6 +30,7 @@
 		    <p>Our devellopers have created this search function using a database with information for chemistry. We hope to set up a search function for easy verification regarding test answers. 
 			    This will hopefully reduce the amount of time you spend searching for answers. Currently you can search by an Element's name or Symbol. We hope to vastly expand our database and we are always looking for suggestions for information that might be needed on a test. 
 			    Please visit our contact page and send us your suggestions for what we should add next!</p>
+		    <p>Go ahead and enter an element name or symbol in the search bar below!</p>
 	    </div>
 	    <br>
 	    <br>
