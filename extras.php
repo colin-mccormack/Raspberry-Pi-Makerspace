@@ -75,6 +75,34 @@
       echo "Name Does Not Exist";
     }
   }
+    $sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol ='$str'");
+    //$sth = $con->prepare("SELECT * FROM Elements WHERE name = 'Hydrogen'");
+
+    $sth->setFetchMode(PDO:: FETCH_OBJ);
+    $sth -> execute();
+
+    if($row = $sth->fetch())
+    {
+      print("<br><br><br>");
+      print("<table>");
+      print("<tr>");
+      print("<th>Name</th>");
+      print("<th>Symbol</th>");
+      print("<th>Mass</th>");
+      print("<th>Abundance</th>");
+      print("</tr><tr>");
+      print("<td>" . $row->name . "</td>");
+      print("<td>" . $row->symbol ."</td>");
+      print("<td>" . $row->mass ."</td>");
+      print("<td>" . $row->abundance . "</td>");
+      print("</tr>");
+      print("</table>");
+    }
+    else
+    {
+      echo "Name Does Not Exist";
+    }
+  }
 ?>
   </body>
 </html>
