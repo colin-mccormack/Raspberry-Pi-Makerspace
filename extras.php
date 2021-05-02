@@ -91,7 +91,7 @@
       		  print("<th>Name</th>"); 
 	          print("</tr><tr>");
 	          print("</tr>");
-		  print("<td>" . $row->name[0] . "</td>");
+		  print("<td>" . $row[0]->name . "</td>");
 		  print("</table>");
 
       /*print("<br><br><br>");
