@@ -72,7 +72,8 @@
     }
     else
     {
-      echo "Name Does Not Exist";
+     	    print("<br><br><br>");
+	    echo "Name Does Not Match Element Table";
     }
   
     $sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol ='$str'");
@@ -88,11 +89,13 @@
       print("<tr>");
       print("<th>Name</th>");
       print("<th>Symbol</th>");
+      print("<th>Average Mass</th>");
       print("<th>Mass</th>");
       print("<th>Abundance</th>");
       print("</tr><tr>");
       print("<td>" . $row->name . "</td>");
       print("<td>" . $row->symbol ."</td>");
+      print("<td>" . $row->avgweight ."</td>");
       print("<td>" . $row->mass ."</td>");
       print("<td>" . $row->abundance . "</td>");
       print("</tr>");
@@ -100,7 +103,8 @@
     }
     else
     {
-      echo "Name Does Not Exist";
+      	    print("<br><br><br>");
+	    echo "Name Does Not Match Abundance Table";
     }
   }
 ?>
