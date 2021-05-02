@@ -81,7 +81,7 @@
     $sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol = '$str'");
     $sth->fetch(PDO::FETCH_ASSOC);
     $sth -> execute();
-	 if($row = $sth->fetch())
+	 if($row = $sth)
 	    {
 	      print("<br><br><br>");
 	      print("<table>");
