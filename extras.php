@@ -110,8 +110,7 @@
       print("</tr>");
       print("</table>");
     }
-    
+  }
 ?>
   </body>
 </html>
-
