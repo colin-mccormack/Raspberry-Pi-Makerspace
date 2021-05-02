@@ -82,7 +82,9 @@
 	  
 	print("PDO::FETCH_ASSOC: ");
 	print("Return next row as an array indexed by column name\n");
-	$result = $sth->fetch(PDO::FETCH_ASSOC);
+	    $sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol ='$str'");
+
+	  $result = $sth->fetch(PDO::FETCH_ASSOC);
 	print_r($result);
 	print("\n");
 
