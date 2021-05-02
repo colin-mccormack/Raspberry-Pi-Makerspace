@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,6 +8,7 @@
 		  window.dataLayer = window.dataLayer || [];
 		  function gtag(){dataLayer.push(arguments);}
 		  gtag('js', new Date());
+
 		  gtag('config', 'G-Z30TWKV0GY');
 	</script>
   </head>
@@ -37,16 +39,20 @@
       		<input type="submit" name="submit">
       	</form>
 <?php
+
   $con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'colin','lego');
   if (isset($_POST["submit"]))
   {
     $str = $_POST["search"];
-    $sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str'");
+    //$sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str'");
+    $sth = $con->prepare("SELECT * FROM Elements WHERE name = 'Hydrogen'");
+
     $sth->setFetchMode(PDO:: FETCH_OBJ);
     $sth -> execute();
-		
+
 	    if($row = $sth->fetch())
 	    {
+
 	      print("<br><br><br>");
 	      print("<table>");
 	      print("<tr>");
@@ -75,10 +81,14 @@
   
 	  
     $sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol ='$str'");
-    $sth->setFetchMode(PDO::FETCH_OBJ);
+    $sth->setFetchMode(PDO::FETCH_ASSOC);
     $sth -> execute();
-    if($row = $sth->fetch())
+    $rows = $sth->fetchAll();
+
+
+    while($row = $sth->fetchAll())
     {
+
       print("<br><br><br>");
       print("<table>");
       print("<tr>");
@@ -88,7 +98,7 @@
       print("<th>Mass</th>");
       print("<th>Abundance</th>");
       print("</tr><tr>");
-      print("<td>" . $row->name ."</td>");
+      print("<td>" . $row->name . "</td>");
       print("<td>" . $row->symbol . "</td>");
       print("<td>" . $row->avgweight . "</td>");
       print("<td>" . $row->mass . "</td>");
@@ -96,13 +106,14 @@
       print("</tr>");
       print("</table>");
     }
-    else
+/*    else
     {
       	    print("<br><br><br>");
 	    echo "Name Does Not Match Abundance Table";
     }
-
+*/
   }
 ?>
   </body>
 </html>
+
