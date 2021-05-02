@@ -86,7 +86,7 @@
 
 	  $result = $sth->fetch(PDO::FETCH_ASSOC);
 	print_r($result);
-	print("\n");
+	print("test end\n");
 
 	/*  
     $sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol ='$str'");
