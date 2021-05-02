@@ -48,34 +48,44 @@
 
     $sth->setFetchMode(PDO:: FETCH_OBJ);
     $sth -> execute();
+    $rows = $sth->fetchAll();
+    foreach($rows as $row) 
+    {
+        print( $row['name'] );
+    }
+/*	  
+    while($row = $sth->fetchAll()) {
+		
+	    //if($row = $sth->fetchAll())
+	    //{
 
-    if($row = $sth->fetch())
-    {
-      print("<br><br><br>");
-      print("<table>");
-      print("<tr>");
-      print("<th>Name</th>");
-      print("<th>Symbol</th>");
-      print("<th>Atomic Number</th>");
-      print("<th>Atom</th>");
-      print("<th>Charge</th>");
-      print("<th>Multivalent</th>");
-      print("</tr><tr>");
-      print("<td>" . $row->name . "</td>");
-      print("<td>" . $row->symbol ."</td>");
-      print("<td>" . $row->atomic_number ."</td>");
-      print("<td>" . $row->atom . "</td>");
-      print("<td>" . $row->charges . "</td>");
-      print("<td>" . $row->multivalent . "</td>");
-      print("</tr>");
-      print("</table>");
+	      print("<br><br><br>");
+	      print("<table>");
+	      print("<tr>");
+	      print("<th>Name</th>");
+	      print("<th>Symbol</th>");
+	      print("<th>Atomic Number</th>");
+	      print("<th>Atom</th>");
+	      print("<th>Charge</th>");
+	      print("<th>Multivalent</th>");
+	      print("</tr><tr>");
+	      print("<td>" . $row->name . "</td>");
+	      print("<td>" . $row->symbol ."</td>");
+	      print("<td>" . $row->atomic_number ."</td>");
+	      print("<td>" . $row->atom . "</td>");
+	      print("<td>" . $row->charges . "</td>");
+	      print("<td>" . $row->multivalent . "</td>");
+	      print("</tr>");
+	      print("</table>");
+	    //}
+	    else
+	    {
+		    print("<br><br><br>");
+		    echo "Name Does Not Match Element Table";
+	    }
     }
-    else
-    {
-     	    print("<br><br><br>");
-	    echo "Name Does Not Match Element Table";
-    }
-  
+  */
+	  
     $sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol ='$str'");
     //$sth = $con->prepare("SELECT * FROM Elements WHERE name = 'Hydrogen'");
 
