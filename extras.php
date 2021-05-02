@@ -92,7 +92,7 @@
 	      print("<th>Mass</th>");
 	      print("<th>Abundance %</th>");
 	      print("</tr>");
-     	      print("</table>");
+     	      //print("</table>");
 
 	    }
 	    else
@@ -102,7 +102,7 @@
 	    }  
     while($row = $sth->fetch())
     {
-      print("<table>");
+      //print("<table>");
       print("<tr>");
       print("<td>" . $row['name'] . "</td>");
       print("<td>" . $row['symbol'] . "</td>");
