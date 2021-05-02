@@ -39,7 +39,7 @@
       		<input type="text" name="search">
       		<input type="submit" name="submit">
       	</form>
-	<img src="version-periodic-table-elements.jpg" alt="Periodic Table from Encyclopedia Britannica" style="height: 250px; float: right;"/>
+	<!-- <img src="version-periodic-table-elements.jpg" alt="Periodic Table from Encyclopedia Britannica" style="height: 250px; float: right;"/> -->
 <?php
 
   $con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'colin','lego');
