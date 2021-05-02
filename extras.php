@@ -96,9 +96,9 @@
       print("<th>Abundance</th>");
       print("</tr><tr>");
       print("<td>" . $row->name . "</td>");
-      print("<td>" . $row->symbol ."</td>");
-      print("<td>" . $row->avgweight ."</td>");
-      print("<td>" . $row->mass ."</td>");
+      print("<td>" . $row->symbol . "</td>");
+      print("<td>" . $row->avgweight . "</td>");
+      print("<td>" . $row->mass . "</td>");
       print("<td>" . $row->abundance . "</td>");
       print("</tr>");
       print("</table>");
