@@ -45,7 +45,6 @@
   {
     $str = $_POST["search"];
     $sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str'");
-    //$sth = $con->prepare("SELECT * FROM Elements WHERE name = 'Hydrogen'");
 
     $sth->setFetchMode(PDO:: FETCH_OBJ);
     $sth -> execute();
@@ -78,23 +77,12 @@
 		    echo "Name Does Not Match Element Table";
 	    }
     
-  
-	  
-	print("PDO::FETCH_ASSOC: ");
-	print("Return next row as an array indexed by column name\n");
-	    $sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol ='$str'");
-
-	  $result = $sth->fetch(PDO::FETCH_ASSOC);
-	  var_dump($result);
-	  print("test end\n");
-
-	/*  
+ 
     $sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol ='$str'");
     $sth->fetch(PDO::FETCH_ASSOC);
     $sth -> execute();
 	  
-	  
-    while($row = $sth->fetch())
+    if($row = $sth->fetch())
     {
 
       print("<br><br><br>");
@@ -114,12 +102,12 @@
       print("</tr>");
       print("</table>");
     }
-/*    else
+    else
     {
       	    print("<br><br><br>");
 	    echo "Name Does Not Match Abundance Table";
     }
-*/
+
   }
 ?>
   </body>
