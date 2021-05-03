@@ -27,8 +27,8 @@
 	      <h1>Extras</h1>
 	    </div>
 	    <div class="explain">
-		    <p>Our devellopers have created this search function using a database with information for chemistry. We hope to set up a search function for easy verification regarding test answers. 
-			    This will hopefully reduce the amount of time you spend searching for answers. Currently you can search by an Element's name or Symbol. We hope to vastly expand our database and we are always looking for suggestions for information that might be needed on a test. 
+		    <p>Our developers have created this search function using a database with information for chemistry. We hope to set up a search function for easy verification regarding test answers. 
+			    This will hopefully reduce the amount of time you spend searching for answers. Currently, you can search by an Element's name or Symbol. We hope to vastly expand our database and we are always looking for suggestions for information that might be needed on a test. 
 			    Please visit our contact page and send us your suggestions for what we should add next!</p>
 		    <p>Go ahead and enter an element name or symbol in the search bar below!</p>
 	    </div>
@@ -60,16 +60,40 @@
 	      print("<th>Name</th>");
 	      print("<th>Symbol</th>");
 	      print("<th>Atomic Number</th>");
-	      print("<th>Atom</th>");
-	      print("<th>Charge</th>");
+	      print("<th>Atomic Weight</th>");
+	      print("<th>Melting Point (Degrees Celsius)</th>");
+	      print("<th>Boiling Point (Degrees Celsius)</th>");	      
+	      print("<th>Density (g/cm3)</th>");
+	      print("<th>Group Number</th>");
+	      print("<th>Configuration</th>");
+	      print("<th>Ionization Energy (eV)</th>");
+	      print("<th>Charges</th>");
 	      print("<th>Multivalent</th>");
+	      print("<th>Phase (State)</th>");
+	      print("<th>Atomic Radius</th>");
+	      print("<th>Covalent Radius</th>");
+	      print("<th>Electron Affinity</th>");
+	      print("<th>Electronegativity</th>");
+	      print("<th>Molar Volume</th>");    
 	      print("</tr><tr>");
 	      print("<td>" . $row->name . "</td>");
 	      print("<td>" . $row->symbol ."</td>");
-	      print("<td>" . $row->atomic_number ."</td>");
-	      print("<td>" . $row->atom . "</td>");
-	      print("<td>" . $row->charges . "</td>");
-	      print("<td>" . $row->multivalent . "</td>");
+	      print("<td>" . $row->atmnum ."</td>");
+	      print("<td>" . $row->atmweight . "</td>");
+	      print("<td>" . $row->melting . "</td>");
+	      print("<td>" . $row->boiling . "</td>");
+	      print("<td>" . $row->density . "</td>");
+	      print("<td>" . $row->groupnum ."</td>");
+	      print("<td>" . $row->configuration ."</td>");
+	      print("<td>" . $row->ie . "</td>");
+	      print("<td>" . $row->charge . "</td>");
+	      print("<td>" . $row->valences . "</td>");
+	      print("<td>" . $row->phase . "</td>");
+	      print("<td>" . $row->ar ."</td>");
+	      print("<td>" . $row->cr ."</td>");
+	      print("<td>" . $row->ea . "</td>");
+	      print("<td>" . $row->en . "</td>");
+	      print("<td>" . $row->mv . "</td>");
 	      print("</tr>");
 	      print("</table>");
 	    }
