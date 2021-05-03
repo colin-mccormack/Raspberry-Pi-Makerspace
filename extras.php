@@ -83,7 +83,7 @@
 	      print("<td>" . $row['symbol'] ."</td>");
 	      print("<td>" . $row['atmnum'] ."</td>");
 	      print("<td>" . $row['atmweight'] . "</td>");
-	      print("<td>" . $row->['melting'] . "</td>");
+	      print("<td>" . $row['melting'] . "</td>");
 	      print("<td>" . $row['boiling'] . "</td>");
 	      print("<td>" . $row['density'] . "</td>");
 	      print("<td>" . $row['groupnum'] ."</td>");
