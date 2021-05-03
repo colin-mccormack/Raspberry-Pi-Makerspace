@@ -220,7 +220,7 @@
 		    print("<br><br><br>");
 		    echo "Name Does Not Match Abundance Table";
 	    }  
-	    }
+	    
 	    else
 	    {
 		    print("<br><br><br>");
