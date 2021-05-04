@@ -52,7 +52,7 @@
 		    			    echo "In submitted both";
 
 			$str = $_POST["search1"];
-		    $sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str' OR CAST(atmwight as CHAR) LIKE '$str%'");
+		    $sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str' OR CAST(atmweight as CHAR) LIKE '$str%'");
 
 		    $sth->setFetchMode(PDO:: FETCH_ASSOC);
 		    $sth -> execute();
@@ -231,7 +231,7 @@
 		elseif (!empty($_POST["search2"]))
 		{
 			$str = $_POST["search2"];
-			$sth = $con->prepare("SELECT * FROM Elements WHERE CAST(atmwight as CHAR) LIKE '$str%'");
+			$sth = $con->prepare("SELECT * FROM Elements WHERE CAST(atmweight as CHAR) LIKE '$str%'");
 
 			 $sth->setFetchMode(PDO:: FETCH_OBJ);
 			 $sth -> execute();
