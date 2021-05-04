@@ -54,7 +54,7 @@
 			$str = $_POST["search1"];
 			$str1 = $_POST["search2"];
 
-		    $sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str' OR CAST(atmweight as CHAR) LIKE '$str1+`%`');
+		    $sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str' OR CAST(atmweight as CHAR) LIKE '$str1+`%`'");
 
 		    $sth->setFetchMode(PDO:: FETCH_ASSOC);
 		    $sth -> execute();
