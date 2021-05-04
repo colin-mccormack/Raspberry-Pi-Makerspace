@@ -138,7 +138,7 @@
 		    }  
 
 		}
-		elseif (isset($_POST["search1"]))
+		elseif (!empty($_POST["search1"]))
 		{
 		     $str = $_POST["search1"];
 		     $sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str'");
@@ -228,7 +228,7 @@
 
 
 		}   
-		elseif (isset($_POST["search2"]))
+		elseif (!empty($_POST["search2"]))
 		{
 			$str = $_POST["search2"];
 			$sth = $con->prepare("SELECT * FROM Elements WHERE CAST(atmwight as CHAR) LIKE '$str%'");
