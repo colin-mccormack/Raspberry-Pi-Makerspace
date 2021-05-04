@@ -302,7 +302,6 @@
 		{
 			echo "You need to fill in a feild";
 		}
-	}
 
    
 ?>
