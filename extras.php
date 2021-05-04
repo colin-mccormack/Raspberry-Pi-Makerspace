@@ -97,7 +97,8 @@
 	}
 	    
 	function abundanceoutput(&$sth){
-
+		$sth->setFetchMode(PDO:: FETCH_ASSOC);
+		$sth -> execute();
 		 if($row = $sth)
 		    {
 		      print("<br><br><br>");
