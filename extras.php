@@ -46,7 +46,7 @@
 <?php
 
   $con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'colin','lego');
-	if (isset($_POST["submit1"]) && isset($_POST["submit1"]))
+	if (isset($_POST["submit1"]) && isset($_POST["submit2"]))
 	{
 		$str = $_POST["search"];
 		$sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str' OR CAST(atmwight as CHAR) LIKE '$str%'");
@@ -218,7 +218,7 @@
 	    else
 	    {
 		    print("<br><br><br>");
-		    echo "Name Does Not Match Abundance Table";
+		    echo "Name Does Not Match Submit1 Table";
 	    }  
 	    
 	 
@@ -280,7 +280,7 @@
 	    else
 	    {
 		    print("<br><br><br>");
-		    echo "Name Does Not Match Element Table";
+		    echo "Name Does Not Match Submit2 Table";
 	    }
 	}
       else
