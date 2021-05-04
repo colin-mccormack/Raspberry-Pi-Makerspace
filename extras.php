@@ -54,6 +54,7 @@
 
 		    $sth->setFetchMode(PDO:: FETCH_ASSOC);
 		    $sth -> execute();
+			    echo "In submitted both";
 
 		    if($row = $sth->fetch())
 		    {
