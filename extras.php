@@ -47,7 +47,7 @@
 	if (null!==("submit1") || null!==("submit2")) {
 
 		$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'colin','lego');
-		if (!empty["search1"] && !empty["search2"])
+		if (!empty("search1") && !empty("search2"))
 		{
 		    			    echo "In submitted both";
 
