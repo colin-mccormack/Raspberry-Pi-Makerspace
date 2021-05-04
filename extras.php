@@ -37,7 +37,7 @@
 	  <form method="post">
       		<label>Search By Element Name Or Symbol</label>
       		<input type="text" name="search">
-      		<!-- <input type="submit" name="submit1"> -->
+      		<input type="submit" name="submit1">
       		<label>Search By Atomic Weight</label>
       		<input type="text" name="search">
 		  <br>
