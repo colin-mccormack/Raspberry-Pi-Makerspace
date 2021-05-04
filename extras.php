@@ -45,7 +45,8 @@
 	<!-- <img src="version-periodic-table-elements.jpg" alt="Periodic Table from Encyclopedia Britannica" style="height: 250px; float: right;"/> -->
 <?php
 	function elementsoutput(&$sth){
-		
+		$sth->setFetchMode(PDO:: FETCH_ASSOC);
+		$sth -> execute();
 		if($row = $sth->fetch())
 		    {
 
@@ -227,10 +228,9 @@
 		    $str = $_POST["search1"];
 		    $sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str'");
 
-		    $sth->setFetchMode(PDO:: FETCH_ASSOC);
-		    $sth -> execute();
-		    elementsoutput($str);
-		    abundanceoutput($str);
+		    
+		    elementsoutput($sth);
+		    abundanceoutput($sth);
 
 		}   
 		elseif (!empty($_POST["search2"]))
