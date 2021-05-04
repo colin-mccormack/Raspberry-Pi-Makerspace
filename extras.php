@@ -44,7 +44,7 @@
       	</form>
 	<!-- <img src="version-periodic-table-elements.jpg" alt="Periodic Table from Encyclopedia Britannica" style="height: 250px; float: right;"/> -->
 <?php
-	function elementsoutput($str){
+	function elementsoutput($sth){
 		  $sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str'");
 
 		    $sth->setFetchMode(PDO:: FETCH_ASSOC);
@@ -98,7 +98,7 @@
 
 	}
 	    
-	function abundanceoutput($str){
+	function abundanceoutput($sth){
 	    $sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol = '$str'");
 	    $sth->fetch(PDO::FETCH_ASSOC);
 	    $sth -> execute();
