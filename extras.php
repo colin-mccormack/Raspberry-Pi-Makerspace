@@ -37,9 +37,10 @@
 	  <form method="post">
       		<label>Search By Element Name Or Symbol</label>
       		<input type="text" name="search">
-      		<input type="submit" name="submit1">
+      		<!-- <input type="submit" name="submit1"> -->
       		<label>Search By Atomic Weight</label>
       		<input type="text" name="search">
+		  <br>
       		<input type="submit" name="submit2">
       	</form>
 	<!-- <img src="version-periodic-table-elements.jpg" alt="Periodic Table from Encyclopedia Britannica" style="height: 250px; float: right;"/> -->
@@ -48,11 +49,12 @@
   $con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'colin','lego');
 	if (isset($_POST["submit1"]) && isset($_POST["submit2"]))
 	{
-		$str = $_POST["search"];
-		$sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str' OR CAST(atmwight as CHAR) LIKE '$str%'");
+	    $str = $_POST["search"];
+	    $sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str' OR CAST(atmwight as CHAR) LIKE '$str%'");
 
   	    $sth->setFetchMode(PDO:: FETCH_ASSOC);
    	    $sth -> execute();
+	    print("\nIn Both\n");
 
 	    if($row = $sth->fetch())
 	    {
@@ -136,11 +138,13 @@
 	}
 	elseif (isset($_POST["submit1"]))
 	{
-		$str = $_POST["search"];
-		$sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str'");
+	     $str = $_POST["search"];
+	     $sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str'");
 
- 		   $sth->setFetchMode(PDO:: FETCH_OBJ);
-		    $sth -> execute();
+ 	    $sth->setFetchMode(PDO:: FETCH_OBJ);
+	    $sth -> execute();
+	    print("\nIn Submit1\n");
+
 	
 	    if($row = $sth->fetch())
 	    {
@@ -230,6 +234,8 @@
 
    		 $sth->setFetchMode(PDO:: FETCH_OBJ);
    		 $sth -> execute();
+	    print("\nIn Submit2\n");
+
 
 	    if($row = $sth->fetch())
 	    {
