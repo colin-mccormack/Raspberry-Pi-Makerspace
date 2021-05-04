@@ -59,7 +59,7 @@
 		    $sth->setFetchMode(PDO:: FETCH_ASSOC);
 		    $sth -> execute();
 
-		    while($row = $sth->fetch(PDO::FETCH_ASSOC);)
+		    while($row = $sth->fetch(PDO::FETCH_ASSOC))
 		    {
 		      echo "Have submitted both";
 
