@@ -59,7 +59,7 @@
 		    $sth->setFetchMode(PDO:: FETCH_ASSOC);
 		    $sth -> execute();
 
-		    if($row = $sth->fetch())
+		    while($row = $sth->fetch())
 		    {
 		      echo "Have submitted both";
 
@@ -133,11 +133,11 @@
 				      print("</table>");
 				 }
 		    }
-		    else
+		   /* else
 		    {
 			    print("<br><br><br>");
 			    echo "Name Does Not Match Either Table";
-		    }  
+		    }  */
 
 		}
 		elseif (!empty($_POST["search1"]))
