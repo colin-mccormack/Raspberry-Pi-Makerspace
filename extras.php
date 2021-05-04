@@ -97,6 +97,7 @@
 	}
 	    
 	function abundanceoutput(&$sth){
+		$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol = '$str'");
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
 		 if($row = $sth)
