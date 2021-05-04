@@ -229,7 +229,7 @@
 	}   
 	elseif (isset($_POST["submit2"]))
 	{
-		$str = $_POST["search1"];
+		$str = $_POST["search2"];
 		$sth = $con->prepare("SELECT * FROM Elements WHERE CAST(atmwight as CHAR) LIKE '$str%'");
 
    		 $sth->setFetchMode(PDO:: FETCH_OBJ);
