@@ -49,12 +49,13 @@
 		$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'colin','lego');
 		if (isset($_POST["search1"]) && isset($_POST["search2"]))
 		{
-		    $str = $_POST["search1"];
+		    			    echo "In submitted both";
+
+			$str = $_POST["search1"];
 		    $sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str' OR CAST(atmwight as CHAR) LIKE '$str%'");
 
 		    $sth->setFetchMode(PDO:: FETCH_ASSOC);
 		    $sth -> execute();
-			    echo "In submitted both";
 
 		    if($row = $sth->fetch())
 		    {
