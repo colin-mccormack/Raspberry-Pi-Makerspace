@@ -165,7 +165,7 @@
 		      print("<th>Electronegativity</th>");
 		      print("<th>Molar Volume</th>");    
 		      print("</tr>");
-		      while($row = $sth->fetch())
+		      while($row = $sth->fetch()) {
 			      print("<tr>");
 			      print("<td>" . $row['name'] . "</td>");
 			      print("<td>" . $row['symbol'] ."</td>");
