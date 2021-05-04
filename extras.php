@@ -59,7 +59,7 @@
 
 		    if($row = $sth->fetch())
 		    {
-			    echo "Have submitted both";
+		      echo "Have submitted both";
 
 		      print("<br><br><br>");
 		      print("<table>");
@@ -134,7 +134,7 @@
 		    else
 		    {
 			    print("<br><br><br>");
-			    echo "Name Does Not Match Abundance Table";
+			    echo "Name Does Not Match Either Table";
 		    }  
 
 		}
