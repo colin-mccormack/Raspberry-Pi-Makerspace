@@ -239,6 +239,8 @@
 
 	    if($row = $sth->fetch())
 	    {
+		    	    print("\nIn Submit2 Searching\n");
+
 
 	      print("<br><br><br>");
 	      print("<table>");
