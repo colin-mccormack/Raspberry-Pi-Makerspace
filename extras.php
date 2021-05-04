@@ -53,7 +53,6 @@
 
   	    $sth->setFetchMode(PDO:: FETCH_ASSOC);
    	    $sth -> execute();
-	    print("\nIn Both\n");
 
 	    if($row = $sth->fetch())
 	    {
@@ -142,12 +141,10 @@
 
  	    $sth->setFetchMode(PDO:: FETCH_OBJ);
 	    $sth -> execute();
-	    print("\nIn Submit1\n");
 
 	
 	    if($row = $sth->fetch())
 	    {
-	    print("\nIn Submit1 fetch\n");
 
 	      print("<br><br><br>");
 	      print("<table>");
