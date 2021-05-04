@@ -46,7 +46,7 @@
 <?php
 	if (null!==("submit1") || null!==("submit2")) {
 
-		"search1" = "Hydrogen";
+		search1 = "Hydrogen";
 		$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'colin','lego');
 		if (isset($_POST["search1"]) && isset($_POST["search2"]))
 		{
