@@ -44,7 +44,7 @@
       	</form>
 	<!-- <img src="version-periodic-table-elements.jpg" alt="Periodic Table from Encyclopedia Britannica" style="height: 250px; float: right;"/> -->
 <?php
-	if (isset($_POST["submit1"]) || isset($_POST["submit2"])) {
+	if (isset("submit1") || isset("submit2")) {
 
 		$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'colin','lego');
 		if (isset($_POST["search1"]) && isset($_POST["search2"]))
