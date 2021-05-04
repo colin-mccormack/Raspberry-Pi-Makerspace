@@ -57,6 +57,7 @@
 
 		    if($row = $sth->fetch())
 		    {
+			    echo "Have submitted both";
 
 		      print("<br><br><br>");
 		      print("<table>");
