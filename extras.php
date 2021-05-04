@@ -148,6 +148,7 @@
 	
 	    if($row = $sth->fetch())
 	    {
+	    print("\nIn Submit1 fetch\n");
 
 	      print("<br><br><br>");
 	      print("<table>");
