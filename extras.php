@@ -197,6 +197,7 @@
 		
 		if (!empty($_POST["search1"])) {
 			$searchString .= " name = '$str1' OR symbol ='$str1' OR";
+		}
 		
 		if (!empty($_POST["search2"])) {
 			$searchString .= " name = '$str2' OR symbol ='$str2' OR";
@@ -211,8 +212,6 @@
 			$searchString .=  " phase = '$str5' OR";
 		}
 		$searchString = substr($searchString, 0, -3);
-		$trimmed = str_replace($search, '', $subject) ;
-
 		$sth = $con->prepare("$searchString");
 		echo $searchString;
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
