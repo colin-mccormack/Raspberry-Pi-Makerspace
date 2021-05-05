@@ -307,6 +307,8 @@
 		}
 		elseif (!empty($_POST["search2"]) && !empty($_POST["search3"]))
 		{
+			echo "in both";
+
 			$str = $_POST["search2"];
 			$str1 = $_POST["search3"];
 			
@@ -321,6 +323,7 @@
 			
 			createtable();
 			elementsoutput($sth);
+			echo "printed first";
 
 
 			$storageNameNumber = elementsoutput($sth1);
