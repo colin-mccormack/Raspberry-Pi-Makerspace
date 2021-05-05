@@ -212,11 +212,14 @@
 		}
 
 		$sth = $con->prepare("$searchString");
+		echo $searchString;
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
 
 		createtable();	
 		elementsoutput($sth);
+		echo "excecuted search";
+
 	    }
 		
 	      else
