@@ -171,7 +171,7 @@
 
 			 $sth->setFetchMode(PDO:: FETCH_OBJ);
 			 $sth -> execute();
-			abundanceoutput($sth);
+			elementsoutput($sth);
 		    print("\nIn Submit2\n");
 
 		}
