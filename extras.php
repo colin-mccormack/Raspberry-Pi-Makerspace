@@ -139,6 +139,7 @@
 
 
 			if ($row = $sth->fetch()){
+								echo "\nIn sth printing";
 				      print("<tr>");
 				      print("<td>" . $row['name'] . "</td>");
 				      print("<td>" . $row['symbol'] ."</td>");
