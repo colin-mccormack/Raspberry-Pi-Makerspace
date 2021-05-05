@@ -190,6 +190,7 @@
 
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
+		createtable();
 		elementsoutput($sth);
 			
 		$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol = '$str'");
