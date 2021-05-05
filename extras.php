@@ -116,33 +116,24 @@
 	function enoutput(&$sth){
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
-		$sth->setFetchMode(PDO:: FETCH_ASSOC);
-		$sth -> execute();
-		if (!empty($sth)) {
-			if($row = $sth->fetch())
-			    {
-				$en1 = $row['en'];
+		$count = 1;
+		$count2 = 0;
+		
+		while($row = $sth->fetch()) {
+			$en[$count] = $row['en'];
+			$enName[$count] = $row['symbol'];
+			if ($en[$count] > $en[$count2]) {
+				$diff = $en[$count] - $en[$count2];
+				print("\nThe electronegativity difference is $en[$count] - $en[$count2] = $diff.\n");
+			}
+			elseif ($en[$count] < $en[$count2]) {
+				$diff = $en[$count2] - $en[$count];
+				print("\nThe electronegativity difference is $en[$count2] - $en[$count] = $diff.\n");
 			}
 			else {
-				echo "\nEn 1 empty";
+				echo "No comparison possible.\n";
 			}
-			if($row = $sth1->fetch())
-			{
-				$en2 = $row['en'];
-			}
-			else {
-				echo "\nEn 2 empty";
-			}
-			if ($en2>$en1) {
-				$diff = $en2 - $en1;
-				print("\nThe electronegativity difference is $en2 - $en1 = $diff.\n");
-			}
-			else {
-				$diff = $en1 - $en2;
-				print("\nThe electronegativity difference is $en1 - $en2 = $diff.\n");
-			}
-
-
+		count++;
 		}
 		
 
@@ -211,6 +202,7 @@
 
 		createtable();	
 		elementsoutput($sth);
+		enoutput($sth);
 
 	    }
 		
