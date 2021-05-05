@@ -48,7 +48,8 @@
 		
 		if($row = $sth->fetch())
 		    {
-
+			$size = count($sth['name']);
+			echo $size;
 		      print("<br><br><br>");
 		      print("<table>");
 		      print("<tr>");
@@ -138,8 +139,7 @@
 		
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
-			$size = count($sth['name']);
-			echo $size;
+
 		elementsoutput($sth);
 			
 		$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol = '$str'");
