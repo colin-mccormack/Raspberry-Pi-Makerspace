@@ -117,6 +117,7 @@
 			if($row = $sth->fetch())
 			    {
 				$en1 = $row['en'];
+				echo $en1;
 			}
 			if($row = $sth1->fetch())
 			{
