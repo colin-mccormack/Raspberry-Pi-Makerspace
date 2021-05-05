@@ -237,11 +237,12 @@
 		$sth2 -> execute();
 		$storageNameNaming = elementsoutput($sth2);
 			
-		$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol = '$str'");
+		$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str2' OR symbol = '$str2'");
 
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
 		abundanceoutput($sth);
+			
 
 		}   
 		elseif (!empty($_POST["search2"]))
