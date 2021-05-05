@@ -183,6 +183,7 @@
 
 			 $sth->setFetchMode(PDO:: FETCH_ASSOC);
 			 $sth -> execute();
+			createtable();
 			elementsoutput($sth);
 		    print("\nIn Submit2\n");
 
