@@ -321,6 +321,7 @@
 			$sth1->setFetchMode(PDO:: FETCH_ASSOC);
 			$sth1 -> execute();
 			$storageNameNumber = elementsoutput($sth1);
+			echo "printed both";
 			print("</table>");;
 
 			$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol = '$str'");
