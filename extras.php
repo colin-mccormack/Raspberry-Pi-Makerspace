@@ -234,7 +234,7 @@
 		
 		$sth2->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth2 -> execute();
-		$storageNameNaming = enoutput($sth, $sth2);
+		enoutput($sth, $sth2);
 		
 		
 		$sth1 = $con->prepare("SELECT * FROM Elements WHERE CAST(atmweight as CHAR) LIKE '$str1%'");
@@ -305,7 +305,7 @@
 
 		$sth2->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth2 -> execute();
-		$storageNameNaming = enoutput($sth2);
+		enoutput($sth2);
 			
 		$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str2' OR symbol = '$str2'");
 
