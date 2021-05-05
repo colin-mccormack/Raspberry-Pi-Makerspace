@@ -202,7 +202,7 @@
 			$searchString .= " OR name = '$str2' OR symbol ='$str2'";
 		}
 		if (!empty($_POST["search3"])) {
-			$searchString .= " OR CAST(atmweight as CHAR) LIKE '$str2%'";
+			$searchString .= " OR CAST(atmweight as CHAR) LIKE '$str3%'";
 		}
 		if (!empty($_POST["search4"])) {
 			$searchString .= " OR groupnum = '$str4' OR ";
