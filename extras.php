@@ -233,23 +233,23 @@
 			$sth->setFetchMode(PDO:: FETCH_ASSOC);
 			$sth -> execute();
 
-			$sth2 = $con->prepare("SELECT * FROM Elements WHERE name = '$str2' OR symbol ='$str2'");
+			$sth1 = $con->prepare("SELECT * FROM Elements WHERE name = '$str1' OR symbol ='$str1'");
 
-			$sth2->setFetchMode(PDO:: FETCH_ASSOC);
-			$sth2 -> execute();
+			$sth1->setFetchMode(PDO:: FETCH_ASSOC);
+			$sth1 -> execute();
 
 
 			createtable();
 			
 			$storageNameNaming = elementsoutput($sth);
 
-			enoutput($sth2, $sth);
+			enoutput($sth1, $sth);
 
-			$sth1 = $con->prepare("SELECT * FROM Elements WHERE CAST(atmweight as CHAR) LIKE '$str1%'");
+			$sth2 = $con->prepare("SELECT * FROM Elements WHERE CAST(atmweight as CHAR) LIKE '$str2%'");
 
-			$sth1->setFetchMode(PDO:: FETCH_ASSOC);
-			$sth1 -> execute();
-			$storageNameNumber = elementsoutput($sth1, $storageNameNaming);
+			$sth2->setFetchMode(PDO:: FETCH_ASSOC);
+			$sth2 -> execute();
+			$storageNameNumber = elementsoutput($sth2, $storageNameNaming);
 
 			print("</table>");
 
