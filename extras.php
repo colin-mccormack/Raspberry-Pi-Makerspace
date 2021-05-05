@@ -182,9 +182,10 @@
 		abundanceoutput($sth);
 
 		}
-		elseif (!empty($_POST["search1"]))
+		elseif (!empty($_POST["search1"]) && !empty($_POST["search3"]))
 		{
 		$str = $_POST["search1"];
+		$str2 = $_POST["search3"];
 
 		$sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol = '$str'");
 
@@ -192,6 +193,47 @@
 		$sth -> execute();
 		createtable();
 		elementsoutput($sth);
+		
+		$sth2 = $con->prepare("SELECT * FROM Elements WHERE name = '$str2' OR symbol ='$str2'");
+		
+		$sth2->setFetchMode(PDO:: FETCH_ASSOC);
+		$sth2 -> execute();
+		$storageNameNaming = elementsoutput($sth2);
+			
+		$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol = '$str'");
+
+		$sth->setFetchMode(PDO:: FETCH_ASSOC);
+		$sth -> execute();
+		abundanceoutput($sth);
+
+		}   
+		elseif (!empty($_POST["search1"]))
+		{
+		$str = $_POST["search1"];
+	
+		$sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol = '$str'");
+
+		$sth->setFetchMode(PDO:: FETCH_ASSOC);
+		$sth -> execute();
+		createtable();
+		elementsoutput($sth);
+			
+		$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol = '$str'");
+
+		$sth->setFetchMode(PDO:: FETCH_ASSOC);
+		$sth -> execute();
+		abundanceoutput($sth);
+
+		}  
+		elseif (!empty($_POST["search3"]))
+		{
+		$str2 = $_POST["search3"];	
+		
+		$sth2 = $con->prepare("SELECT * FROM Elements WHERE name = '$str2' OR symbol ='$str2'");
+		
+		$sth2->setFetchMode(PDO:: FETCH_ASSOC);
+		$sth2 -> execute();
+		$storageNameNaming = elementsoutput($sth2);
 			
 		$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol = '$str'");
 
