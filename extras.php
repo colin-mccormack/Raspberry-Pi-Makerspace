@@ -114,6 +114,8 @@
 	function enoutput(&$sth1, &$sth){
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
+		$sth1->setFetchMode(PDO:: FETCH_ASSOC);
+		$sth1 -> execute();
 		echo "In En output";
 		if (!empty($sth)) {
 			if($row = $sth1->fetch())
