@@ -111,7 +111,7 @@
 
 	}
 	    
-	function enoutput(&$sth1, &$sth=['Nothing']){
+	function enoutput(&$sth1, &$array = [];){
 		
 		if($row = $sth->fetch())
 		    {
@@ -131,28 +131,6 @@
 		}
 
 
-		if ($row = $sth->fetch()){
-			      print("<tr>");
-			      print("<td>" . $row['name'] . "</td>");
-			      print("<td>" . $row['symbol'] ."</td>");
-			      print("<td>" . $row['atmnum'] ."</td>");
-			      print("<td>" . $row['atmweight'] . "</td>");
-			      print("<td>" . $row['melting'] . "</td>");
-			      print("<td>" . $row['boiling'] . "</td>");
-			      print("<td>" . $row['density'] . "</td>");
-			      print("<td>" . $row['groupnum'] ."</td>");
-			      print("<td>" . $row['configuration'] ."</td>");
-			      print("<td>" . $row['ie'] . "</td>");
-			      print("<td>" . $row['charge'] . "</td>");
-			      print("<td>" . $row['valences'] . "</td>");
-			      print("<td>" . $row['phase'] . "</td>");
-			      print("<td>" . $row['ar'] ."</td>");
-			      print("<td>" . $row['cr'] ."</td>");
-			      print("<td>" . $row['ea'] . "</td>");
-			      print("<td>" . $row['en'] . "</td>");
-			      print("<td>" . $row['mv'] . "</td>");
-			      print("</tr>");
-			}
 		if ($row = $sth1->fetch()){
 			      print("<tr>");
 			      print("<td>" . $row['name'] . "</td>");
@@ -175,6 +153,30 @@
 			      print("<td>" . $row['mv'] . "</td>");
 			      print("</tr>");
 			}
+		if (!empty($sth)) {
+			if ($row = $sth->fetch()){
+				      print("<tr>");
+				      print("<td>" . $row['name'] . "</td>");
+				      print("<td>" . $row['symbol'] ."</td>");
+				      print("<td>" . $row['atmnum'] ."</td>");
+				      print("<td>" . $row['atmweight'] . "</td>");
+				      print("<td>" . $row['melting'] . "</td>");
+				      print("<td>" . $row['boiling'] . "</td>");
+				      print("<td>" . $row['density'] . "</td>");
+				      print("<td>" . $row['groupnum'] ."</td>");
+				      print("<td>" . $row['configuration'] ."</td>");
+				      print("<td>" . $row['ie'] . "</td>");
+				      print("<td>" . $row['charge'] . "</td>");
+				      print("<td>" . $row['valences'] . "</td>");
+				      print("<td>" . $row['phase'] . "</td>");
+				      print("<td>" . $row['ar'] ."</td>");
+				      print("<td>" . $row['cr'] ."</td>");
+				      print("<td>" . $row['ea'] . "</td>");
+				      print("<td>" . $row['en'] . "</td>");
+				      print("<td>" . $row['mv'] . "</td>");
+				      print("</tr>");
+				}
+		}
 		    
 
 		
