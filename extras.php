@@ -116,10 +116,10 @@
 	function enoutput(&$sth){
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
-		$count = 2;
-		$count2 = 1;
+		$count = 1;
+		$count2 = 0;
 		
-		while($row = $sth->fetch()) {
+		if($row = $sth->fetch()) {
 			$en[$count] = $row['en'];
 			$enName[$count] = $row['symbol'];
 			if ($en[$count] > $en[$count2]) {
