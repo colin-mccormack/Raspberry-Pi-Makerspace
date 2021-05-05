@@ -146,7 +146,8 @@
 
 		createtable();
 		elementsoutput($sth);
-		$sth1 = $con->prepare("SELECT * FROM Elements WHERE CAST(atmweight as CHAR) LIKE '$str%'");
+		
+		$sth1 = $con->prepare("SELECT * FROM Elements WHERE CAST(atmweight as CHAR) LIKE '$str1%'");
 
 		 $sth1->setFetchMode(PDO:: FETCH_ASSOC);
 		 $sth1 -> execute();
