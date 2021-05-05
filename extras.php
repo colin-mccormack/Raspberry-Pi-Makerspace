@@ -83,17 +83,10 @@
 		      print("</tr>");
 	}
 	    
-	function elementsoutput(&$sth, $storageNameNumber="Not Identical"){
+	function elementsoutput(&$sth){
 		
-		if($row = $sth->fetch())
+		while($row = $sth->fetch())
 		    {
-			$storageName = $row['name'];
-
-			if($storageNameNumber == $storageName) {
-				$storageNameNumber = "Identical";
-			echo $storageNameNumber;
-			}
-			else {
 			      print("<tr>");
 			      print("<td>" . $row['name'] . "</td>");
 			      print("<td>" . $row['symbol'] ."</td>");
@@ -115,9 +108,7 @@
 			      print("<td>" . $row['mv'] . "</td>");
 			      print("</tr>");
 			}
-		      return $storageName;
 
-		}
 
 	}
 	    
