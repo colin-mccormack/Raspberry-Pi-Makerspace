@@ -114,14 +114,14 @@
 	function enoutput(&$sth1, &$sth){
 		echo "In En output";
 		if (!empty($sth)) {
-			if($row = $sth->fetch())
+			if($row = $sth1->fetch())
 			    {
 				$en1 = $row['en'];
 			}
 			else {
 				echo "\nEn 1 empty";
 			}
-			if($row = $sth1->fetch())
+			if($row = $sth->fetch())
 			{
 				$en2 = $row['en'];
 			}
