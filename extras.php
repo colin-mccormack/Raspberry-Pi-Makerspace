@@ -178,7 +178,7 @@
 		$str3 = $_POST["search3"];
 		$str4 = $_POST["search4"];
 		$str5 = $_POST["formState"];
-		
+		$sth = array[0,1,2];
 		if (!empty($_POST["search1"])) {
 			$searchString .= " name = '$str1' OR symbol ='$str1' OR";
 		}
