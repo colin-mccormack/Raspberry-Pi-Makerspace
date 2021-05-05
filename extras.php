@@ -143,7 +143,7 @@
 	    if (null!==("submit1") || null!==("submit2")) {
 
 		$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'colin','lego');
-		if (!empty($_POST["search1"]) && !empty($_POST["search2"]))
+		if (!empty($_POST["search1"]) && !empty($_POST["search2"]) && !empty($_POST["search3"]))
 		{
 
 		$str = $_POST["search1"];
