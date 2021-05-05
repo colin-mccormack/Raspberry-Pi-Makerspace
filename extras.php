@@ -201,17 +201,16 @@
 			$searchString .= " groupnum = '$str4' OR";
 		}
 		if (!empty($_POST["search5"])) {
-			$searchString .=  " phase = '$str5' OR";
+			$searchString .= " phase = '$str5' OR";
 		}
 		$searchString = substr($searchString, 0, -3);
 		$sth = $con->prepare("$searchString");
-		echo $searchString;
+
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
 
 		createtable();	
 		elementsoutput($sth);
-		echo "excecuted search";
 
 	    }
 		
