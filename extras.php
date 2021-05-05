@@ -196,19 +196,19 @@
 		$str5 = $_POST["formState"];
 		
 		if (!empty($_POST["search1"])) {
-			$searchString .= " name = '$str1' OR symbol ='$str1' OR ";
+			$searchString .= " name = '$str1' OR symbol ='$str1'";
 		}
 		if (!empty($_POST["search2"])) {
-			$searchString .= "name = '$str2' OR symbol ='$str2' OR ";
+			$searchString .= " OR name = '$str2' OR symbol ='$str2'";
 		}
 		if (!empty($_POST["search3"])) {
-			$searchString .= "CAST(atmweight as CHAR) LIKE '$str2%' OR ";
+			$searchString .= " OR CAST(atmweight as CHAR) LIKE '$str2%'";
 		}
 		if (!empty($_POST["search4"])) {
-			$searchString .= "groupnum = '$str4' OR ";
+			$searchString .= " OR groupnum = '$str4' OR ";
 		}
 		if (!empty($_POST["search5"])) {
-			$searchString .=  "phase = '$str5'";
+			$searchString .=  " OR phase = '$str5'";
 		}
 
 		$sth = $con->prepare("$searchString");
