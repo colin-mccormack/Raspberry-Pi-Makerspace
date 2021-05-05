@@ -114,16 +114,18 @@
 	function enoutput(&$sth1, &$sth){
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
+		$sth1->setFetchMode(PDO:: FETCH_ASSOC);
+		$sth1 -> execute();
 		echo "In En output";
 		if (!empty($sth)) {
-			if($row = $sth1->fetch())
+			if($row = $sth->fetch())
 			    {
 				$en1 = $row['en'];
 			}
 			else {
 				echo "\nEn 1 empty";
 			}
-			if($row = $sth->fetch())
+			if($row = $sth1->fetch())
 			{
 				$en2 = $row['en'];
 			}
