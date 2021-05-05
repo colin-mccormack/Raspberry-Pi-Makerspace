@@ -47,9 +47,10 @@
 		<br>
       		<label>Search By State</label>
 		<select name="formState">
- 			 <option value="S">Solid</option>
- 			 <option value="L">Liquid</option>
-  			<option value="G">Gas</option>
+			 <option>Select...</option>
+ 			 <option value="Solid">Solid</option>
+ 			 <option value="Liquid">Liquid</option>
+  			<option value="Gas">Gas</option>
 		</select>
 		<br>
       		<input type="submit" name="submit">
