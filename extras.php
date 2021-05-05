@@ -70,14 +70,18 @@
 		      print("</tr>");
 	}
 	    
-	function elementsoutput(&$sth){
+	function elementsoutput(&$sth, $storageNameNumber="Not Identical"){
 		
 		if($row = $sth->fetch())
 		    {
+			$storageName = $row['name'];
 
+			if($storageNameNumber = $storageName) {
+				$storageNameNumber = "Identical";
+			echo $storageNameNumber;
+		}
 		      print("<tr>");
 		      print("<td>" . $row['name'] . "</td>");
-		      $storageName = $row['name'];
 		      print("<td>" . $row['symbol'] ."</td>");
 		      print("<td>" . $row['atmnum'] ."</td>");
 		      print("<td>" . $row['atmweight'] . "</td>");
@@ -152,11 +156,8 @@
 
 		 $sth1->setFetchMode(PDO:: FETCH_ASSOC);
 		 $sth1 -> execute();
-		$storageNameNumber = elementsoutput($sth1);
-		if($storageNameNumber = $storageNameNaming) {
-			$storageNameNumber = "Identical";
-			echo $storageNameNumber;
-		}
+		$storageNameNumber = elementsoutput($sth1, $storageNameNaming);
+
 		print("</table>");
 
 		$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol = '$str' OR name = '$storageNameNumber'");
