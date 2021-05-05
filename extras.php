@@ -38,6 +38,8 @@
       		<label>Search By Element Name Or Symbol</label>
       		<input type="text" name="search1">
       		<input type="submit" name="submit1">
+		<input type="text" name="search3">
+      		<input type="submit" name="submit3">
       		<label>Search By Atomic Weight</label>
       		<input type="text" name="search2">
       		<input type="submit" name="submit">
@@ -145,8 +147,9 @@
 
 		$str = $_POST["search1"];
 		$str1 = $_POST["search2"];
+		$str2 = $_POST["search3"];
 
-		$sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str'");
+		$sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str' OR name = '$str2' OR symbol ='$str2'");
 		
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
