@@ -114,8 +114,6 @@
 	function enoutput(&$sth1, &$sth){
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
-		$sth1->setFetchMode(PDO:: FETCH_ASSOC);
-		$sth1 -> execute();
 		echo "In En output";
 		if (!empty($sth)) {
 			if($row = $sth1->fetch())
@@ -226,6 +224,12 @@
 
 			$sth->setFetchMode(PDO:: FETCH_ASSOC);
 			$sth -> execute();
+			
+			$sth1 = $con->prepare("SELECT * FROM Elements WHERE name = '$str1' OR symbol = '$str1'");
+
+			$sth1->setFetchMode(PDO:: FETCH_ASSOC);
+			$sth1 -> execute();
+			
 			createtable();
 			elementsoutput($sth);
 			enoutput($sth1, $sth);
