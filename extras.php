@@ -230,7 +230,9 @@
 		$str2 = $_POST["search3"];	
 		
 		$sth2 = $con->prepare("SELECT * FROM Elements WHERE name = '$str2' OR symbol ='$str2'");
-		
+			
+		createtable();
+
 		$sth2->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth2 -> execute();
 		$storageNameNaming = elementsoutput($sth2);
