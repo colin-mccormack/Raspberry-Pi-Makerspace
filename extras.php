@@ -196,7 +196,7 @@
 		$str5 = $_POST["formState"];
 		
 		if (!empty($_POST["search1"])) {
-			$searchString .= "name = '$str1' OR symbol ='$str1' OR ";
+			$searchString .= " name = '$str1' OR symbol ='$str1' OR ";
 		}
 		if (!empty($_POST["search2"])) {
 			$searchString .= "name = '$str2' OR symbol ='$str2' OR ";
