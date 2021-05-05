@@ -200,7 +200,7 @@
 		if (!empty($_POST["search4"])) {
 			$searchString .= " groupnum = '$str4' OR";
 		}
-		if (!empty($_POST["search5"])) {
+		if (!empty($_POST["formState"])) {
 			$searchString .= " phase = '$str5' OR";
 		}
 		$searchString = substr($searchString, 0, -3);
