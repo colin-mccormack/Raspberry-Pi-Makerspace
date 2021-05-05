@@ -113,7 +113,7 @@
 
 	}
 	    
-	function enoutput(&$sth){
+	function enoutput(&$sth = array(0,1,2)){
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
 		$count = 1;
