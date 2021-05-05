@@ -111,7 +111,7 @@
 
 	}
 	    
-	function en(&$sth="Nothing", &$sth1){
+	function enoutput(&$sth="Nothing", &$sth1){
 		
 		if($row = $sth->fetch())
 		    {
