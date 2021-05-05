@@ -48,7 +48,9 @@
 <?php
 	function createtable(){
 
+		      
 		      print("<br><br><br>");
+		      print("<table>");
 		      print("<tr>");
 		      print("<th>Name</th>");
 		      print("<th>Symbol</th>");
@@ -153,7 +155,6 @@
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
 		
-		print("<table>");
 
 		createtable();
 		$storageNameNaming = elementsoutput($sth);
