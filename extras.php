@@ -74,7 +74,7 @@
 		
 		if($row = $sth->fetch())
 		    {
-		     
+		      print("<table>");
 		      print("<tr>");
 		      print("<td>" . $row['name'] . "</td>");
 		      print("<td>" . $row['symbol'] ."</td>");
