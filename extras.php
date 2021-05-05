@@ -74,7 +74,7 @@
 		
 		if($row = $sth->fetch())
 		    {
-		      print("<table>");
+
 		      print("<tr>");
 		      print("<td>" . $row['name'] . "</td>");
 		      print("<td>" . $row['symbol'] ."</td>");
@@ -95,7 +95,7 @@
 		      print("<td>" . $row['en'] . "</td>");
 		      print("<td>" . $row['mv'] . "</td>");
 		      print("</tr>");
-		      print("</table>");
+
 		}
 
 	}
@@ -152,6 +152,7 @@
 		 $sth1->setFetchMode(PDO:: FETCH_ASSOC);
 		 $sth1 -> execute();
 		elementsoutput($sth1);
+		print("</table>");
 
 		$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol = '$str'");
 
