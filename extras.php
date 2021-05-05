@@ -121,13 +121,13 @@
 			{
 				$en2 = $row['en'];
 			}
-			if ($en>$en1) {
-				$diff = $en-$en1;
-				print("\nThe electronegativity difference is $en - $en1 = $diff.\n");
+			if ($en2>$en1) {
+				$diff = $en2-$en1;
+				print("\nThe electronegativity difference is $en2 - $en1 = $diff.\n");
 			}
 			else {
-				$diff = $en1-$en;
-				print("\nThe electronegativity difference is $en1 - $en = $diff.\n");
+				$diff = $en1-$en2;
+				print("\nThe electronegativity difference is $en1 - $en2 = $diff.\n");
 			}
 
 
