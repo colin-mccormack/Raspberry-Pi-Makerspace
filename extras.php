@@ -79,7 +79,8 @@
 			if($storageNameNumber = $storageName) {
 				$storageNameNumber = "Identical";
 			echo $storageNameNumber;
-		}
+			}
+		else {
 		      print("<tr>");
 		      print("<td>" . $row['name'] . "</td>");
 		      print("<td>" . $row['symbol'] ."</td>");
@@ -100,6 +101,7 @@
 		      print("<td>" . $row['en'] . "</td>");
 		      print("<td>" . $row['mv'] . "</td>");
 		      print("</tr>");
+		}
 		      return $storageName;
 
 		}
