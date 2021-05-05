@@ -135,10 +135,11 @@
 			$str1 = $_POST["search2"];
 
 		$sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str' OR CAST(atmweight as CHAR) LIKE '$str1+`%`'");
-		$size = count($str['name']);
-			echo $size;
+		
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
+			$size = count($sth['name']);
+			echo $size;
 		elementsoutput($sth);
 			
 		$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol = '$str'");
