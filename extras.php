@@ -217,14 +217,13 @@
 
 		createtable();	
 		elementsoutput($sth);
-
+	    }
 		
 	      else
 		{
 			echo "You need to fill in a feild";
 		}
 
-	    }
 ?>
   </body>
 </html>
