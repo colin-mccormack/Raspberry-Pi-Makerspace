@@ -290,24 +290,6 @@
 		elseif (!empty($_POST["search3"]))
 		{
 			$str = $_POST["search3"];
-
-			$sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol = '$str'");
-
-			$sth->setFetchMode(PDO:: FETCH_ASSOC);
-			$sth -> execute();
-			elementsoutput($sth);
-			print("</table>");;
-
-			$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol = '$str'");
-
-			$sth->setFetchMode(PDO:: FETCH_ASSOC);
-			$sth -> execute();
-			abundanceoutput($sth);
-
-		}
-		elseif (!empty($_POST["search2"]) && !empty($_POST["search3"]))
-		{
-			$str = $_POST["search2"];
 			$sth = $con->prepare("SELECT * FROM Elements WHERE CAST(atmweight as CHAR) LIKE '$str%'");
 
 			 $sth->setFetchMode(PDO:: FETCH_ASSOC);
@@ -320,6 +302,38 @@
 			$sth->setFetchMode(PDO:: FETCH_ASSOC);
 			$sth -> execute();
 			abundanceoutput($sth);
+
+
+		}
+		elseif (!empty($_POST["search2"]) && !empty($_POST["search3"]))
+		{
+			$str = $_POST["search2"];
+			$str1 = $_POST["search3"];
+			
+			$sth1 = $con->prepare("SELECT * FROM Elements WHERE name = '$str1' OR symbol = '$str1'");
+			 $sth->setFetchMode(PDO:: FETCH_ASSOC);
+			 $sth -> execute();
+			createtable();
+			elementsoutput($sth);
+
+			$sth1 = $con->prepare("SELECT * FROM Elements WHERE CAST(atmweight as CHAR) LIKE '$str%'");
+
+			$sth1->setFetchMode(PDO:: FETCH_ASSOC);
+			$sth1 -> execute();
+			$storageNameNumber = elementsoutput($sth1);
+			print("</table>");;
+
+			$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol = '$str'");
+
+			$sth->setFetchMode(PDO:: FETCH_ASSOC);
+			$sth -> execute();
+			abundanceoutput($sth);
+			
+			$sth1 = $con->prepare("SELECT * FROM Abundance WHERE name = '$storageNameNumber'");
+
+			$sth1->setFetchMode(PDO:: FETCH_ASSOC);
+			$sth1 -> execute();
+			abundanceoutput($sth1);
 
 		}
 	      else
