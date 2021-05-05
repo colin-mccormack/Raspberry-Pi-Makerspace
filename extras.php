@@ -112,6 +112,7 @@
 	}
 	    
 	function enoutput(&$sth1, &$sth = []){
+		echo "In En output";
 		if (!empty($sth)) {
 			if($row = $sth->fetch())
 			    {
