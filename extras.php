@@ -46,9 +46,6 @@
 <?php
 	function elementsoutput(&$sth){
 		
-
-		$sth->setFetchMode(PDO:: FETCH_ASSOC);
-		$sth -> execute();
 		if($row = $sth->fetch())
 		    {
 
