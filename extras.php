@@ -119,19 +119,20 @@
 		$count = 1;
 		$count2 = 0;
 		
-		if($row = $sth->fetch()) {
+		while($row = $sth->fetch()) {
 			$en[$count] = $row['en'];
-			$enName[$count] = $row['symbol'];
-			if ($en[$count] > $en[$count2]) {
-				$diff = $en[$count] - $en[$count2];
-				print("\nThe electronegativity difference is $en[$count] - $en[$count2] = $diff.\n");
-			}
-			elseif ($en[$count] < $en[$count2]) {
-				$diff = $en[$count2] - $en[$count];
-				print("\nThe electronegativity difference is $en[$count2] - $en[$count] = $diff.\n");
-			}
-			else {
-				echo "No comparison possible.\n";
+			if (isset($en[$count]) && isset($en[$count2])) {
+				if ($en[$count] > $en[$count2]) {
+					$diff = $en[$count] - $en[$count2];
+					print("\nThe electronegativity difference is $en[$count] - $en[$count2] = $diff.\n");
+				}
+				elseif ($en[$count] < $en[$count2]) {
+					$diff = $en[$count2] - $en[$count];
+					print("\nThe electronegativity difference is $en[$count2] - $en[$count] = $diff.\n");
+				}
+				else {
+					echo "No comparison possible.\n";
+				}
 			}
 		$count++;
 		$count2++;
