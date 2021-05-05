@@ -169,7 +169,7 @@
 			$str = $_POST["search2"];
 			$sth = $con->prepare("SELECT * FROM Elements WHERE CAST(atmweight as CHAR) LIKE '$str%'");
 
-			 $sth->setFetchMode(PDO:: FETCH_OBJ);
+			 $sth->setFetchMode(PDO:: FETCH_ASSOC);
 			 $sth -> execute();
 			elementsoutput($sth);
 		    print("\nIn Submit2\n");
