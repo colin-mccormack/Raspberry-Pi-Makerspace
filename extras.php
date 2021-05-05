@@ -38,11 +38,11 @@
       		<label>Search By Element Name Or Symbol</label>
       		<input type="text" name="search1">
       		<input type="submit" name="submit1">
-		<input type="text" name="search3">
-      		<input type="submit" name="submit3">
+		<input type="text" name="search2">
+      		<input type="submit" name="submit2">
       		<label>Search By Atomic Weight</label>
-      		<input type="text" name="search2">
-      		<input type="submit" name="submit">
+      		<input type="text" name="search3">
+      		<input type="submit" name="submit3">
       	</form>
 	<!-- <img src="version-periodic-table-elements.jpg" alt="Periodic Table from Encyclopedia Britannica" style="height: 250px; float: right;"/> -->
 <?php
@@ -140,53 +140,8 @@
 			}
 
 
-			if ($row = $sth->fetch()){
-								echo "\nIn sth printing";
-				      print("<tr>");
-				      print("<td>" . $row['name'] . "</td>");
-				      print("<td>" . $row['symbol'] ."</td>");
-				      print("<td>" . $row['atmnum'] ."</td>");
-				      print("<td>" . $row['atmweight'] . "</td>");
-				      print("<td>" . $row['melting'] . "</td>");
-				      print("<td>" . $row['boiling'] . "</td>");
-				      print("<td>" . $row['density'] . "</td>");
-				      print("<td>" . $row['groupnum'] ."</td>");
-				      print("<td>" . $row['configuration'] ."</td>");
-				      print("<td>" . $row['ie'] . "</td>");
-				      print("<td>" . $row['charge'] . "</td>");
-				      print("<td>" . $row['valences'] . "</td>");
-				      print("<td>" . $row['phase'] . "</td>");
-				      print("<td>" . $row['ar'] ."</td>");
-				      print("<td>" . $row['cr'] ."</td>");
-				      print("<td>" . $row['ea'] . "</td>");
-				      print("<td>" . $row['en'] . "</td>");
-				      print("<td>" . $row['mv'] . "</td>");
-				      print("</tr>");
-				}
 		}
 		
-		if ($row = $sth1->fetch()){
-			      print("<tr>");
-			      print("<td>" . $row['name'] . "</td>");
-			      print("<td>" . $row['symbol'] ."</td>");
-			      print("<td>" . $row['atmnum'] ."</td>");
-			      print("<td>" . $row['atmweight'] . "</td>");
-			      print("<td>" . $row['melting'] . "</td>");
-			      print("<td>" . $row['boiling'] . "</td>");
-			      print("<td>" . $row['density'] . "</td>");
-			      print("<td>" . $row['groupnum'] ."</td>");
-			      print("<td>" . $row['configuration'] ."</td>");
-			      print("<td>" . $row['ie'] . "</td>");
-			      print("<td>" . $row['charge'] . "</td>");
-			      print("<td>" . $row['valences'] . "</td>");
-			      print("<td>" . $row['phase'] . "</td>");
-			      print("<td>" . $row['ar'] ."</td>");
-			      print("<td>" . $row['cr'] ."</td>");
-			      print("<td>" . $row['ea'] . "</td>");
-			      print("<td>" . $row['en'] . "</td>");
-			      print("<td>" . $row['mv'] . "</td>");
-			      print("</tr>");
-			}
 
 	}	    
 	    
@@ -219,7 +174,7 @@
 
 	}
 	    
-	    if (null!==("submit1") || null!==("submit2")) {
+	    if (null!==("submit1") || null!==("submit2") || null!==("submit3")) {
 
 		$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'colin','lego');
 		if (!empty($_POST["search1"]) && !empty($_POST["search2"]) && !empty($_POST["search3"]))
@@ -260,10 +215,10 @@
 			abundanceoutput($sth);
 
 		}
-		elseif (!empty($_POST["search1"]) && !empty($_POST["search3"]))
+		elseif (!empty($_POST["search1"]) && !empty($_POST["search2"]))
 		{
 			$str = $_POST["search1"];
-			$str2 = $_POST["search3"];
+			$str1 = $_POST["search2"];
 
 			$sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol = '$str'");
 
@@ -271,6 +226,7 @@
 			$sth -> execute();
 			createtable();
 			elementsoutput($sth);
+			enoutput($sth1, $sth);
 
 			$sth2 = $con->prepare("SELECT * FROM Elements WHERE name = '$str2' OR symbol ='$str2'");
 
@@ -283,6 +239,12 @@
 			$sth->setFetchMode(PDO:: FETCH_ASSOC);
 			$sth -> execute();
 			abundanceoutput($sth);
+			$sth2 = $con->prepare("SELECT * FROM Abundance WHERE name = '$str2' OR symbol = '$str2'");
+
+			$sth2->setFetchMode(PDO:: FETCH_ASSOC);
+			$sth2 -> execute();
+			abundanceoutput($sth2);
+			
 
 		}   
 		elseif (!empty($_POST["search1"]))
@@ -303,27 +265,44 @@
 			abundanceoutput($sth);
 
 		}  
-		elseif (!empty($_POST["search3"]))
+		elseif (!empty($_POST["search2"]))
 		{
-			$str2 = $_POST["search3"];	
+			$str = $_POST["search2"];
 
-			$sth2 = $con->prepare("SELECT * FROM Elements WHERE name = '$str2' OR symbol ='$str2'");
+			$sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol = '$str'");
 
+			$sth->setFetchMode(PDO:: FETCH_ASSOC);
+			$sth -> execute();
 			createtable();
+			elementsoutput($sth);
+			print("</table>");;
 
-			$sth2->setFetchMode(PDO:: FETCH_ASSOC);
-			$sth2 -> execute();
-			enoutput($sth2);
-
-			$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str2' OR symbol = '$str2'");
+			$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol = '$str'");
 
 			$sth->setFetchMode(PDO:: FETCH_ASSOC);
 			$sth -> execute();
 			abundanceoutput($sth);
-			
 
-		}   
-		elseif (!empty($_POST["search2"]))
+		}  
+		elseif (!empty($_POST["search3"]))
+		{
+			$str = $_POST["search3"];
+
+			$sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol = '$str'");
+
+			$sth->setFetchMode(PDO:: FETCH_ASSOC);
+			$sth -> execute();
+			elementsoutput($sth);
+			print("</table>");;
+
+			$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol = '$str'");
+
+			$sth->setFetchMode(PDO:: FETCH_ASSOC);
+			$sth -> execute();
+			abundanceoutput($sth);
+
+		}
+		elseif (!empty($_POST["search2"]) && !empty($_POST["search3"]))
 		{
 			$str = $_POST["search2"];
 			$sth = $con->prepare("SELECT * FROM Elements WHERE CAST(atmweight as CHAR) LIKE '$str%'");
@@ -332,6 +311,7 @@
 			 $sth -> execute();
 			createtable();
 			$storageNameNumber = elementsoutput($sth);
+			
 			$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$storageNameNumber'");
 
 			$sth->setFetchMode(PDO:: FETCH_ASSOC);
