@@ -49,7 +49,6 @@
 	function createtable(){
 
 		      print("<br><br><br>");
-		      print("<table>");
 		      print("<tr>");
 		      print("<th>Name</th>");
 		      print("<th>Symbol</th>");
@@ -153,6 +152,8 @@
 		
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
+		
+		print("<table>");
 
 		createtable();
 		$storageNameNaming = elementsoutput($sth);
@@ -167,8 +168,8 @@
 		
 		$sth1 = $con->prepare("SELECT * FROM Elements WHERE CAST(atmweight as CHAR) LIKE '$str1%'");
 
-		 $sth1->setFetchMode(PDO:: FETCH_ASSOC);
-		 $sth1 -> execute();
+		$sth1->setFetchMode(PDO:: FETCH_ASSOC);
+		$sth1 -> execute();
 		$storageNameNumber = elementsoutput($sth1, $storageNameNaming);
 
 		print("</table>");
