@@ -117,11 +117,16 @@
 			if($row = $sth->fetch())
 			    {
 				$en1 = $row['en'];
-				echo $en1;
+			}
+			else {
+				echo "En 1 empty";
 			}
 			if($row = $sth1->fetch())
 			{
 				$en2 = $row['en'];
+			}
+			else {
+				echo "En 2 empty";
 			}
 			if ($en2>$en1) {
 				$diff = $en2 - $en1;
