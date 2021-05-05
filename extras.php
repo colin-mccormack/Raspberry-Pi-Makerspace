@@ -44,12 +44,8 @@
       	</form>
 	<!-- <img src="version-periodic-table-elements.jpg" alt="Periodic Table from Encyclopedia Britannica" style="height: 250px; float: right;"/> -->
 <?php
-	function elementsoutput(&$sth){
-		
-		if($row = $sth->fetch())
-		    {
-			$size = count($sth['name']);
-			echo $size;
+	function createtable(){
+
 		      print("<br><br><br>");
 		      print("<table>");
 		      print("<tr>");
@@ -71,7 +67,15 @@
 		      print("<th>Electron Affinity</th>");
 		      print("<th>Electronegativity</th>");
 		      print("<th>Molar Volume</th>");    
-		      print("</tr><tr>");
+		      print("</tr>");
+	}
+	    
+	function elementsoutput(&$sth){
+		
+		if($row = $sth->fetch())
+		    {
+		     
+		      print("<tr>");
 		      print("<td>" . $row['name'] . "</td>");
 		      print("<td>" . $row['symbol'] ."</td>");
 		      print("<td>" . $row['atmnum'] ."</td>");
@@ -135,13 +139,19 @@
 			$str = $_POST["search1"];
 			$str1 = $_POST["search2"];
 
-		$sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str' OR CAST(atmweight as CHAR) LIKE '$str1+`%`'");
+		$sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str'");
 		
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
 
+		createtable();
 		elementsoutput($sth);
-			
+		$sth1 = $con->prepare("SELECT * FROM Elements WHERE CAST(atmweight as CHAR) LIKE '$str%'");
+
+		 $sth1->setFetchMode(PDO:: FETCH_ASSOC);
+		 $sth1 -> execute();
+		elementsoutput($sth1);
+
 		$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol = '$str'");
 
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
