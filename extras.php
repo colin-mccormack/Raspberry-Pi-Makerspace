@@ -136,10 +136,9 @@
 		$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'colin','lego');
 		if (!empty($_POST["search1"]) && !empty($_POST["search2"]))
 		{
-		    			    echo "In submitted both";
 
-			$str = $_POST["search1"];
-			$str1 = $_POST["search2"];
+		$str = $_POST["search1"];
+		$str1 = $_POST["search2"];
 
 		$sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str'");
 		
@@ -147,16 +146,19 @@
 		$sth -> execute();
 
 		createtable();
-		$storageName = elementsoutput($sth);
+		$storageNameNaming = elementsoutput($sth);
 		
 		$sth1 = $con->prepare("SELECT * FROM Elements WHERE CAST(atmweight as CHAR) LIKE '$str1%'");
 
 		 $sth1->setFetchMode(PDO:: FETCH_ASSOC);
 		 $sth1 -> execute();
-		$storageName = elementsoutput($sth1);
+		$storageNameNumber = elementsoutput($sth1);
+		if($storageNameNumber = $storageNameNaming) {
+			unset($storageNameNumber);
+		}
 		print("</table>");
 
-		$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol = '$str' OR name = '$storageName'");
+		$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol = '$str' OR name = '$storageNameNumber'");
 
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
@@ -165,7 +167,7 @@
 		}
 		elseif (!empty($_POST["search1"]))
 		{
-		    $str = $_POST["search1"];
+		$str = $_POST["search1"];
 
 		$sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol = '$str'");
 
@@ -188,8 +190,12 @@
 			 $sth->setFetchMode(PDO:: FETCH_ASSOC);
 			 $sth -> execute();
 			createtable();
-			elementsoutput($sth);
-		    print("\nIn Submit2\n");
+			$storageNameNumber = elementsoutput($sth);
+			$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$storageNameNumber'");
+
+			$sth->setFetchMode(PDO:: FETCH_ASSOC);
+			$sth -> execute();
+			abundanceoutput($sth);
 
 		}
 	      else
