@@ -111,6 +111,76 @@
 
 	}
 	    
+	function en(&$sth="Nothing", &$sth1){
+		
+		if($row = $sth->fetch())
+		    {
+			$en1 = $row['en'];
+		}
+		if($row = $sth1->fetch())
+		{
+			$en2 = $row['en'];
+		}
+		if ($en>$en1) {
+			$diff = $en-$en1;
+			print("\nThe electronegativity difference is $en - $en1 = $diff.\n");
+		}
+		else {
+			$diff = $en1-$en;
+			print("\nThe electronegativity difference is $en1 - $en = $diff.\n");
+		}
+
+
+		if ($row = $sth->fetch()){
+			      print("<tr>");
+			      print("<td>" . $row['name'] . "</td>");
+			      print("<td>" . $row['symbol'] ."</td>");
+			      print("<td>" . $row['atmnum'] ."</td>");
+			      print("<td>" . $row['atmweight'] . "</td>");
+			      print("<td>" . $row['melting'] . "</td>");
+			      print("<td>" . $row['boiling'] . "</td>");
+			      print("<td>" . $row['density'] . "</td>");
+			      print("<td>" . $row['groupnum'] ."</td>");
+			      print("<td>" . $row['configuration'] ."</td>");
+			      print("<td>" . $row['ie'] . "</td>");
+			      print("<td>" . $row['charge'] . "</td>");
+			      print("<td>" . $row['valences'] . "</td>");
+			      print("<td>" . $row['phase'] . "</td>");
+			      print("<td>" . $row['ar'] ."</td>");
+			      print("<td>" . $row['cr'] ."</td>");
+			      print("<td>" . $row['ea'] . "</td>");
+			      print("<td>" . $row['en'] . "</td>");
+			      print("<td>" . $row['mv'] . "</td>");
+			      print("</tr>");
+			}
+		if ($row = $sth1->fetch()){
+			      print("<tr>");
+			      print("<td>" . $row['name'] . "</td>");
+			      print("<td>" . $row['symbol'] ."</td>");
+			      print("<td>" . $row['atmnum'] ."</td>");
+			      print("<td>" . $row['atmweight'] . "</td>");
+			      print("<td>" . $row['melting'] . "</td>");
+			      print("<td>" . $row['boiling'] . "</td>");
+			      print("<td>" . $row['density'] . "</td>");
+			      print("<td>" . $row['groupnum'] ."</td>");
+			      print("<td>" . $row['configuration'] ."</td>");
+			      print("<td>" . $row['ie'] . "</td>");
+			      print("<td>" . $row['charge'] . "</td>");
+			      print("<td>" . $row['valences'] . "</td>");
+			      print("<td>" . $row['phase'] . "</td>");
+			      print("<td>" . $row['ar'] ."</td>");
+			      print("<td>" . $row['cr'] ."</td>");
+			      print("<td>" . $row['ea'] . "</td>");
+			      print("<td>" . $row['en'] . "</td>");
+			      print("<td>" . $row['mv'] . "</td>");
+			      print("</tr>");
+			}
+		    
+
+		}
+
+	}	    
+	    
 	function abundanceoutput(&$sth){
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
@@ -164,7 +234,7 @@
 		
 		$sth2->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth2 -> execute();
-		$storageNameNaming = elementsoutput($sth2);
+		$storageNameNaming = enoutput($sth, $sth2);
 		
 		
 		$sth1 = $con->prepare("SELECT * FROM Elements WHERE CAST(atmweight as CHAR) LIKE '$str1%'");
@@ -235,7 +305,7 @@
 
 		$sth2->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth2 -> execute();
-		$storageNameNaming = elementsoutput($sth2);
+		$storageNameNaming = enoutput($sth2);
 			
 		$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str2' OR symbol = '$str2'");
 
