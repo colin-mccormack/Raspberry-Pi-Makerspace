@@ -111,7 +111,7 @@
 
 	}
 	    
-	function enoutput(&$sth1, &$array = [];){
+	function enoutput(&$sth1, &$array = []){
 		
 		if($row = $sth->fetch())
 		    {
