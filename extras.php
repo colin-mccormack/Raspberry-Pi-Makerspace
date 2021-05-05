@@ -313,13 +313,16 @@
 			$sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol = '$str'");
 			 $sth->setFetchMode(PDO:: FETCH_ASSOC);
 			 $sth -> execute();
-			createtable();
-			elementsoutput($sth);
-
+			
 			$sth1 = $con->prepare("SELECT * FROM Elements WHERE CAST(atmweight as CHAR) LIKE '$str1%'");
 
 			$sth1->setFetchMode(PDO:: FETCH_ASSOC);
 			$sth1 -> execute();
+			
+			createtable();
+			elementsoutput($sth);
+
+
 			$storageNameNumber = elementsoutput($sth1);
 			echo "printed both";
 			print("</table>");;
