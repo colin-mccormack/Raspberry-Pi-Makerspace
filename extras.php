@@ -149,13 +149,21 @@
 		$str1 = $_POST["search2"];
 		$str2 = $_POST["search3"];
 
-		$sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str' OR name = '$str2' OR symbol ='$str2'");
+		$sth = $con->prepare("SELECT * FROM Elements WHERE name = '$str' OR symbol ='$str'");
 		
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
 
 		createtable();
 		$storageNameNaming = elementsoutput($sth);
+
+			
+		$sth2 = $con->prepare("SELECT * FROM Elements WHERE name = '$str2' OR symbol ='$str2'");
+		
+		$sth2->setFetchMode(PDO:: FETCH_ASSOC);
+		$sth2 -> execute();
+		$storageNameNaming = elementsoutput($sth2);
+		
 		
 		$sth1 = $con->prepare("SELECT * FROM Elements WHERE CAST(atmweight as CHAR) LIKE '$str1%'");
 
