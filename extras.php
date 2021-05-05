@@ -37,11 +37,12 @@
 	  <form method="post">
       		<label>Search By Element Name Or Symbol</label>
       		<input type="text" name="search1">
-      		<input type="submit" name="submit1">
-		<input type="text" name="search2\n">
+		<input type="text" name="search2">
+		  <br>
       		<label>Search By Atomic Weight</label>
       		<input type="text" name="search3">
-      		<input type="submit" name="submit3">
+		  <br>
+      		<input type="submit" name="submit">
       	</form>
 	<!-- <img src="version-periodic-table-elements.jpg" alt="Periodic Table from Encyclopedia Britannica" style="height: 250px; float: right;"/> -->
 <?php
@@ -175,7 +176,7 @@
 
 	}
 	    
-	    if (null!==("submit1") || null!==("submit3")) {
+	    if (null!==("submit")) {
 
 		$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'colin','lego');
 		if (!empty($_POST["search1"]) && !empty($_POST["search2"]) && !empty($_POST["search3"]))
