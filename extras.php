@@ -38,8 +38,7 @@
       		<label>Search By Element Name Or Symbol</label>
       		<input type="text" name="search1">
       		<input type="submit" name="submit1">
-		<input type="text" name="search2">
-      		<input type="submit" name="submit2">
+		<input type="text" name="search2\n">
       		<label>Search By Atomic Weight</label>
       		<input type="text" name="search3">
       		<input type="submit" name="submit3">
@@ -176,7 +175,7 @@
 
 	}
 	    
-	    if (null!==("submit1") || null!==("submit2") || null!==("submit3")) {
+	    if (null!==("submit1") || null!==("submit3")) {
 
 		$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'colin','lego');
 		if (!empty($_POST["search1"]) && !empty($_POST["search2"]) && !empty($_POST["search3"]))
