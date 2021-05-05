@@ -77,6 +77,7 @@
 
 		      print("<tr>");
 		      print("<td>" . $row['name'] . "</td>");
+		      $storageName = $row['name'];
 		      print("<td>" . $row['symbol'] ."</td>");
 		      print("<td>" . $row['atmnum'] ."</td>");
 		      print("<td>" . $row['atmweight'] . "</td>");
@@ -95,6 +96,7 @@
 		      print("<td>" . $row['en'] . "</td>");
 		      print("<td>" . $row['mv'] . "</td>");
 		      print("</tr>");
+		      return $storageName;
 
 		}
 
@@ -145,13 +147,13 @@
 		$sth -> execute();
 
 		createtable();
-		elementsoutput($sth);
+		$storageName = elementsoutput($sth);
 		
 		$sth1 = $con->prepare("SELECT * FROM Elements WHERE CAST(atmweight as CHAR) LIKE '$str1%'");
 
 		 $sth1->setFetchMode(PDO:: FETCH_ASSOC);
 		 $sth1 -> execute();
-		elementsoutput($sth1);
+		$storageName = elementsoutput($sth1);
 		print("</table>");
 
 		$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol = '$str'");
