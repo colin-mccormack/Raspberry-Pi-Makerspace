@@ -217,7 +217,7 @@
 
 		createtable();	
 		elementsoutput($sth);
-	    }
+
 		
 	      else
 		{
