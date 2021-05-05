@@ -188,7 +188,7 @@
 	    if (null!==("submit")) {
 
 		$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'colin','lego');
-		$searchString = "SELECT * FROM Elements WHERE";
+		$searchString = "SELECT * FROM Elements WHERE ";
 		$str1 = $_POST["search1"];
 		$str2 = $_POST["search2"];
 		$str3 = $_POST["search3"];
