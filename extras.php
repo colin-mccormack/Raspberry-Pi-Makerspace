@@ -232,24 +232,19 @@
 			
 			createtable();
 			elementsoutput($sth);
+			elementsoutput($sth1);
 			enoutput($sth1, $sth);
-
-			$sth2 = $con->prepare("SELECT * FROM Elements WHERE name = '$str2' OR symbol ='$str2'");
-
-			$sth2->setFetchMode(PDO:: FETCH_ASSOC);
-			$sth2 -> execute();
-			$storageNameNaming = elementsoutput($sth2);
 
 			$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol = '$str'");
 
 			$sth->setFetchMode(PDO:: FETCH_ASSOC);
 			$sth -> execute();
 			abundanceoutput($sth);
-			$sth2 = $con->prepare("SELECT * FROM Abundance WHERE name = '$str2' OR symbol = '$str2'");
+			$sth1 = $con->prepare("SELECT * FROM Abundance WHERE name = '$str1' OR symbol = '$str1'");
 
-			$sth2->setFetchMode(PDO:: FETCH_ASSOC);
-			$sth2 -> execute();
-			abundanceoutput($sth2);
+			$sth1->setFetchMode(PDO:: FETCH_ASSOC);
+			$sth1 -> execute();
+			abundanceoutput($sth1);
 			
 
 		}   
