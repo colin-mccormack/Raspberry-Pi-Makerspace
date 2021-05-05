@@ -155,6 +155,7 @@
 		$storageNameNumber = elementsoutput($sth1);
 		if($storageNameNumber = $storageNameNaming) {
 			$storageNameNumber = "Identical";
+			echo $storageNameNumber;
 		}
 		print("</table>");
 
