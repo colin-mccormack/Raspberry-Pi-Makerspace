@@ -234,54 +234,7 @@
 
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
-		if($row = $sth->fetch())
-		    {
-
-		      print("<br><br><br>");
-		      print("<table>");
-		      print("<tr>");
-		      print("<th>Name</th>");
-		      print("<th>Symbol</th>");
-		      print("<th>Atomic Number</th>");
-		      print("<th>Atomic Weight</th>");
-		      print("<th>Melting Point (Degrees Celsius)</th>");
-		      print("<th>Boiling Point (Degrees Celsius)</th>");	      
-		      print("<th>Density (g/cm3)</th>");
-		      print("<th>Group Number</th>");
-		      print("<th>Configuration</th>");
-		      print("<th>Ionization Energy (eV)</th>");
-		      print("<th>Charges</th>");
-		      print("<th>Multivalent</th>");
-		      print("<th>Phase (State)</th>");
-		      print("<th>Atomic Radius</th>");
-		      print("<th>Covalent Radius</th>");
-		      print("<th>Electron Affinity</th>");
-		      print("<th>Electronegativity</th>");
-		      print("<th>Molar Volume</th>");    
-		      print("</tr><tr>");
-		      print("<tr>");
-		      print("<td>" . $row['name'] . "</td>");
-		      print("<td>" . $row['symbol'] ."</td>");
-		      print("<td>" . $row['atmnum'] ."</td>");
-		      print("<td>" . $row['atmweight'] . "</td>");
-		      print("<td>" . $row['melting'] . "</td>");
-		      print("<td>" . $row['boiling'] . "</td>");
-		      print("<td>" . $row['density'] . "</td>");
-		      print("<td>" . $row['groupnum'] ."</td>");
-		      print("<td>" . $row['configuration'] ."</td>");
-		      print("<td>" . $row['ie'] . "</td>");
-		      print("<td>" . $row['charge'] . "</td>");
-		      print("<td>" . $row['valences'] . "</td>");
-		      print("<td>" . $row['phase'] . "</td>");
-		      print("<td>" . $row['ar'] ."</td>");
-		      print("<td>" . $row['cr'] ."</td>");
-		      print("<td>" . $row['ea'] . "</td>");
-		      print("<td>" . $row['en'] . "</td>");
-		      print("<td>" . $row['mv'] . "</td>");
-
-		      print("</tr>");
-		      print("</table>");
-		}
+		elementsoutput($sth);
 			
 		$sth = $con->prepare("SELECT * FROM Abundance WHERE name = '$str' OR symbol = '$str'");
 
