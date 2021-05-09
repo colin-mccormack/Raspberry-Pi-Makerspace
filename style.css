@@ -106,7 +106,7 @@ body{
 
 .inputForm {
   padding : 20px;
-  height : 250px;
+  height : 300px;
   background-color: cornflowerblue;
 
 }
@@ -120,6 +120,7 @@ body{
 .rowR {
   width : 50%;
   float : right;
+  background-color: white;
 }
   
 
