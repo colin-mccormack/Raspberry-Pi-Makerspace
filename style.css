@@ -112,7 +112,8 @@ body{
 .rowL {
   width : 50%;
   float : left;
-  background-color: dodgerblue;
+  background-color: cornflowerblue;
+  text-align : left;
 }
 
 .rowR {
