@@ -107,12 +107,13 @@ body{
 .inputForm {
   padding : 20px;
   height : 250px;
+  background-color: cornflowerblue;
+
 }
 
 .rowL {
   width : 50%;
   float : left;
-  background-color: cornflowerblue;
   text-align : left;
 }
 
