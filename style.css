@@ -104,6 +104,13 @@ body{
   padding : 20px;
 }
 
+.inputForm {
+  width : 100%;
+  padding : 20px;
+  background-color: ##add8e6;
+}
+  
+
 /* Style the header with a grey background and some padding */
 .header {
   overflow: hidden;
