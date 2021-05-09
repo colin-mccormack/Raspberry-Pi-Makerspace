@@ -35,7 +35,7 @@
 	    <br>
 	    <br>
 	  <div class="inputForm">
-		  <div class="row">
+		  <div class="rowL">
 			  <form method="post">
 				<label>Search By Element Name Or Symbol</label>
 				<input type="text" name="search1">
@@ -58,7 +58,7 @@
 				<input type="submit" name="submit">
 			</form>
 		  </div>
-		  <div class="row">
+		  <div class="rowR">
 			<img src="version-periodic-table-elements.jpg" alt="Periodic Table from Encyclopedia Britannica" style="height: 250px; float: right;"/>
 		  </div>
   
