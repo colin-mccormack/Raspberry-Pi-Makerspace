@@ -13,6 +13,10 @@ body{
   width: 100%;
 }
 
+.row {
+  width : 50%;
+}
+
 .title {
   border: 10px;
   margin-top: 50px;
