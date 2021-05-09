@@ -123,8 +123,14 @@ body{
   background-color: white;
   height : 300px;
 }
-  
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+  
 /* Style the header with a grey background and some padding */
 .header {
   overflow: hidden;
