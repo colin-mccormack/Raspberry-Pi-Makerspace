@@ -59,7 +59,7 @@
 			</form>
 		  </div>
 		  <div class="rowR">
-			<img src="version-periodic-table-elements.jpg" alt="Periodic Table from Encyclopedia Britannica" style="height: 250px; float: right;"/>
+			<img src="version-periodic-table-elements.jpg" alt="Periodic Table from Encyclopedia Britannica" style="height: 250px; float: center;"/>
 		  </div>
   
 	    </div>
