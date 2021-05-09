@@ -34,28 +34,35 @@
 	    </div>
 	    <br>
 	    <br>
-	  <form method="post">
-      		<label>Search By Element Name Or Symbol</label>
-      		<input type="text" name="search1">
-		<input type="text" name="search2">
-		<br>
-      		<label>Search By Atomic Weight</label>
-      		<input type="text" name="search3">
-		<br>
-      		<label>Search By Group Number</label>
-      		<input type="text" name="search4">
-		<br>
-      		<label>Search By State</label>
-		<select name="formState">
-			 <option>Select...</option>
- 			 <option value="Solid">Solid</option>
- 			 <option value="Liquid">Liquid</option>
-  			<option value="Gas">Gas</option>
-		</select>
-		<br>
-      		<input type="submit" name="submit">
-      	</form>
-	<!-- <img src="version-periodic-table-elements.jpg" alt="Periodic Table from Encyclopedia Britannica" style="height: 250px; float: right;"/> -->
+	  <div class="inputForm">
+		  <div class="row">
+			  <form method="post">
+				<label>Search By Element Name Or Symbol</label>
+				<input type="text" name="search1">
+				<input type="text" name="search2">
+				<br>
+				<label>Search By Atomic Weight</label>
+				<input type="text" name="search3">
+				<br>
+				<label>Search By Group Number</label>
+				<input type="text" name="search4">
+				<br>
+				<label>Search By State</label>
+				<select name="formState">
+					 <option>Select...</option>
+					 <option value="Solid">Solid</option>
+					 <option value="Liquid">Liquid</option>
+					<option value="Gas">Gas</option>
+				</select>
+				<br>
+				<input type="submit" name="submit">
+			</form>
+		  </div>
+		  <div class="row">
+			<img src="version-periodic-table-elements.jpg" alt="Periodic Table from Encyclopedia Britannica" style="height: 250px; float: right;"/>
+		  </div>
+  
+	    </div>
 <?php
 	function createtable(){
 
