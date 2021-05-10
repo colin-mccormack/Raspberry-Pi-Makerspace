@@ -197,7 +197,7 @@
 
 		$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'colin','lego');
 		$searchString = "SELECT * FROM Elements WHERE ";
-		$abundaceString = "SELECT * FROM Abundance WHERE ";
+		$abundanceString = "SELECT * FROM Abundance WHERE ";
 		$str1 = $_POST["search1"];
 		$str2 = $_POST["search2"];
 		$str3 = $_POST["search3"];
@@ -205,16 +205,16 @@
 		$str5 = $_POST["formState"];
 		if (!empty($_POST["search1"])) {
 			$searchString .= " name = '$str1' OR symbol ='$str1' OR";
-			$abundaceString .= " name = '$str1' OR symbol ='$str1' OR";
+			$abundanceString .= " name = '$str1' OR symbol ='$str1' OR";
 		}
 		
 		if (!empty($_POST["search2"])) {
 			$searchString .= " name = '$str2' OR symbol ='$str2' OR";
-			$abundaceString .= " name = '$str2' OR symbol ='$str2' OR";
+			$abundanceString .= " name = '$str2' OR symbol ='$str2' OR";
 		}
 		if (!empty($_POST["search3"])) {
 			$searchString .= " CAST(atmweight as CHAR) LIKE '$str3%' OR";
-			$abundaceString .= " CAST(mass as CHAR) LIKE '$str3%' OR";
+			$abundanceString .= " CAST(mass as CHAR) LIKE '$str3%' OR";
 		}
 		if (!empty($_POST["search4"])) {
 			$searchString .= " groupnum = '$str4' OR";
@@ -233,8 +233,8 @@
 		enoutput($sth);
 	        print("</table>");
 		
-		$abundaceString = substr($abundaceString, 0, -3);
-		$sth = $con->prepare("$abundaceString");
+		$abundaceString = substr($abundanceString, 0, -3);
+		$sth = $con->prepare("$abundanceString");
 
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
