@@ -233,7 +233,7 @@
 		enoutput($sth);
 	        print("</table>");
 		
-		$abundaceString = substr($abundanceString, 0, -3);
+		$abundanceString = substr($abundanceString, 0, -3);
 		$sth = $con->prepare("$abundanceString");
 
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
