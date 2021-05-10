@@ -259,6 +259,7 @@
 				$searchString .= " ORDER BY '$str6' DESC";
 			}
 		}
+		   echo $searchString;
 		    
 		$sth = $con->prepare("$searchString");
 
