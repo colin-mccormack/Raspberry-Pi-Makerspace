@@ -248,9 +248,12 @@
 	    	if ($searchString==$searchStringEmpty) {
 			$searchString = substr($searchString, 0, -7);
 			//Removes where clause if not needed
+			$searchStringEN = '';
+			//This stops
 		}
 		else {
 			$searchString = substr($searchString, 0, -3);
+			$searchStringEN = $searchString;
 		}
 		    
 		if (!empty($_POST["formOrder"]) && $str6 != "Select...") {
@@ -263,8 +266,8 @@
 		}
 		   echo $searchString;
 		    
+		//Preparing default search    
 		$sth = $con->prepare("$searchString");
-
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
 
@@ -276,6 +279,12 @@
 	 <?php
 		createtable();	
 		elementsoutput($sth);
+		    
+		//Preparing EN printing to the screen    
+		$sth = $con->prepare("$searchStringEN");
+		$sth->setFetchMode(PDO:: FETCH_ASSOC);
+		$sth -> execute();
+		    
 		enoutput($sth);
 	        print("</table>");
 		
