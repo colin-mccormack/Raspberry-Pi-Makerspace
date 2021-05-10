@@ -59,7 +59,7 @@
 			</form>
 		  </div>
 		  <div class="rowR">
-			<img src="version-periodic-table-elements.jpg" alt="Periodic Table from Encyclopedia Britannica" style="height: 250px; float: center;"/>
+			<img src="version-periodic-table-elements.jpg" alt="Periodic Table from Encyclopedia Britannica" style="height: 300px; float: center;"/>
 		  </div>
   
 	    </div>
@@ -166,39 +166,38 @@
 
 	}	    
 	    
+	function createabundance(){
+	      print("<br><br><br>");
+	      print("<table>");
+	      print("<tr>");
+	      print("<th>Name</th>");
+	      print("<th>Symbol</th>");
+	      print("<th>Average Mass</th>");
+	      print("<th>Mass</th>");
+	      print("<th>Abundance %</th>");
+	      print("</tr>");
+	 }
+	    
 	function abundanceoutput(&$sth){
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
-		 if($row = $sth)
+	      while($row = $sth->fetch())
 		    {
-		      print("<br><br><br>");
-		      print("<table>");
 		      print("<tr>");
-		      print("<th>Name</th>");
-		      print("<th>Symbol</th>");
-		      print("<th>Average Mass</th>");
-		      print("<th>Mass</th>");
-		      print("<th>Abundance %</th>");
+		      print("<td>" . $row['name'] . "</td>");
+		      print("<td>" . $row['symbol'] . "</td>");
+		      print("<td>" . $row['avgweight'] . "</td>");
+		      print("<td>" . $row['mass'] . "</td>");
+		      print("<td>" . $row['abundance'] . "</td>");
 		      print("</tr>");
-		      while($row = $sth->fetch())
-			    {
-			      print("<tr>");
-			      print("<td>" . $row['name'] . "</td>");
-			      print("<td>" . $row['symbol'] . "</td>");
-			      print("<td>" . $row['avgweight'] . "</td>");
-			      print("<td>" . $row['mass'] . "</td>");
-			      print("<td>" . $row['abundance'] . "</td>");
-			      print("</tr>");
-			    }
-		      print("</table>");
-		 }
-
+		    }
 	}
 	    
 	    if (null!==("submit")) {
 
 		$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'colin','lego');
 		$searchString = "SELECT * FROM Elements WHERE ";
+		$abundaceString = "SELECT * FROM Abundace WHERE ";
 		$str1 = $_POST["search1"];
 		$str2 = $_POST["search2"];
 		$str3 = $_POST["search3"];
@@ -206,13 +205,16 @@
 		$str5 = $_POST["formState"];
 		if (!empty($_POST["search1"])) {
 			$searchString .= " name = '$str1' OR symbol ='$str1' OR";
+			$abundaceString .= " name = '$str1' OR symbol ='$str1' OR";
 		}
 		
 		if (!empty($_POST["search2"])) {
 			$searchString .= " name = '$str2' OR symbol ='$str2' OR";
+			$abundaceString .= " name = '$str1' OR symbol ='$str1' OR";
 		}
 		if (!empty($_POST["search3"])) {
 			$searchString .= " CAST(atmweight as CHAR) LIKE '$str3%' OR";
+			$abundaceString .= " CAST(mass as CHAR) LIKE '$str3%' OR";
 		}
 		if (!empty($_POST["search4"])) {
 			$searchString .= " groupnum = '$str4' OR";
@@ -229,6 +231,17 @@
 		createtable();	
 		elementsoutput($sth);
 		enoutput($sth);
+	        print("</table>");
+		
+		$abundaceString = substr($abundaceString, 0, -3);
+		$sth = $con->prepare("$abundaceString");
+
+		$sth->setFetchMode(PDO:: FETCH_ASSOC);
+		$sth -> execute();
+
+		createabundance();
+		abundanceoutput($sth)
+	        print("</table>");
 
 	    }
 		
