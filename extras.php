@@ -55,6 +55,21 @@
 					<option value="Gas">Gas</option>
 				</select>
 				<br><br>
+				<label>Search By State</label>
+				<select name="formOrder">
+					 <option>Select...</option>
+					 <option value="ar">Atomic Radius</option>
+					 <option value="ie">Ionization Energy</option>
+					 <option value="en">Electronegativity</option>
+				</select>
+				<br><br>
+				<label>Search By State</label>
+				<select name="formDirection">
+					 <option>Select...</option>
+					 <option value="ASC">Ascending</option>
+					 <option value="DESC">Descending</option>
+				</select>
+				<br><br>
 				<input type="submit" name="submit">
 			</form>
 		  </div>
@@ -203,6 +218,8 @@
 		$str3 = $_POST["search3"];
 		$str4 = $_POST["search4"];
 		$str5 = $_POST["formState"];
+	    	$str6 = $_POST["formOrder"];
+	    	$str7 = $_POST["formDirection"];
 		if (!empty($_POST["search1"])) {
 			$searchString .= " name = '$str1' OR symbol ='$str1' OR";
 			$abundanceString .= " name = '$str1' OR symbol ='$str1' OR";
@@ -222,7 +239,19 @@
 		if (!empty($_POST["formState"])) {
 			$searchString .= " phase = '$str5' OR";
 		}
+		    
 		$searchString = substr($searchString, 0, -3);
+		//This removes the extra OR 
+		    
+		if (!empty($_POST["formOrder"])) {
+			if (!empty($_POST["formDirection"])) {
+				$searchString .= " ORDER BY '$str6' $str7";
+			}
+			else {
+				$searchString .= " ORDER BY '$str6' DESC";
+			}
+		}
+		    
 		$sth = $con->prepare("$searchString");
 
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
@@ -230,7 +259,8 @@
 
 		?>
 	    	
-	    <h2>Information on Elements</h2>
+	    	<br><br>
+	    	<h2>Information on Elements</h2>
 	    	
 	    	<?php
 		createtable();	
@@ -246,7 +276,7 @@
 		    
 	    	?>
 	    
-	    <h2>Information on Isotopes</h2>
+	    	<h2>Information on Isotopes</h2>
 	    
 	    	<?php
 		createabundance();
@@ -257,7 +287,7 @@
 		
 	      else
 		{
-			echo "You need to fill in a feild";
+			echo "Error : You need to fill in a feild";
 		}
 
 ?>
