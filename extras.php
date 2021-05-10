@@ -210,7 +210,7 @@
 		
 		if (!empty($_POST["search2"])) {
 			$searchString .= " name = '$str2' OR symbol ='$str2' OR";
-			$abundaceString .= " name = '$str1' OR symbol ='$str1' OR";
+			$abundaceString .= " name = '$str2' OR symbol ='$str2' OR";
 		}
 		if (!empty($_POST["search3"])) {
 			$searchString .= " CAST(atmweight as CHAR) LIKE '$str3%' OR";
