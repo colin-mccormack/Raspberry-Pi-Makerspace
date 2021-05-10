@@ -61,6 +61,7 @@
 					 <option value="ar">Atomic Radius</option>
 					 <option value="ie">Ionization Energy</option>
 					 <option value="en">Electronegativity</option>
+					 <option value="ea">Electron Affinity</option>
 				</select>
 				<br><br>
 				<label>Order Direction</label>
@@ -258,7 +259,7 @@
 		    
 		if (!empty($_POST["formOrder"]) && $str6 != "Select...") {
 			if (!empty($_POST["formDirection"]) && $str7 != "Select...") {
-				$searchString .= " ORDER BY `$str6` $str7";
+				$searchString .= " ORDER BY CAST($str6 AS UNSIGNED) $str7";
 			}
 			else {
 				$searchString .= " ORDER BY `$str6` DESC";
