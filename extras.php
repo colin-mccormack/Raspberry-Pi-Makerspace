@@ -213,6 +213,7 @@
 		$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'colin','lego');
 		    
 		$searchString = "SELECT * FROM Elements WHERE ";
+	    	$searchStringEmpty = $searchString;
 		$abundanceString = "SELECT * FROM Abundance WHERE ";
 		    
 		$str1 = $_POST["search1"];
@@ -245,12 +246,17 @@
 		$searchString = substr($searchString, 0, -3);
 		//This removes the extra OR 
 		    
+	    	if ($searchString==$searchStringempty) {
+			$searchString = substr($searchString, 0, -7);
+			//Removes where clause if not needed
+		}
+		    
 		if (!empty($_POST["formOrder"])) {
 			if (!empty($_POST["formDirection"])) {
-				$searchString .= " ORDER BY '$str6' $str7;";
+				$searchString .= " ORDER BY '$str6' $str7";
 			}
 			else {
-				$searchString .= " ORDER BY '$str6' DESC;";
+				$searchString .= " ORDER BY '$str6' DESC";
 			}
 		}
 		    
