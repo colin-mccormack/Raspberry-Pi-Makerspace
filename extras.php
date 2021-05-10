@@ -52,10 +52,10 @@
 					 <option>Select...</option>
 					 <option value="Solid">Solid</option>
 					 <option value="Liquid">Liquid</option>
-					<option value="Gas">Gas</option>
+					 <option value="Gas">Gas</option>
 				</select>
 				<br><br>
-				<label>Search By State</label>
+				<label>Order by Data</label>
 				<select name="formOrder">
 					 <option>Select...</option>
 					 <option value="ar">Atomic Radius</option>
@@ -63,7 +63,7 @@
 					 <option value="en">Electronegativity</option>
 				</select>
 				<br><br>
-				<label>Search By State</label>
+				<label>Order Direction</label>
 				<select name="formDirection">
 					 <option>Select...</option>
 					 <option value="ASC">Ascending</option>
@@ -211,8 +211,10 @@
 	    if (null!==("submit")) {
 
 		$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'colin','lego');
+		    
 		$searchString = "SELECT * FROM Elements WHERE ";
 		$abundanceString = "SELECT * FROM Abundance WHERE ";
+		    
 		$str1 = $_POST["search1"];
 		$str2 = $_POST["search2"];
 		$str3 = $_POST["search3"];
@@ -220,11 +222,11 @@
 		$str5 = $_POST["formState"];
 	    	$str6 = $_POST["formOrder"];
 	    	$str7 = $_POST["formDirection"];
+		    
 		if (!empty($_POST["search1"])) {
 			$searchString .= " name = '$str1' OR symbol ='$str1' OR";
 			$abundanceString .= " name = '$str1' OR symbol ='$str1' OR";
 		}
-		
 		if (!empty($_POST["search2"])) {
 			$searchString .= " name = '$str2' OR symbol ='$str2' OR";
 			$abundanceString .= " name = '$str2' OR symbol ='$str2' OR";
@@ -257,12 +259,12 @@
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
 
-		?>
+	?>
 	    	
 	    	<br><br>
 	    	<h2>Information on Elements</h2>
 	    	
-	    	<?php
+	 <?php
 		createtable();	
 		elementsoutput($sth);
 		enoutput($sth);
