@@ -247,10 +247,10 @@
 		    
 		if (!empty($_POST["formOrder"])) {
 			if (!empty($_POST["formDirection"])) {
-				$searchString .= " ORDER BY '$str6' $str7";
+				$searchString .= " ORDER BY '$str6' $str7;";
 			}
 			else {
-				$searchString .= " ORDER BY '$str6' DESC";
+				$searchString .= " ORDER BY '$str6' DESC;";
 			}
 		}
 		    
