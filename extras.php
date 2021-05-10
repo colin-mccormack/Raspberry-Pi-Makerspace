@@ -246,7 +246,7 @@
 		$searchString = substr($searchString, 0, -3);
 		//This removes the extra OR 
 		    
-	    	if ($searchString==$searchStringempty) {
+	    	if ($searchString==$searchStringEmpty) {
 			$searchString = substr($searchString, 0, -7);
 			//Removes where clause if not needed
 		}
