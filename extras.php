@@ -262,7 +262,7 @@
 				$searchString .= " ORDER BY CAST($str6 AS UNSIGNED) $str7";
 			}
 			else {
-				$searchString .= " ORDER BY `$str6` DESC";
+				$searchString .= " ORDER BY CAST($str6 AS UNSIGNED) DESC";
 			}
 		}
 		   echo $searchString;
