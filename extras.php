@@ -40,13 +40,13 @@
 				<label>Search By Element Name Or Symbol</label>
 				<input type="text" name="search1">
 				<input type="text" name="search2">
-				<br>
+				<br><br>
 				<label>Search By Atomic Weight</label>
 				<input type="text" name="search3">
-				<br>
+				<br><br>
 				<label>Search By Group Number</label>
 				<input type="text" name="search4">
-				<br>
+				<br><br>
 				<label>Search By State</label>
 				<select name="formState">
 					 <option>Select...</option>
@@ -54,7 +54,7 @@
 					 <option value="Liquid">Liquid</option>
 					<option value="Gas">Gas</option>
 				</select>
-				<br>
+				<br><br>
 				<input type="submit" name="submit">
 			</form>
 		  </div>
@@ -228,6 +228,11 @@
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
 
+		?>
+	    	
+	    <h2>Information on Elements</h2>
+	    	
+	    	<?php
 		createtable();	
 		elementsoutput($sth);
 		enoutput($sth);
@@ -238,7 +243,12 @@
 
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
 		$sth -> execute();
-
+		    
+	    	?>
+	    
+	    <h2>Information on Isotopes</h2>
+	    
+	    	<?php
 		createabundance();
 		abundanceoutput($sth);
 	        print("</table>");
