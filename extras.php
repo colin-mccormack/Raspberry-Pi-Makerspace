@@ -239,7 +239,7 @@
 		if (!empty($_POST["search4"])) {
 			$searchString .= " groupnum = '$str4' OR";
 		}
-		if (!empty($_POST["formState"])) {
+		if (!empty($_POST["formState"]) && $str5 != "Select...") {
 			$searchString .= " phase = '$str5' OR";
 		}
 		    
