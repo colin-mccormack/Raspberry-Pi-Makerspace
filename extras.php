@@ -255,10 +255,10 @@
 		    
 		if (!empty($_POST["formOrder"]) && $str6 != "Select...") {
 			if (!empty($_POST["formDirection"]) && $str7 != "Select...") {
-				$searchString .= " ORDER BY '$str6' $str7";
+				$searchString .= " ORDER BY `$str6` $str7";
 			}
 			else {
-				$searchString .= " ORDER BY '$str6' DESC";
+				$searchString .= " ORDER BY `$str6` DESC";
 			}
 		}
 		   echo $searchString;
