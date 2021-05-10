@@ -240,7 +240,7 @@
 		$sth -> execute();
 
 		createabundance();
-		abundanceoutput($sth)
+		abundanceoutput($sth);
 	        print("</table>");
 
 	    }
