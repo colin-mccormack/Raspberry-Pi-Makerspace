@@ -253,8 +253,8 @@
 			$searchString = substr($searchString, 0, -3);
 		}
 		    
-		if (!empty($_POST["formOrder"])) {
-			if (!empty($_POST["formDirection"])) {
+		if (!empty($_POST["formOrder"]) && $str6 != "Select...") {
+			if (!empty($_POST["formDirection"]) && $str7 != "Select...") {
 				$searchString .= " ORDER BY '$str6' $str7";
 			}
 			else {
