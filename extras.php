@@ -44,10 +44,9 @@
 			    <HR><BR>
 			    <table>
 				<tr valign="TOP">
-				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"> <label>Search By Element Name Or Symbol:</label> </td>
+				    <td WIDTH="25%" align="RIGHT" valign="TOP"> <label>Search By Element Name Or Symbol:</label> </td>
 				    <td WIDTH="75%" align="LEFT" valign="TOP"><input type="text" name="search1"><BR> <input type="text" name="search2"> </td>
 			       </tr>
-			    <BR><HR>
 			</TD></TR>
 			<TR><TD>
 				<tr valign="TOP">
