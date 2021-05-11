@@ -258,7 +258,7 @@
 
                 if (!empty($_POST["formOrder"]) && $str6 != "Select...") {
                         if (!empty($_POST["formDirection"]) && $str7 != "Select...") {
-                                if ($str6 == "en") {
+                                if ($str6 == "Electronegativity") {
 					$searchString .= " ORDER BY `$str6` $str7";
 				}
 				else {
