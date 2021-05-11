@@ -1,7 +1,74 @@
-body{
+/* Every body section */
+body {
+  background-color: #e6e6e6;
+  font: normal 12px 'Open Sans', Verdana, Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
+
+.custom {
+	font-family: "Open Sans";
+	font-size:14px;
+}
+.collapsible {
+  background-color: #fcba03;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 15px;
+  border-radius: 20px;
+  border: none;
+  font-weight: 400;
+}
+
+.active, .collapsible:hover {
+  background-color: #ca9502;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #eFeFeF;
+  /* background-color: #e6e6e6; */
+  border-radius: 20px;
+}
+
+.collapsible:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: white;
+  float: right;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+
+/* CODE FOR THE DROP DOWNS */
+  input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+  input[type=date], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
 
 .title_header {
   color : red;
@@ -104,28 +171,7 @@ body{
   padding : 20px;
 }
 
-.inputForm {
-  height : 300px;
-  background-color: #d4ebf2;
-
-}
-
-.rowL {
-  padding : 20px;
-  width : 50%;
-  float : left;
-  text-align : left;
-}
-
-.rowR {
-  width : 50%;
-  float : right;
-  background-color: #f2f2f2;
-  height : 300px;
-}
-
-
-  
+ 
 /* Style the header with a grey background and some padding */
 .header {
   overflow: hidden;
