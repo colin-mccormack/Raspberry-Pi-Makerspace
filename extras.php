@@ -266,7 +266,7 @@
 				}
                         }
                         elseif ($str6 == "en") {
-				$searchString .= " ORDER BY `$str6` $str7";                       
+				$searchString .= " ORDER BY `$str6` DESC";                       
 			}
 			else {
                                 $searchString .= " ORDER BY CAST($str6 AS UNSIGNED) DESC";
