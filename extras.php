@@ -73,6 +73,10 @@
 				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"><label>Order Direction</label></td>
 				    <td WIDTH="75%" align="LEFT" valign="TOP"> <select name="formDirection"> <option>Select...</option> <option value="ASC">Ascending</option> <option value="DESC">Descending</option> </select> </td>
 				</tr>
+				<tr valign="TOP">
+				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"><label>Do you want Electronegativity difference?</label></td>
+				    <td WIDTH="75%" align="LEFT" valign="TOP"> <input type="radio" name="wantprint" value="y" checked>Yes</input> <input type="radio" name="wantprint" value="n">No</input></td>
+			        </tr>
 			</table>
 			<input type="submit" name="submit">
 		</td></tr></table>
@@ -293,8 +297,9 @@
                 $sth = $con->prepare("$searchStringEN");
                 $sth->setFetchMode(PDO:: FETCH_ASSOC);
                 $sth -> execute();
-
-                enoutput($sth);
+		if ($_POST["wantprint"] == "y") {
+                	enoutput($sth);
+		}
                 print("</table>");
 
                 $abundanceString = substr($abundanceString, 0, -3);
