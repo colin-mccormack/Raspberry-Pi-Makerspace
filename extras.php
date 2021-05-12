@@ -74,7 +74,7 @@
 				    <td WIDTH="75%" align="LEFT" valign="TOP"> <select name="formDirection"> <option>Select...</option> <option value="ASC">Ascending</option> <option value="DESC">Descending</option> </select> </td>
 				</tr>
 				<tr valign="TOP">
-				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"><label>Do you want Electronegativity difference?</label></td>
+				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"><label>Electronegativity difference</label></td>
 				    <td WIDTH="75%" align="LEFT" valign="TOP"> <input type="radio" name="wantprint" value="y" checked>Yes</input> <input type="radio" name="wantprint" value="n">No</input></td>
 			        </tr>
 			</table>
