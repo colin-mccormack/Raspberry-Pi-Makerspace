@@ -78,6 +78,7 @@
 				    <td WIDTH="75%" align="LEFT" valign="TOP"> <input type="radio" name="wantprint" value="y" checked>Yes</input> <input type="radio" name="wantprint" value="n">No</input></td>
 			        </tr>
 			</table>
+			<br><br>
 			<input type="submit" name="submit">
 		</td></tr></table>
 		</CENTER>
