@@ -44,10 +44,6 @@ body {
   float: right;
 }
 
-/*.active:after {
-  content: "\2796"; /* Unicode character for "minus" sign (-) */
-}*/
-
 
 /* CODE FOR THE DROP DOWNS */
   input[type=text], select {
