@@ -272,8 +272,7 @@
                                 $searchString .= " ORDER BY CAST($str6 AS UNSIGNED) DESC";
 			}
                 }
-                   echo $searchString;
-
+		    
                 //Preparing default search
                 $sth = $con->prepare("$searchString");
                 $sth->setFetchMode(PDO:: FETCH_ASSOC);
