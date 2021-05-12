@@ -281,6 +281,7 @@
         ?>
 
                 <br><br>
+		<CENTER>
                 <h2>Information on Elements</h2>
 
          <?php
@@ -318,6 +319,7 @@
                         echo "Error : You need to fill in a feild";
                 }
 
-?>
+	?>
+	</CENTER>
   </body>
 </html>
