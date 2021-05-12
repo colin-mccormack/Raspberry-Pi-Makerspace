@@ -264,14 +264,14 @@
 
                 if (!empty($_POST["formOrder"]) && $str6 != "Select...") {
                         if (!empty($_POST["formDirection"]) && $str7 != "Select...") {
-                                if ($str6 == "en") {
+                                if ($str6 == "en" || $str6 == "ie") {
 					$searchString .= " ORDER BY `$str6` $str7";
 				}
 				else {
 					$searchString .= " ORDER BY CAST($str6 AS UNSIGNED) $str7";
 				}
                         }
-                        elseif ($str6 == "en") {
+                        elseif ($str6 == "en" || $str6 == "ie") {
 				$searchString .= " ORDER BY `$str6` DESC";                       
 			}
 			else {
