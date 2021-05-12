@@ -44,9 +44,9 @@ body {
   float: right;
 }
 
-.active:after {
+/*.active:after {
   content: "\2796"; /* Unicode character for "minus" sign (-) */
-}
+}*/
 
 
 /* CODE FOR THE DROP DOWNS */
