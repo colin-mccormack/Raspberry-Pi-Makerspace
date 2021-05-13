@@ -217,6 +217,7 @@
 			print("<td>" . $row['name'] . "</td>");
 			print("<td>" . $row['symbol'] ."</td>");
 			print("<td>" . $row['atmnum'] ."</td>");
+			print("<td>" . $row['groupnum'] ."</td>");
 			$name[$count] = $row['name'];
 			$charge[$count] = $row['charge'];
 			$groupnum[$count] = $row['groupnum'];
