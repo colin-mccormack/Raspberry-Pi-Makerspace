@@ -210,15 +210,19 @@
         }
 	
 	function compound(&$sth){
-		echo "In compound.\n";
-		
+		echo "\nIn compound.\n";
+		$count = 1;
 		while($row = $sth->fetch()) {
 			print("<br><tr>");
 			print("<td>" . $row['name'] . "</td>");
 			print("<td>" . $row['symbol'] ."</td>");
 			print("<td>" . $row['atmnum'] ."</td>");
+			$name[$count] = $row['name'];
+			$charge[$count] = $row['charge'];
+			count++;
 			print("</tr><br>");		
 		}
+		echo "$name[1]$charge[2] $name[2]$charge[1]";
 	}
 
             if (null!==("submit")) {
