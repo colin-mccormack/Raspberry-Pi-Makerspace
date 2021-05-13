@@ -230,6 +230,8 @@
 				if ($charge[1] > $charge[2]) {
 					if ($charge[1] % $charge[2] == 0) {
 						$charge[1] = $charge[1]/$charge[2];
+						echo "Reduction possible for case 1.";
+
 					}
 					else {
 						echo "No reduction possible for case 1.";
@@ -238,6 +240,7 @@
 				else {
 					if ($charge[2] % $charge[1] == 0) {
 						$charge[2] = $charge[2]/$charge[1];
+						echo "Reduction possible for case 1.";
 					}
 					else {
 						echo "No reduction possible for case 2.";
