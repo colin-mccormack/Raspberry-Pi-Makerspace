@@ -230,7 +230,7 @@
 			echo "$name[2]$charge[1] $name[1]$charge[2]";
 		}
 		else {
-			echo "Same group so no naming possible."
+			echo "Same group so no naming possible.";
 	}
 
             if (null!==("submit")) {
