@@ -230,8 +230,11 @@
 		elseif ($groupnum[1] > $groupnum[2]) {
 			echo "$name[2]$charge[1] $name[1]$charge[2]";
 		}
-		else {
+		elseif ($groupnum[1] == $groupnum[2]) {
 			echo "Same group so no naming possible.";
+		}
+		else {
+			echo "Error : No compound...";
 		}
 	}
 
