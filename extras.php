@@ -219,7 +219,7 @@
 			print("<td>" . $row['atmnum'] ."</td>");
 			$name[$count] = $row['name'];
 			$charge[$count] = $row['charge'];
-			count++;
+			$count++;
 			print("</tr><br>");		
 		}
 		echo "$name[1]$charge[2] $name[2]$charge[1]";
