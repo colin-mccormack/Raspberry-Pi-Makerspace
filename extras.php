@@ -203,7 +203,6 @@
                       print("<td>" . $row['name'] . "</td>");
                       print("<td>" . $row['symbol'] . "</td>");
                       print("<td>" . $row['avgweight'] . "</td>");
-                      print("<td>" . $row['multi'] . "</td>");
                       print("<td>" . $row['abundance'] . "</td>");
                       print("</tr>");
                     }
@@ -213,7 +212,7 @@
 		echo "\nIn compound.\n";
 		$count = 1;
 		while($row = $sth->fetch()) {
-			print("<br><tr>");
+			print("<table><br><tr>");
 			print("<td>" . $row['name'] . "</td>");
 			print("<td>" . $row['symbol'] ."</td>");
 			print("<td>" . $row['atmnum'] ."</td>");
@@ -222,7 +221,7 @@
 			$charge[$count] = $row['charge'];
 			$groupnum[$count] = $row['groupnum'];
 			$count++;
-			print("</tr><br>");		
+			print("</tr><br></table>");		
 		}
 		if ($groupnum[1] > $groupnum[2]) {
 			echo "$name[1]$charge[2] $name[2]$charge[1]";
@@ -235,6 +234,7 @@
 		}
 		else {
 			echo "Error : No compound...";
+			echo "$groupnum[1] !! $groupnum[2]";
 		}
 	}
 
