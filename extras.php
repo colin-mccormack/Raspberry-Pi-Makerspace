@@ -223,10 +223,10 @@
 			$count++;
 			print("</tr><br></table>");		
 		}
-		if ($groupnum[1] > $groupnum[2]) {
+		if ($groupnum[1] < $groupnum[2]) {
 			echo "$name[1]$charge[2] $name[2]$charge[1]";
 		}
-		elseif ($groupnum[1] < $groupnum[2]) {
+		elseif ($groupnum[1] > $groupnum[2]) {
 			echo "$name[2]$charge[1] $name[1]$charge[2]";
 		}
 		elseif ($groupnum[1] == $groupnum[2]) {
