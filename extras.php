@@ -224,7 +224,35 @@
 			print("</tr><br></table>");		
 		}
 		
+		//Reduce like terms
+		if (isset($charge[1]) && isset($charge[2])) {
+			if ($charge[1] != $charge[2]){
+				if ($charge[1] > $charge[2]) {
+					if ($charge[1] % $charge[2] == 0) {
+						$charge[1] = $charge[1]/$charge[2];
+					}
+					else {
+						echo "No reduction possible for case 1.";
+					}
+				}
+				else {
+					if ($charge[2] % $charge[1] == 0) {
+						$charge[2] = $charge[2]/$charge[1];
+					}
+					else {
+						echo "No reduction possible for case 2.";
+					}
+				}
+			}
+			else {
+				$charge[1] = 0;
+				$charge[2] = 0;
+			}
+		}
+		
+		//Start naming string
 		$binarynaming = "The binary compound created by the two elements you entered is ";
+		
 		
 		if ($groupnum[1] < $groupnum[2]) {
 			$binarynaming .= "$name[1]$charge[2] $name[2]";
