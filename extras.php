@@ -231,6 +231,7 @@
 		}
 		else {
 			echo "Same group so no naming possible.";
+		}
 	}
 
             if (null!==("submit")) {
