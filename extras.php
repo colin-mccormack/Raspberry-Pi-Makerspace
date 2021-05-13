@@ -198,18 +198,27 @@
                 $sth -> execute();
               while($row = $sth->fetch())
                     {
-                      print("<tr>");
+                      
+		      print("<tr>");
                       print("<td>" . $row['name'] . "</td>");
                       print("<td>" . $row['symbol'] . "</td>");
                       print("<td>" . $row['avgweight'] . "</td>");
-                      print("<td>" . $row['mass'] . "</td>");
+                      print("<td>" . $row['multi'] . "</td>");
                       print("<td>" . $row['abundance'] . "</td>");
                       print("</tr>");
                     }
         }
 	
 	function compound(&$sth){
+		echo "In compound.\n";
 		
+		while($row = $sth->fetch()) {
+			print("<br><tr>");
+			print("<td>" . $row['name'] . "</td>");
+			print("<td>" . $row['symbol'] ."</td>");
+			print("<td>" . $row['atmnum'] ."</td>");
+			print("</tr><br>");		
+		}
 	}
 
             if (null!==("submit")) {
@@ -300,6 +309,14 @@
                 	enoutput($sth);
 		}
                 print("</table>");
+		    
+		if (isset($str1) && isset($str2)) {
+			$compoundsearchString = "SELECT * FROM Charges WHERE name = '$str1' OR symbol = '$str1' OR name = '$str2' OR symbol = '$str2'";
+		        $sth = $con->prepare("$compoundsearchString");
+                	$sth->setFetchMode(PDO:: FETCH_ASSOC);
+                	$sth -> execute();
+			compound($sth);
+		}
 
                 $abundanceString = substr($abundanceString, 0, -3);
                 $sth = $con->prepare("$abundanceString");
