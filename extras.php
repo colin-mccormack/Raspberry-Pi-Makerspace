@@ -223,11 +223,20 @@
 			$count++;
 			print("</tr><br></table>");		
 		}
+		
+		$binarynaming = "The binary compound created by the two elements you entered is ";
+		
 		if ($groupnum[1] < $groupnum[2]) {
-			echo "$name[1]$charge[2] $name[2]$charge[1]";
+			$binarynaming .= "$name[1]$charge[2] $name[2]";
+			$binarynaming = substr($binarynaming, 0, -3);
+			$binarynaming .= "ide";
+			echo "$binarynaming$charge[1].\n";
 		}
 		elseif ($groupnum[1] > $groupnum[2]) {
-			echo "$name[2]$charge[1] $name[1]$charge[2]";
+			$binarynaming .= "$name[2]$charge[1] $name[1]";
+			$binarynaming = substr($binarynaming, 0, -3);
+			$binarynaming .= "ide";
+			echo "$binarynaming$charge[2].\n";
 		}
 		elseif ($groupnum[1] == $groupnum[2]) {
 			echo "Same group so no naming possible.";
