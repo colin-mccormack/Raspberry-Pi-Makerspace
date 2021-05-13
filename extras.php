@@ -207,6 +207,10 @@
                       print("</tr>");
                     }
         }
+	
+	function compound(&$sth){
+		
+	}
 
             if (null!==("submit")) {
 
@@ -249,7 +253,7 @@
                         $searchString = substr($searchString, 0, -7);
                         //Removes where clause if not needed
                         $searchStringEN = '';
-                        //This stops
+                        //This stops it from printing tons of EN differences to the screen
                 }
                 else {
                         $searchString = substr($searchString, 0, -3);
