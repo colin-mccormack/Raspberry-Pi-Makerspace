@@ -272,7 +272,7 @@
 		}
 	}
 	
-	function molarmass($sth) {
+	function molarmass(&$sth) {
 		$count = 1;
 		while($row = $sth->fetch()) {
 			$name[$count] = $row['name'];
