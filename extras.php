@@ -212,16 +212,10 @@
 		echo "\nIn compound.\n";
 		$count = 1;
 		while($row = $sth->fetch()) {
-			print("<table><br><tr>");
-			print("<td>" . $row['name'] . "</td>");
-			print("<td>" . $row['symbol'] ."</td>");
-			print("<td>" . $row['atmnum'] ."</td>");
-			print("<td>" . $row['groupnum'] ."</td>");
 			$name[$count] = $row['name'];
 			$charge[$count] = $row['charge'];
 			$groupnum[$count] = $row['groupnum'];
-			$count++;
-			print("</tr><br></table>");		
+			$count++;	
 		}
 		
 		//Reduce like terms
@@ -277,6 +271,17 @@
 			echo "\n$groupnum[1] ! $groupnum[2]";
 		}
 	}
+	
+	function molarmass($sth) {
+		$count = 1;
+		while($row = $sth->fetch()) {
+			$name[$count] = $row['name'];
+			$weight[$count] = $row['atmweight'];
+			$count++;	
+		}
+		$sum = $weight[1] + $weight[2];
+		echo "The sum of the two atomic weights is $sum.";
+		
 
             if (null!==("submit")) {
 
@@ -357,6 +362,7 @@
          <?php
                 createtable();
                 elementsoutput($sth);
+		molarmass($sth);
 
                 //Preparing EN printing to the screen
                 $sth = $con->prepare("$searchStringEN");
