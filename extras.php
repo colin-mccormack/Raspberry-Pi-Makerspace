@@ -281,6 +281,7 @@
 		}
 		$sum = $weight[1] + $weight[2];
 		echo "The sum of the two atomic weights is $sum.";
+	}
 		
 
             if (null!==("submit")) {
