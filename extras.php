@@ -38,8 +38,9 @@
 			    <HR><BR>
 			    <table>
 				<tr valign="TOP">
-				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"> <label>Search By Element Name Or Symbol:</label> </td>
-				    <td WIDTH="75%" align="LEFT" valign="TOP"><input type="text" name="search1"></td>
+				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"> <label>Search By Element Name Or Symbol And Quantity:</label> </td>
+				    <td WIDTH="70%" align="LEFT" valign="TOP"><input type="text" name="search1"></td>
+				    <td WIDTH="5%" align="RIGHT" valign="TOP"><input type="text" name="quantity1"></td>
 			       </tr>
 				<tr valign="TOP">
 				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"> <label></label> </td>
