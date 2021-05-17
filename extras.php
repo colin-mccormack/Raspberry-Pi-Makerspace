@@ -292,7 +292,7 @@
                 $sth -> execute();
 		while($row = $sth->fetch()) {
 			$sumweight += $row['atmweight']*$quantity[count];
-			count++;
+			$count++;
 		}
 		if ($moles != 1) {
 			$sumweight *= $moles;
