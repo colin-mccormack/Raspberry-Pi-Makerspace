@@ -220,7 +220,7 @@
 		
 		//Reduce like terms
 		if (isset($charge[1]) && isset($charge[2])) {
-			if ($charge[1] != $charge[2]){
+			if ($charge[1] != $charge[2] && $charge[1] != 0 && $charge[2] != 0){
 				if ($charge[1] > $charge[2]) {
 					if ($charge[1] % $charge[2] == 0) {
 						$charge[1] = $charge[1]/$charge[2];
@@ -273,12 +273,12 @@
 	}
 	
 	function molarmass(&$sth) {
-		echo "In molar mass";
 		$count = 1;
-                $sth->setFetchMode(PDO:: FETCH_ASSOC);
+                
+		//Create search results
+		$sth->setFetchMode(PDO:: FETCH_ASSOC);
                 $sth -> execute();
 		while($row = $sth->fetch()) {
-			echo "In loop";
 			$weight[$count] = $row['atmweight'];
 			$count++;
 		}
