@@ -45,15 +45,19 @@
 				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"> <label></label> </td>
 				    <td WIDTH="75%" align="LEFT" valign="TOP"><input type="text" name="search2"> </td>
 			       </tr>
+				<tr valign="TOP">
+				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"> <label></label> </td>
+				    <td WIDTH="75%" align="LEFT" valign="TOP"><input type="text" name="search3"> </td>
+			       </tr>
 			</TD></TR>
 			<TR><TD>
 				<tr valign="TOP">
 				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"><label>Search By Atomic Weight:</label></td>
-				    <td WIDTH="75%" align="LEFT" valign="TOP"><input type="text" name="search3"></td>
+				    <td WIDTH="75%" align="LEFT" valign="TOP"><input type="text" name="search4"></td>
 				</tr>
 				<tr valign="TOP">
 				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"><label>Search By Group Number</label></td>
-				    <td WIDTH="75%" align="LEFT" valign="TOP"><input type="text" name="search4"></td>
+				    <td WIDTH="75%" align="LEFT" valign="TOP"><input type="text" name="search5"></td>
 				</tr>
 				<tr>
 				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"><label>Search By State</label></td>
@@ -299,6 +303,7 @@
                 $str2 = $_POST["search2"];
                 $str3 = $_POST["search3"];
                 $str4 = $_POST["search4"];
+		$str5 = $_POST["search5"];
                 $str5 = $_POST["formState"];
                 $str6 = $_POST["formOrder"];
                 $str7 = $_POST["formDirection"];
@@ -312,10 +317,14 @@
                         $abundanceString .= " name = '$str2' OR symbol ='$str2' OR";
                 }
                 if (!empty($_POST["search3"])) {
+                        $searchString .= " name = '$str1' OR symbol ='$str1' OR";
+                        $abundanceString .= " name = '$str1' OR symbol ='$str1' OR";
+                }
+                if (!empty($_POST["search4"])) {
                         $searchString .= " CAST(atmweight as CHAR) LIKE '$str3%' OR";
                         $abundanceString .= " CAST(mass as CHAR) LIKE '$str3%' OR";
                 }
-                if (!empty($_POST["search4"])) {
+                if (!empty($_POST["search5"])) {
                         $searchString .= " groupnum = '$str4' OR";
                 }
                 if (!empty($_POST["formState"]) && $str5 != "Select...") {
@@ -368,12 +377,13 @@
                 elementsoutput($sth);
 		molarmass($sth);
 
-                //Preparing EN printing to the screen
-                $sth = $con->prepare("$searchStringEN");
-                $sth->setFetchMode(PDO:: FETCH_ASSOC);
-                $sth -> execute();
+
 		if ($_POST["wantprint"] == "y") {
-                	enoutput($sth);
+			//Preparing EN printing to the screen
+			$sth = $con->prepare("$searchStringEN");
+                	$sth->setFetchMode(PDO:: FETCH_ASSOC);
+               		$sth -> execute();
+			enoutput($sth);
 		}
                 print("</table>");
 		    
