@@ -276,6 +276,7 @@
 		echo "In molar mass";
 		$count = 1;
 		while($row = $sth->fetch()) {
+			echo "In loop";
 			$weight[$count] = $row['atmweight'];
 			$count++;	
 		}
