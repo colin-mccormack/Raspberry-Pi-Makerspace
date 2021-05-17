@@ -291,7 +291,7 @@
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
                 $sth -> execute();
 		while($row = $sth->fetch()) {
-			$sumweight += $row['atmweight']*$quantity[count];
+			$sumweight += $row['atmweight']*$quantity[$count];
 			$count++;
 		}
 		if ($moles != 1) {
