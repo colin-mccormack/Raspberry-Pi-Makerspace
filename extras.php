@@ -228,26 +228,13 @@
 				if ($charge[1] > $charge[2]) {
 					if ($charge[1] % $charge[2] == 0) {
 						$charge[1] = $charge[1]/$charge[2];
-						echo "Reduction possible for case 1.";
-
-					}
-					else {
-						echo "No reduction possible for case 1.";
 					}
 				}
 				else {
 					if ($charge[2] % $charge[1] == 0) {
 						$charge[2] = $charge[2]/$charge[1];
-						echo "Reduction possible for case 1.";
-					}
-					else {
-						echo "No reduction possible for case 2.";
 					}
 				}
-			}
-			else {
-				$charge[1] = 0;
-				$charge[2] = 0;
 			}
 		}
 		
@@ -256,23 +243,36 @@
 		
 		
 		if ($groupnum[1] < $groupnum[2]) {
-			$binarynaming .= "$name[1]$charge[2] $name[2]";
+			$binarynaming .= "$name[1]";
+			if ($charge[2] != 0) {
+				$binarynaming .= "$charge[2]"; 
+			}
+			$binarynaming .= "$name[2]";
+			if ($charge[1] != 0) {
+				$binarynaming .= "$charge[1]"; 
+			}
 			$binarynaming = substr($binarynaming, 0, -3);
 			$binarynaming .= "ide";
 			echo "$binarynaming$charge[1].\n";
 		}
 		elseif ($groupnum[1] > $groupnum[2]) {
-			$binarynaming .= "$name[2]$charge[1] $name[1]";
+			$binarynaming .= "$name[2]";
+			if ($charge[1] != 0) {
+				$binarynaming .= "$charge[1]"; 
+			}
+			$binarynaming .= "$name[1]";
+			if ($charge[2] != 0) {
+				$binarynaming .= "$charge[2]"; 
+			}
 			$binarynaming = substr($binarynaming, 0, -3);
 			$binarynaming .= "ide";
-			echo "$binarynaming$charge[2].\n";
+			echo "$binarynaming.\n";
 		}
 		elseif ($groupnum[1] == $groupnum[2]) {
 			echo "Same group so no naming possible.";
 		}
 		else {
 			echo "\nError : No compound...";
-			echo "\n$groupnum[1] ! $groupnum[2]";
 		}
 	}
 	
