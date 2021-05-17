@@ -277,7 +277,7 @@
 	}
 	
 	function molarmass(&$sth) {
-                
+                $sum = 0;
 		//Create search results
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
                 $sth -> execute();
