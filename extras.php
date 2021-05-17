@@ -239,7 +239,7 @@
 		}
 		
 		//Start naming string
-		$binarynaming = "The binary compound created by the two elements you entered is ";
+		$binarynaming = "The binary compound created by the elements you entered is ";
 		
 		
 		if ($groupnum[1] < $groupnum[2]) {
@@ -293,7 +293,7 @@
 
                 $con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'colin','lego');
 
-                $searchString = "SELECT name, symbol, atmnum,  ROUND(atmweight ,1), melting, boiling, density, groupnum, configuration, ie, charge, valences, phase, ar, cr, ea, en, mv FROM Elements WHERE ";
+                $searchString = "SELECT * FROM Elements WHERE ";
                 $searchStringEmpty = $searchString;
                 $abundanceString = "SELECT * FROM Abundance WHERE ";
 
