@@ -53,10 +53,6 @@
 				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"> <label>Optional: Enter the number of moles</label> </td>
 				    <td WIDTH="75%" align="LEFT" valign="TOP"><input type="text" name="moles"></td>
 			       </tr>
-				<tr valign="TOP">
-				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"> <label></label> </td>
-				    <td WIDTH="75%" align="LEFT" valign="TOP"><input type="text" name="search2"> </td>
-			       </tr>
 			</TD></TR>
 			<TR><TD>
 				<tr valign="TOP">
