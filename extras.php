@@ -44,15 +44,17 @@
 			       </tr>
 				<tr valign="TOP">
 				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"> <label></label> </td>
-				    <td WIDTH="75%" align="LEFT" valign="TOP"><input type="text" name="search2"> </td>
+				    <td WIDTH="70%" align="LEFT" valign="TOP"><input type="text" name="search2"> </td>
+				    <td WIDTH="5%" align="RIGHT" valign="TOP"><input type="text" name="quantity2"></td>
 			       </tr>
 				<tr valign="TOP">
 				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"> <label></label> </td>
-				    <td WIDTH="75%" align="LEFT" valign="TOP"><input type="text" name="search3"> </td>
+				    <td WIDTH="70%" align="LEFT" valign="TOP"><input type="text" name="search3"> </td>
+				    <td WIDTH="5%" align="RIGHT" valign="TOP"><input type="text" name="quantity3"></td>
 			       </tr>
 				<tr valign="TOP">
 				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"> <label>Optional: Enter the number of moles</label> </td>
-				    <td WIDTH="75%" align="LEFT" valign="TOP"><input type="text" name="moles"></td>
+				    <td WIDTH="5%" align="LEFT" valign="TOP"><input type="text" name="moles"></td>
 			       </tr>
 			</TD></TR>
 			<TR><TD>
@@ -308,11 +310,14 @@
                 $abundanceString = "SELECT * FROM Abundance WHERE ";
 		    
 		//Initiate moles in case it isn't used
-		$moles = 1;
+		$quantity1 = $quantity2 = $quantity3 = $moles = 1;
 
                 $str1 = $_POST["search1"];
+                $quantity1 = $_POST["quantity1"];
                 $str2 = $_POST["search2"];
+                $quantity2 = $_POST["quantity2"];
                 $str3 = $_POST["search3"];
+                $quantity3 = $_POST["quantity3"];
 		$moles = $_POST["moles"];
                 $str4 = $_POST["search4"];
 		$str5 = $_POST["search5"];
