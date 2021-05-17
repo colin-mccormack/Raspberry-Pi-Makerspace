@@ -275,10 +275,12 @@
 	function molarmass(&$sth) {
 		echo "In molar mass";
 		$count = 1;
+                $sth->setFetchMode(PDO:: FETCH_ASSOC);
+                $sth -> execute();
 		while($row = $sth->fetch()) {
 			echo "In loop";
 			$weight[$count] = $row['atmweight'];
-			$count++;	
+			$count++;
 		}
 		$sum = $weight[1] + $weight[2];
 		echo "The sum of the two atomic weights is $sum.";
