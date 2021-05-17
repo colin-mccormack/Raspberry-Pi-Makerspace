@@ -245,11 +245,11 @@
 		if ($groupnum[1] < $groupnum[2]) {
 			$binarynaming .= "$name[1]";
 			if ($charge[2] != 0) {
-				$binarynaming .= " $charge[2] "; 
+				$binarynaming .= "$charge[2] "; 
 			}
 			$binarynaming .= "$name[2]";
 			if ($charge[1] != 0) {
-				$binarynaming .= " $charge[1]"; 
+				$binarynaming .= "$charge[1]"; 
 			}
 			$binarynaming = substr($binarynaming, 0, -3);
 			$binarynaming .= "ide";
