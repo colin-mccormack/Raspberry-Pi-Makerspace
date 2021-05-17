@@ -282,7 +282,7 @@
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
                 $sth -> execute();
 		while($row = $sth->fetch()) {
-			$sumweight += $row['atmweight '];
+			$sumweight += $row['atmweight'];
 		}
 
 		echo "The sum of the two atomic weights is $sumweight.";
