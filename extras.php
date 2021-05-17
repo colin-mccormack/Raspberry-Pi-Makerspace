@@ -15,7 +15,7 @@
 	</head>
 	
 	<body>
-		<div class="header">
+<!-- 		<div class="header"> -->
 			<a href="index.html" class="logo">Raspberry Pi Makerspace</a>
 			<div class="header-right">
 				<a href="index.html">Home</a>
@@ -277,15 +277,15 @@
 	}
 	
 	function molarmass(&$sth) {
-                $sum = 0;
+                $sumweight = 0;
 		//Create search results
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
                 $sth -> execute();
 		while($row = $sth->fetch()) {
-			$sum += $row['atmweight'];
+			$sumweight += $row['atmweight'];
 		}
 
-		echo "The sum of the two atomic weights is $sum.";
+		echo "The sum of the two atomic weights is $sumweight.";
 	}
 		
 
