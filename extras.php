@@ -49,6 +49,14 @@
 				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"> <label></label> </td>
 				    <td WIDTH="75%" align="LEFT" valign="TOP"><input type="text" name="search3"> </td>
 			       </tr>
+				<tr valign="TOP">
+				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"> <label>Optional: Enter the number of moles</label> </td>
+				    <td WIDTH="75%" align="LEFT" valign="TOP"><input type="text" name="moles"></td>
+			       </tr>
+				<tr valign="TOP">
+				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"> <label></label> </td>
+				    <td WIDTH="75%" align="LEFT" valign="TOP"><input type="text" name="search2"> </td>
+			       </tr>
 			</TD></TR>
 			<TR><TD>
 				<tr valign="TOP">
@@ -276,7 +284,7 @@
 		}
 	}
 	
-	function molarmass(&$sth) {
+	function molarmass(&$sth, $moles) {
                 $sumweight = 0;
 		//Create search results
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
@@ -284,8 +292,13 @@
 		while($row = $sth->fetch()) {
 			$sumweight += $row['atmweight'];
 		}
-
-		echo "The sum of the two atomic weights is $sumweight.";
+		if ($moles != 1) {
+			$sumweight *= $moles;
+			echo "The mass of $moles moles of the element(s) that you entered is " . $sumweight . "g.\n";
+		}
+		else {
+			echo "The sum of the two atomic weights is $sumweight.";
+		}
 	}
 		
 
@@ -296,10 +309,14 @@
                 $searchString = "SELECT * FROM Elements WHERE ";
                 $searchStringEmpty = $searchString;
                 $abundanceString = "SELECT * FROM Abundance WHERE ";
+		    
+		//Initiate moles in case it isn't used
+		$moles = 1;
 
                 $str1 = $_POST["search1"];
                 $str2 = $_POST["search2"];
                 $str3 = $_POST["search3"];
+		$moles = $_POST["moles"];
                 $str4 = $_POST["search4"];
 		$str5 = $_POST["search5"];
                 $str5 = $_POST["formState"];
@@ -373,7 +390,7 @@
          <?php
                 createtable();
                 elementsoutput($sth);
-		molarmass($sth);
+		molarmass($sth, $moles);
 
 
 		if ($_POST["wantprint"] == "y") {
