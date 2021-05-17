@@ -317,15 +317,15 @@
                         $abundanceString .= " name = '$str2' OR symbol ='$str2' OR";
                 }
                 if (!empty($_POST["search3"])) {
-                        $searchString .= " name = '$str1' OR symbol ='$str1' OR";
-                        $abundanceString .= " name = '$str1' OR symbol ='$str1' OR";
+                        $searchString .= " name = '$str3' OR symbol ='$str3' OR";
+                        $abundanceString .= " name = '$str3' OR symbol ='$str3' OR";
                 }
                 if (!empty($_POST["search4"])) {
                         $searchString .= " CAST(atmweight as CHAR) LIKE '$str3%' OR";
                         $abundanceString .= " CAST(mass as CHAR) LIKE '$str3%' OR";
                 }
                 if (!empty($_POST["search5"])) {
-                        $searchString .= " groupnum = '$str4' OR";
+                        $searchString .= " groupnum = '$str5' OR";
                 }
                 if (!empty($_POST["formState"]) && $str5 != "Select...") {
                         $searchString .= " phase = '$str5' OR";
