@@ -273,9 +273,9 @@
 	}
 	
 	function molarmass(&$sth) {
+		echo "In molar mass";
 		$count = 1;
 		while($row = $sth->fetch()) {
-			$name[$count] = $row['name'];
 			$weight[$count] = $row['atmweight'];
 			$count++;	
 		}
