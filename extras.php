@@ -310,7 +310,10 @@
                 $abundanceString = "SELECT * FROM Abundance WHERE ";
 		    
 		//Initiate moles in case it isn't used
-		$q1 = $q2 = $q3 = $moles = 1;
+		$q1 = 1;
+	    	$q2 = 1;
+	    	$q3 = 1;
+	    	$moles = 1;
 
                 $str1 = $_POST["search1"];
                 $q1 = $_POST["q1"];
