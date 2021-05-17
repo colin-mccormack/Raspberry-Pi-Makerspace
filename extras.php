@@ -283,13 +283,16 @@
 		}
 	}
 	
-	function molarmass(&$sth, $moles) {
+	function molarmass(&$sth, $moles, $q1, $q2, $q3) {
                 $sumweight = 0;
+		$count = 0;
+		$quantity = array($q1, $q2, $q3);
 		//Create search results
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
                 $sth -> execute();
 		while($row = $sth->fetch()) {
-			$sumweight += $row['atmweight'];
+			$sumweight += $row['atmweight']*$quantity[count];
+			count++;
 		}
 		if ($moles != 1) {
 			$sumweight *= $moles;
@@ -327,6 +330,17 @@
                 $str5 = $_POST["formState"];
                 $str6 = $_POST["formOrder"];
                 $str7 = $_POST["formDirection"];
+		    
+	    	if (empty($_POST["q1"])) {
+			$q1 = 1;
+		}
+	    	if (empty($_POST["q2"])) {
+			$q2 = 1;
+		}
+	    	if (empty($_POST["q3"])) {
+			$q3 = 1;
+		}
+
 
                 if (!empty($_POST["search1"])) {
                         $searchString .= " name = '$str1' OR symbol ='$str1' OR";
@@ -395,7 +409,7 @@
          <?php
                 createtable();
                 elementsoutput($sth);
-		molarmass($sth, $moles);
+		molarmass($sth, $moles, $q1, $q2, $q3);
 
 
 		if ($_POST["wantprint"] == "y") {
