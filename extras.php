@@ -293,7 +293,7 @@
 
                 $con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'colin','lego');
 
-                $searchString = "SELECT name, symbol, atmnum, atmweight, melting, boiling, density, groupnum, configuration, ie, charge, valences, phase, ar, cr, ea, en, mv FROM Elements WHERE ";
+                $searchString = "SELECT name, symbol, atmnum,  atmweight , melting, boiling, density, groupnum, configuration, ie, charge, valences, phase, ar, cr, ea, en, mv FROM Elements WHERE ";
                 $searchStringEmpty = $searchString;
                 $abundanceString = "SELECT * FROM Abundance WHERE ";
 
