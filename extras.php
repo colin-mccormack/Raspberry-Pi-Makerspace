@@ -316,7 +316,6 @@
 		$q1 = 1;
 	    	$q2 = 1;
 	    	$q3 = 1;
-	    	$moles = 1;
 
                 $str1 = $_POST["search1"];
                 $q1 = $_POST["q1"];
@@ -339,6 +338,9 @@
 		}
 	    	if (empty($_POST["q3"])) {
 			$q3 = 1;
+		}
+	    	if (empty($_POST["moles"])) {
+			$moles = 1;
 		}
 
 
