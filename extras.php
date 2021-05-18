@@ -287,7 +287,7 @@
                 $sumweight = 0;
 		$count = 0;
 		
-		$quantity = array($q1, $q2, $q3);
+		/*$quantity = array($q1, $q2, $q3);
 		if ($q1 != 1 && $q2 != 1 && $q3 != 1) {
 			$quantity = array($q1, $q2, $q3);
 		}
@@ -311,21 +311,16 @@
 		}
 		esle {
 			echo "No quantity entrys detected.";
-		}
+		}*/
 
 		
 		//Create search results
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
                 $sth -> execute();
 		while($row = $sth->fetch()) {
-			if (isset($quantity[$count])) {
-				$sumweight += $row['atmweight']*$quantity[$count];
-			}
-			else {
-				$sumweight += $row['atmweight'];
-			}
-			$count++;
+			$sumweight += $row['atmweight'];
 		}
+		//	$count++;
 		if ($moles != 1) {
 			$sumweight *= $moles;
 			echo "The mass of $moles moles of the element(s) that you entered is " . $sumweight . "g.\n";
