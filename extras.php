@@ -310,7 +310,7 @@
 			$quantity = array(1, 1, $q3);
 		}
 		else {
-			echo "No quantity entrys detected.";
+			$quantity = array(1, 1, 1);
 		}
 
 		
