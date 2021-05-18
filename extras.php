@@ -249,8 +249,11 @@
 					}
 				}
 			}
+		reduceprint($charge);
 		}
-		
+	}
+
+	function reduceprint(&$charge) {
 		//Start naming string
 		$binarynaming = "The binary compound created by the elements you entered is ";
 		
