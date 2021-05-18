@@ -312,6 +312,7 @@
 		else {
 			$quantity = array(1, 1, 1);
 		}
+		echo $quantity;
 
 		
 		//Create search results
