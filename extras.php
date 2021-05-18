@@ -287,7 +287,7 @@
                 $sumweight = 0;
 		$count = 0;
 		
-		$quantity = array($q1, $q2, $q3);
+		/*$quantity = array($q1, $q2, $q3);
 		if ($q1 != 1 && $q2 != 1 && $q3 != 1) {
 			$quantity = array($q1, $q2, $q3);
 		}
@@ -311,16 +311,16 @@
 		}
 		else {
 			$quantity = array(1, 1, 1);
-		}
-		echo $quantity;
+		} */
 
 		
 		//Create search results
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
                 $sth -> execute();
 		while($row = $sth->fetch()) {
-			$sumweight += $row['atmweight']*$quantity[count];
-			$count++;
+			$sumweight += $row['atmweight'];
+				//*$quantity[count];
+			//$count++;
 		}
 		if ($moles != 1) {
 			$sumweight *= $moles;
