@@ -40,16 +40,22 @@
 				<tr valign="TOP">
 				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"> <label>Search By Element Name Or Symbol And Quantity:</label> </td>
 				    <td WIDTH="70%" align="LEFT" valign="TOP"><input type="text" name="search1"></td>
+				</tr>
+				<tr valign="TOP">
 				    <td WIDTH="5%" align="RIGHT" valign="TOP"><input type="text" name="q1"></td>
 			       </tr>
 				<tr valign="TOP">
 				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"> <label></label> </td>
 				    <td WIDTH="70%" align="LEFT" valign="TOP"><input type="text" name="search2"> </td>
+			       </tr>
+				<tr valign="TOP">
 				    <td WIDTH="5%" align="RIGHT" valign="TOP"><input type="text" name="q2"></td>
 			       </tr>
 				<tr valign="TOP">
 				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"> <label></label> </td>
 				    <td WIDTH="70%" align="LEFT" valign="TOP"><input type="text" name="search3"> </td>
+			       </tr>
+				<tr valign="TOP">
 				    <td WIDTH="5%" align="RIGHT" valign="TOP"><input type="text" name="q3"></td>
 			       </tr>
 				<tr valign="TOP">
