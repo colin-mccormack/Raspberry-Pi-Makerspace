@@ -286,12 +286,19 @@
 	function molarmass(&$sth, $moles, $q1, $q2, $q3) {
                 $sumweight = 0;
 		$count = 0;
+		
 		$quantity = array($q1, $q2, $q3);
+		
 		//Create search results
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
                 $sth -> execute();
 		while($row = $sth->fetch()) {
-			$sumweight += $row['atmweight']*$quantity[$count];
+			if (isset($quantity[$count])) {
+				$sumweight += $row['atmweight']*$quantity[$count];
+			}
+			else {
+				$sumweight += $row['atmweight'];
+			}
 			$count++;
 		}
 		if ($moles != 1) {
@@ -299,7 +306,7 @@
 			echo "The mass of $moles moles of the element(s) that you entered is " . $sumweight . "g.\n";
 		}
 		else {
-			echo "The sum of the two atomic weights is $sumweight.";
+			echo "The sum of the atomic weights is $sumweight.";
 		}
 	}
 		
