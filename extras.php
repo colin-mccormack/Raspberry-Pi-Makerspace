@@ -318,9 +318,9 @@
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
                 $sth -> execute();
 		while($row = $sth->fetch()) {
-			$sumweight += $row['atmweight'];
+			$sumweight += $row['atmweight']*$quantity[count];
+			$count++;
 		}
-		//	$count++;
 		if ($moles != 1) {
 			$sumweight *= $moles;
 			echo "The mass of $moles moles of the element(s) that you entered is " . $sumweight . "g.\n";
