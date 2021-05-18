@@ -287,11 +287,11 @@
                 $sumweight = 0;
 		$count = 0;
 		
-		/*$quantity = array($q1, $q2, $q3);
+		$quantity = array($q1, $q2, $q3);
 		if ($q1 != 1 && $q2 != 1 && $q3 != 1) {
 			$quantity = array($q1, $q2, $q3);
 		}
-		esleif ($q1 != 1 && $q2 != 1) {
+		elseif ($q1 != 1 && $q2 != 1) {
 			$quantity = array($q1, 1, $q2);
 		}
 		elseif ($q2 != 1 && $q3 != 1) {
@@ -309,9 +309,9 @@
 		elseif($q3 != 1) {
 			$quantity = array(1, 1, $q3);
 		}
-		esle {
+		else {
 			echo "No quantity entrys detected.";
-		}*/
+		}
 
 		
 		//Create search results
