@@ -338,13 +338,13 @@
                 $str7 = $_POST["formDirection"];
 		    
 	    	if (empty($_POST["q1"])) {
-			$q1 = 1;
+		//	$q1 = 1;
 		}
 	    	if (empty($_POST["q2"])) {
-			$q2 = 1;
+		//	$q2 = 1;
 		}
 	    	if (empty($_POST["q3"])) {
-			$q3 = 1;
+		//	$q3 = 1;
 		}
 	    	if (empty($_POST["moles"])) {
 			$moles = 1;
