@@ -302,17 +302,15 @@
 		}
 		elseif ($q1 != 1 && $q2 != 1) {
 			$quantity = array($q1, 1, $q2);
-						echo "All 2 set\n";
+			echo "All 2 set\n";
 		}
 		elseif ($q2 != 1 && $q3 != 1) {
 			$quantity = array(1, $q2, $q3);
-						echo "All 2 set\n";
-
+			echo "All 2 set\n";
 		}
 		elseif($q1 != 1 && $q3 != 1) {
 			$quantity = array($q1, 1, $q3);
-						echo "All 2 set\n";
-
+			echo "All 2 set\n";
 		}
 		elseif($q1 != 1) {
 			$quantity = array($q1, 1, 1);
@@ -325,7 +323,7 @@
 		}
 		else {
 			$quantity = array(1, 1, 1);
-						echo "0 / 3 set\n";
+			echo "0 / 3 set\n";
 
 		}
 
@@ -334,9 +332,8 @@
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
                 $sth -> execute();
 		while($row = $sth->fetch()) {
-			$sumweight += $row['atmweight'];
-				//*$quantity[count];
-			//$count++;
+			$sumweight += $row['atmweight']*$quantity[$count];
+			$count++;
 		}
 		if ($moles != 1) {
 			$sumweight *= $moles;
