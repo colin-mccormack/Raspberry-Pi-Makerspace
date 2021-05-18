@@ -287,7 +287,6 @@
                 $sumweight = 0;
 		$count = 0;
 		
-		$quantity = array($q1, $q2, $q3);
 		if ($q1 != 1 && $q2 != 1 && $q3 != 1) {
 			$quantity = array($q1, $q2, $q3);
 			echo "All 3 set\n";
