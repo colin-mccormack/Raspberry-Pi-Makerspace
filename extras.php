@@ -292,7 +292,7 @@
 		}
 	}
 	
-	function molarmass(&$sth, $moles, $q1, $q2, $q3) {
+	function molarmass(&$sth, $moles, $q1, $q2, $q3, &$tempname) {
                 $sumweight = 0;
 		$count = 0;
 		
@@ -335,8 +335,11 @@
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
                 $sth -> execute();
 		while($row = $sth->fetch()) {
-			echo "$quantity[$count] is currently being multiplied by " . $row['atmweight'] . "\n\n";
-			$sumweight += $row['atmweight']*$quantity[$count];
+			for ($innercount = 0; $innercount < 3; $innercount++) {
+				if ($row['name'] == $tempname[$innercount] || $row['symbol'] == $tempname[$innercount]) {
+					$sumweight += $row['atmweight']*$quantity[$innercount];
+				}
+			}
 			$count++;
 		}
 		if ($moles != 1) {
@@ -461,7 +464,7 @@
          <?php
                 createtable();
                 elementsoutput($sth);
-		molarmass($sth, $moles, $q1, $q2, $q3);
+		molarmass($sth, $moles, $q1, $q2, $q3, $tempname);
 
 
 		if ($_POST["wantprint"] == "y") {
