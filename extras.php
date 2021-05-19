@@ -302,15 +302,15 @@
 		}
 		elseif ($q1 != 1 && $q2 != 1) {
 			$quantity = array($q1, $q2, 1);
-			echo "All 2 set\n";
+			echo "1-2 set\n";
 		}
 		elseif ($q2 != 1 && $q3 != 1) {
 			$quantity = array(1, $q2, $q3);
-			echo "All 2 set\n";
+			echo "2-3 set\n";
 		}
 		elseif($q1 != 1 && $q3 != 1) {
 			$quantity = array($q1, 1, $q3);
-			echo "All 2 set\n";
+			echo "1-3 set\n";
 		}
 		elseif($q1 != 1) {
 			$quantity = array($q1, 1, 1);
