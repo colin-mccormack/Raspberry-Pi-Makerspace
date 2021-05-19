@@ -323,7 +323,7 @@
 		}
 		else {
 			$quantity = array(1, 1, 1);
-			echo "0 / 3 set\n";
+			echo "0 set\n";
 
 		}
 
@@ -332,6 +332,7 @@
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
                 $sth -> execute();
 		while($row = $sth->fetch()) {
+			echo "$quantity[$count] is currently being multiplied by $row['atmweight']\n\n";
 			$sumweight += $row['atmweight']*$quantity[$count];
 			$count++;
 		}
