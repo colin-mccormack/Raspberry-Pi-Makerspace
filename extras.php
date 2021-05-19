@@ -249,11 +249,11 @@
 					}
 				}
 			}
-		//reduceprint($charge, $groupnum, $name);
+		reduceprint($charge, $groupnum, $name);
 		}
 	}
 
-	/*function reduceprint(&$charge, &$groupnum, &$name) {
+	function reduceprint(&$charge, &$groupnum, &$name) {
 		//Start naming string
 		$binarynaming = "The binary compound created by the elements you entered is ";
 		
@@ -290,7 +290,7 @@
 		else {
 			echo "\nError : No compound...";
 		}
-	}*/
+	}
 	
 	function molarmass(&$sth, $moles, $q1, $q2, $q3) {
                 $sumweight = 0;
