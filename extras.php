@@ -332,7 +332,7 @@
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
                 $sth -> execute();
 		while($row = $sth->fetch()) {
-			echo "$quantity[$count] is currently being multiplied by $row['atmweight']\n\n";
+			echo "$quantity[$count] is currently being multiplied by " . $row['atmweight'] . "\n\n";
 			$sumweight += $row['atmweight']*$quantity[$count];
 			$count++;
 		}
