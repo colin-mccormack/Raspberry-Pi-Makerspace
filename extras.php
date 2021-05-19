@@ -329,6 +329,9 @@
 
 		
 		//Create search results
+		
+		//Bug : If you don't enter the elements in order the prgram simply multiplies the number of that elements order of finding 
+		//Ex. If user enters He x 2 and H x 1 it will give the sum of molar mass as 6 (2H, 1He)
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
                 $sth -> execute();
 		while($row = $sth->fetch()) {
@@ -386,16 +389,21 @@
 		}
 
 
-                if (!empty($_POST["search1"])) {
+                $tempname = array(NULL,NULL,NULL);
+			
+	    	if (!empty($_POST["search1"])) {
                         $searchString .= " name = '$str1' OR symbol ='$str1' OR";
+			$tempname[0] = $str1;
                         $abundanceString .= " name = '$str1' OR symbol ='$str1' OR";
                 }
                 if (!empty($_POST["search2"])) {
                         $searchString .= " name = '$str2' OR symbol ='$str2' OR";
+			$tempname[1] = $str2;
                         $abundanceString .= " name = '$str2' OR symbol ='$str2' OR";
                 }
                 if (!empty($_POST["search3"])) {
                         $searchString .= " name = '$str3' OR symbol ='$str3' OR";
+			$tempname[2] = $str3;
                         $abundanceString .= " name = '$str3' OR symbol ='$str3' OR";
                 }
                 if (!empty($_POST["search4"])) {
