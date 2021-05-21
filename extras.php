@@ -337,7 +337,7 @@
 		while($row = $sth->fetch()) {
 			for ($innercount = 0; $innercount < 3; $innercount++) {
 				if ($row['name'] == $tempname[$innercount] || $row['symbol'] == $tempname[$innercount]) {
-					echo $row['name']$row['symbol'] . "is array value ". $tempname[$innercount];
+					echo "Inside loop " . $row['name']$row['symbol'] . "is array value ". $tempname[$innercount];
 					$sumweight += $row['atmweight']*$quantity[$innercount];
 				}
 			}
