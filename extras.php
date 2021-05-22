@@ -160,7 +160,7 @@
 
                 while($row = $sth->fetch()) {
                         $en[$count] = $row['en'];		
-			if (empty($en[2])) {
+			if (empty($en[3])) {
 				if (isset($en[$count]) && isset($en[$count2])) {
 					if ($en[$count] > $en[$count2]) {
 						$diff = $en[$count] - $en[$count2];
