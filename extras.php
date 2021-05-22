@@ -226,7 +226,6 @@
         }
 	
 	function compound(&$sth){
-		echo "\nIn compound.\n";
 		$count = 1;
 		while($row = $sth->fetch()) {
 			$name[$count] = $row['name'];
@@ -235,27 +234,32 @@
 			$count++;	
 		}
 		
-		//Reduce like terms
-		if (isset($charge[1]) && isset($charge[2])) {
-			if ($charge[1] != $charge[2] && $charge[1] != 0 && $charge[2] != 0){
-				if ($charge[1] > $charge[2]) {
-					if ($charge[1] % $charge[2] == 0) {
-						$charge[1] = $charge[1]/$charge[2];
+		//This simply checks if there are 3 elemetns entired beccause if so it won't be a binary compound and no reducing can be done
+		if (empty($name[2])) {
+		
+			//Reduce like terms
+			if (isset($charge[1]) && isset($charge[2])) {
+				if ($charge[1] != $charge[2] && $charge[1] != 0 && $charge[2] != 0){
+					if ($charge[1] > $charge[2]) {
+						if ($charge[1] % $charge[2] == 0) {
+							$charge[1] = $charge[1]/$charge[2];
+						}
+					}
+					else {
+						if ($charge[2] % $charge[1] == 0) {
+							$charge[2] = $charge[2]/$charge[1];
+						}
 					}
 				}
-				else {
-					if ($charge[2] % $charge[1] == 0) {
-						$charge[2] = $charge[2]/$charge[1];
-					}
-				}
+			//Call reduction function before exiting
+			reduceprint($charge, $groupnum, $name);
 			}
-		reduceprint($charge, $groupnum, $name);
 		}
 	}
 
 	function reduceprint(&$charge, &$groupnum, &$name) {
 		//Start naming string
-		$binarynaming = "The binary compound created by the elements you entered is ";
+		$binarynaming = "The binary compound created by the elements will reduce to ";
 		
 		
 		if ($groupnum[1] < $groupnum[2]) {
@@ -263,22 +267,22 @@
 			if ($charge[2] != 0) {
 				$binarynaming .= "$charge[2] "; 
 			}
-			$binarynaming .= "$name[2]";
+			$binarynaming .= "  $name[2]";
 			if ($charge[1] != 0) {
-				$binarynaming .= "$charge[1]"; 
+				$binarynaming .= "$charge[1] "; 
 			}
 			$binarynaming = substr($binarynaming, 0, -3);
 			$binarynaming .= "ide";
-			echo "$binarynaming$charge[1].\n";
+			echo "$binarynaming.\n";
 		}
 		elseif ($groupnum[1] > $groupnum[2]) {
 			$binarynaming .= " $name[2]";
 			if ($charge[1] != 0) {
-				$binarynaming .= " $charge[1] "; 
+				$binarynaming .= "$charge[1] "; 
 			}
 			$binarynaming .= "$name[1]";
 			if ($charge[2] != 0) {
-				$binarynaming .= " $charge[2]"; 
+				$binarynaming .= "$charge[2] "; 
 			}
 			$binarynaming = substr($binarynaming, 0, -3);
 			$binarynaming .= "ide";
@@ -298,19 +302,15 @@
 		
 		if ($q1 != 1 && $q2 != 1 && $q3 != 1) {
 			$quantity = array($q1, $q2, $q3);
-			echo "All 3 set\n";
 		}
 		elseif ($q1 != 1 && $q2 != 1) {
 			$quantity = array($q1, $q2, 1);
-			echo "1-2 set\n";
 		}
 		elseif ($q2 != 1 && $q3 != 1) {
 			$quantity = array(1, $q2, $q3);
-			echo "2-3 set\n";
 		}
 		elseif($q1 != 1 && $q3 != 1) {
 			$quantity = array($q1, 1, $q3);
-			echo "1-3 set\n";
 		}
 		elseif($q1 != 1) {
 			$quantity = array($q1, 1, 1);
@@ -323,21 +323,15 @@
 		}
 		else {
 			$quantity = array(1, 1, 1);
-			echo "0 set\n";
-
 		}
 
 		
 		//Create search results
-		
-		//Bug : If you don't enter the elements in order the prgram simply multiplies the number of that elements order of finding 
-		//Ex. If user enters He x 2 and H x 1 it will give the sum of molar mass as 6 (2H, 1He)
 		$sth->setFetchMode(PDO:: FETCH_ASSOC);
                 $sth -> execute();
 		while($row = $sth->fetch()) {
 			for ($innercount = 0; $innercount < 3; $innercount++) {
 				if ($row['name'] == $tempname[$innercount] || $row['symbol'] == $tempname[$innercount]) {
-					print ("\nInside loop " . $row['name'] . " is array value $tempname[$innercount] * $quantity[$innercount]. \n\n");
 					$sumweight += $row['atmweight']*$quantity[$innercount];
 				}
 			}
