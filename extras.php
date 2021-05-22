@@ -237,7 +237,7 @@
 		}
 		
 		//This simply checks if there are 3 elemetns entired beccause if so it won't be a binary compound and no reducing can be done
-		if (empty($name[2])) {
+		if (empty($name[3])) {
 		
 			//Reduce like terms
 			if (isset($charge[1]) && isset($charge[2])) {
