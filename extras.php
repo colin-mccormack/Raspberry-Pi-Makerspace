@@ -266,28 +266,29 @@
 		
 		if ($groupnum[1] < $groupnum[2]) {
 			$binarynaming .= "$name[1]";
-			if ($charge[2] != 0) {
+			if ($charge[2] != 0 && $charge[2] != 1) {
 				$binarynaming .= "$charge[2] "; 
 			}
 			$binarynaming .= "  $name[2]";
-			if ($charge[1] != 0) {
+			$binarynaming = substr($binarynaming, 0, -3);
+			$binarynaming .= "ide";	
+			if ($charge[1] != 0 && $charge[1] != 1) {
 				$binarynaming .= "$charge[1] "; 
 			}
-			$binarynaming = substr($binarynaming, 0, -3);
-			$binarynaming .= "ide";
+
 			echo "$binarynaming.\n";
 		}
 		elseif ($groupnum[1] > $groupnum[2]) {
 			$binarynaming .= " $name[2]";
-			if ($charge[1] != 0) {
+			if ($charge[1] != 0 && $charge[1] != 1) {
 				$binarynaming .= "$charge[1] "; 
 			}
 			$binarynaming .= "$name[1]";
-			if ($charge[2] != 0) {
-				$binarynaming .= "$charge[2] "; 
-			}
 			$binarynaming = substr($binarynaming, 0, -3);
 			$binarynaming .= "ide";
+			if ($charge[2] != 0 && $charge[2] != 1) {
+				$binarynaming .= "$charge[2] "; 
+			}
 			echo "$binarynaming.\n";
 		}
 		elseif ($groupnum[1] == $groupnum[2]) {
