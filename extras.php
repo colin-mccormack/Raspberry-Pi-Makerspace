@@ -241,6 +241,10 @@
 		
 			//Reduce like terms
 			if (isset($charge[1]) && isset($charge[2])) {
+				if ($charge[1] == $charge[2]) {
+					$charge[1] = 0;
+					$charge[2] = 0;
+				}
 				if ($charge[1] != $charge[2] && $charge[1] != 0 && $charge[2] != 0){
 					if ($charge[1] > $charge[2]) {
 						if ($charge[1] % $charge[2] == 0) {
