@@ -155,7 +155,8 @@
         function enoutput(&$sth){
                 $sth->setFetchMode(PDO:: FETCH_ASSOC);
                 $sth -> execute();
-                $count = 1;
+                //Set each variable(count1 is +1 so that their is a comparion and both will be incremented equally)
+		$count = 1;
                 $count2 = 0;
 
                 while($row = $sth->fetch()) {
