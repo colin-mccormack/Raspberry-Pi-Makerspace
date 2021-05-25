@@ -357,7 +357,7 @@
 
             if (null!==("submit")) {
 
-                $con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'colin','lego');
+                $con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
 
                 $searchString = "SELECT * FROM Elements WHERE ";
                 $searchStringEmpty = $searchString;
