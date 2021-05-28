@@ -5,13 +5,6 @@
 	<head>
 		<title>Extras</title>
 		<link href="style.css" rel="stylesheet" type="text/css">
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-
-			gtag('config', 'G-Z30TWKV0GY');
-		</script>
 	</head>
 	
 	<body>
@@ -96,9 +89,11 @@
 	</form>
 
 <?php
-        function createtable(){
-
-
+        
+	class elements {
+		
+		function createtable(){
+			//Create headings for output
                       print("<br><br><br>");
                       print("<table>");
                       print("<tr>");
@@ -121,36 +116,34 @@
                       print("<th>Electronegativity</th>");
                       print("<th>Molar Volume</th>");
                       print("</tr>");
-        }
+        	}
 
-        function elementsoutput(&$sth){
-
-                while($row = $sth->fetch())
-                    {
-                              print("<tr>");
-                              print("<td>" . $row['name'] . "</td>");
-                              print("<td>" . $row['symbol'] ."</td>");
-                              print("<td>" . $row['atmnum'] ."</td>");
-                              print("<td>" . $row['atmweight'] . "</td>");
-                              print("<td>" . $row['melting'] . "</td>");
-                              print("<td>" . $row['boiling'] . "</td>");
-                              print("<td>" . $row['density'] . "</td>");
-                              print("<td>" . $row['groupnum'] ."</td>");
-                              print("<td>" . $row['configuration'] ."</td>");
-                              print("<td>" . $row['ie'] . "</td>");
-                              print("<td>" . $row['charge'] . "</td>");
-                              print("<td>" . $row['valences'] . "</td>");
-                              print("<td>" . $row['phase'] . "</td>");
-                              print("<td>" . $row['ar'] ."</td>");
-                              print("<td>" . $row['cr'] ."</td>");
-                              print("<td>" . $row['ea'] . "</td>");
-                              print("<td>" . $row['en'] . "</td>");
-                              print("<td>" . $row['mv'] . "</td>");
-                              print("</tr>");
-                        }
-
-
-        }
+        	function elementsoutput(&$sth){
+		//Print elements to the screen in looped array under titles
+			while($row = $sth->fetch())  {
+			      print("<tr>");
+			      print("<td>" . $row['name'] . "</td>");
+			      print("<td>" . $row['symbol'] ."</td>");
+			      print("<td>" . $row['atmnum'] ."</td>");
+			      print("<td>" . $row['atmweight'] . "</td>");
+			      print("<td>" . $row['melting'] . "</td>");
+			      print("<td>" . $row['boiling'] . "</td>");
+			      print("<td>" . $row['density'] . "</td>");
+			      print("<td>" . $row['groupnum'] ."</td>");
+			      print("<td>" . $row['configuration'] ."</td>");
+			      print("<td>" . $row['ie'] . "</td>");
+			      print("<td>" . $row['charge'] . "</td>");
+			      print("<td>" . $row['valences'] . "</td>");
+			      print("<td>" . $row['phase'] . "</td>");
+			      print("<td>" . $row['ar'] ."</td>");
+			      print("<td>" . $row['cr'] ."</td>");
+			      print("<td>" . $row['ea'] . "</td>");
+			      print("<td>" . $row['en'] . "</td>");
+			      print("<td>" . $row['mv'] . "</td>");
+			      print("</tr>");
+			}
+		}
+	}
 
         function enoutput(&$sth){
                 $sth->setFetchMode(PDO:: FETCH_ASSOC);
