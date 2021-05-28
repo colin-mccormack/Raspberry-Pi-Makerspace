@@ -92,9 +92,6 @@
         
 	class elements {
 		
-		$sth->setFetchMode(PDO:: FETCH_ASSOC);
-                $sth -> execute();
-		
 		public function createtable(){
 			//Create headings for output
                       print("<br><br><br>");
@@ -447,12 +444,7 @@
 			else {
                                 $searchString .= " ORDER BY CAST($str6 AS UNSIGNED) DESC";
 			}
-                }
-		    
-                //Preparing default search
-                $sth = $con->prepare("$searchString");
-                $sth->setFetchMode(PDO:: FETCH_ASSOC);
-                $sth -> execute();
+                }		    
 
         ?>
 
@@ -461,7 +453,12 @@
                 <h2>Information on Elements</h2>
 
          <?php
-                createtable();
+                //Preparing default search
+                $sth = $con->prepare("$searchString");
+                $sth->setFetchMode(PDO:: FETCH_ASSOC);
+                $sth -> execute();
+		    
+	    	createtable();
                 elementsoutput($sth);
 		molarmass($sth, $moles, $q1, $q2, $q3, $tempname);
 
