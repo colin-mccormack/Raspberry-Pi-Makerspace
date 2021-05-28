@@ -92,7 +92,10 @@
         
 	class elements {
 		
-		function createtable(){
+		$sth->setFetchMode(PDO:: FETCH_ASSOC);
+                $sth -> execute();
+		
+		public function createtable(){
 			//Create headings for output
                       print("<br><br><br>");
                       print("<table>");
@@ -118,7 +121,7 @@
                       print("</tr>");
         	}
 
-        	function elementsoutput(&$sth){
+        	public function elementsoutput(){
 		//Print elements to the screen in looped array under titles
 			while($row = $sth->fetch())  {
 			      print("<tr>");
