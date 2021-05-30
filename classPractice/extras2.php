@@ -92,6 +92,14 @@
         
 	class elements {
 		
+		var $sth;
+		
+		public function searchBuild($searchString) {
+			$sth = $con->prepare("$searchString");
+			$sth->setFetchMode(PDO:: FETCH_ASSOC);
+                	$sth -> execute();
+		}
+		
 		public function createtable(){
 			//Create headings for output
                       print("<br><br><br>");
@@ -454,12 +462,8 @@
 
          <?php
                 //Preparing default search
-                $sth = $con->prepare("$searchString");
-                $sth->setFetchMode(PDO:: FETCH_ASSOC);
-                $sth -> execute();
 		    
-	    	createtable();
-                elementsoutput($sth);
+	    	new elements searchbuild($searchString) createtable() elementsoutput($sth);
 		molarmass($sth, $moles, $q1, $q2, $q3, $tempname);
 
 
