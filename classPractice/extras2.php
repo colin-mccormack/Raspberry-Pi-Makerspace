@@ -92,75 +92,97 @@
         
 	class elements {
 		
-		var $sth;
+		public $mysqlSearch;
 		
 		public function searchBuild($searchString) {
-			$sth = $con->prepare("$searchString");
-			$sth->setFetchMode(PDO:: FETCH_ASSOC);
-                	$sth -> execute();
+			$mysqlSearch = $con->prepare("$searchString");
+			$mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
+                	$mysqlSearch -> execute();
 		}
 		
 		public function createtable(){
 			//Create headings for output
                       print("<br><br><br>");
                       print("<table>");
-                      print("<tr>");
-                      print("<th>Name</th>");
-                      print("<th>Symbol</th>");
-                      print("<th>Atomic Number</th>");
-                      print("<th>Atomic Weight</th>");
-                      print("<th>Melting Point (Degrees Celsius)</th>");
-                      print("<th>Boiling Point (Degrees Celsius)</th>");
-                      print("<th>Density (g/cm3)</th>");
-                      print("<th>Group Number</th>");
-                      print("<th>Configuration</th>");
-                      print("<th>Ionization Energy (eV)</th>");
-                      print("<th>Charges</th>");
-                      print("<th>Multivalent</th>");
-                      print("<th>Phase (State)</th>");
-                      print("<th>Atomic Radius</th>");
-                      print("<th>Covalent Radius</th>");
-                      print("<th>Electron Affinity</th>");
-                      print("<th>Electronegativity</th>");
-                      print("<th>Molar Volume</th>");
-                      print("</tr>");
-        	}
-
-        	public function elementsoutput(){
-		//Print elements to the screen in looped array under titles
-			while($row = $sth->fetch())  {
 			      print("<tr>");
-			      print("<td>" . $row['name'] . "</td>");
-			      print("<td>" . $row['symbol'] ."</td>");
-			      print("<td>" . $row['atmnum'] ."</td>");
-			      print("<td>" . $row['atmweight'] . "</td>");
-			      print("<td>" . $row['melting'] . "</td>");
-			      print("<td>" . $row['boiling'] . "</td>");
-			      print("<td>" . $row['density'] . "</td>");
-			      print("<td>" . $row['groupnum'] ."</td>");
-			      print("<td>" . $row['configuration'] ."</td>");
-			      print("<td>" . $row['ie'] . "</td>");
-			      print("<td>" . $row['charge'] . "</td>");
-			      print("<td>" . $row['valences'] . "</td>");
-			      print("<td>" . $row['phase'] . "</td>");
-			      print("<td>" . $row['ar'] ."</td>");
-			      print("<td>" . $row['cr'] ."</td>");
-			      print("<td>" . $row['ea'] . "</td>");
-			      print("<td>" . $row['en'] . "</td>");
-			      print("<td>" . $row['mv'] . "</td>");
+			      print("<th>Name</th>");
+			      print("<th>Symbol</th>");
+			      print("<th>Atomic Number</th>");
+			      print("<th>Atomic Weight</th>");
+			      print("<th>Melting Point (Degrees Celsius)</th>");
+			      print("<th>Boiling Point (Degrees Celsius)</th>");
+			      print("<th>Density (g/cm3)</th>");
+			      print("<th>Group Number</th>");
+			      print("<th>Configuration</th>");
+			      print("<th>Ionization Energy (eV)</th>");
+			      print("<th>Charges</th>");
+			      print("<th>Multivalent</th>");
+			      print("<th>Phase (State)</th>");
+			      print("<th>Atomic Radius</th>");
+			      print("<th>Covalent Radius</th>");
+			      print("<th>Electron Affinity</th>");
+			      print("<th>Electronegativity</th>");
+			      print("<th>Molar Volume</th>");
 			      print("</tr>");
 			}
-		}
-	}
 
-        function enoutput(&$sth){
-                $sth->setFetchMode(PDO:: FETCH_ASSOC);
-                $sth -> execute();
+			public function elementsoutput(){
+			//Print elements to the screen in looped array under titles
+				while($row = $mysqlSearch -> fetch())  {
+				      print("<tr>");
+				      print("<td>" . $row['name'] . "</td>");
+				      print("<td>" . $row['symbol'] ."</td>");
+				      print("<td>" . $row['atmnum'] ."</td>");
+				      print("<td>" . $row['atmweight'] . "</td>");
+				      print("<td>" . $row['melting'] . "</td>");
+				      print("<td>" . $row['boiling'] . "</td>");
+				      print("<td>" . $row['density'] . "</td>");
+				      print("<td>" . $row['groupnum'] ."</td>");
+				      print("<td>" . $row['configuration'] ."</td>");
+				      print("<td>" . $row['ie'] . "</td>");
+				      print("<td>" . $row['charge'] . "</td>");
+				      print("<td>" . $row['valences'] . "</td>");
+				      print("<td>" . $row['phase'] . "</td>");
+				      print("<td>" . $row['ar'] ."</td>");
+				      print("<td>" . $row['cr'] ."</td>");
+				      print("<td>" . $row['ea'] . "</td>");
+				      print("<td>" . $row['en'] . "</td>");
+				      print("<td>" . $row['mv'] . "</td>");
+				      print("</tr>");
+				}
+		      print("</table>");
+		}
+		
+		public function molarmass(&$moles, &$quantities, &$elementOFArr) {
+			$sumweight = 0;
+			$arrlength = count($quantities);
+			
+			while($row = $mysqlSearch->fetch()) {			
+				for ($i = 0; $i < $arrlength; $i++) {
+					for ($j = 0; $j < 3; $j++) {
+						if ($elementOFArr == $j) {
+							$sumweight += $row['atmweight']*$quantities[$j];
+						}
+					}
+				}
+			}
+			
+			if ($moles != 1) {
+				$sumweight *= $moles;
+				echo "The mass of $moles moles of the element(s) that you entered is " . $sumweight . "g.\n";
+			}
+			else {
+				echo "The sum of the atomic weights is $sumweight.";
+			}
+		}
+		
+		public function enoutput(){
+  
                 //Set each variable(count1 is +1 so that their is a comparion and both will be incremented equally)
 		$count = 1;
                 $count2 = 0;
 
-                while($row = $sth->fetch()) {
+                while($row = $mysqlSearch->fetch()) {
                         $en[$count] = $row['en'];		
 			if (empty($en[3])) {
 				if (isset($en[$count]) && isset($en[$count2])) {
@@ -195,12 +217,10 @@
 					}
 				}
 			}
-                $count++;
-                $count2++;
                 }
+	}
 
-
-        }
+        
 
         function createabundance(){
               print("<br><br><br>");
@@ -229,6 +249,7 @@
                     }
         }
 	
+	/*
 	function compound(&$sth){
 		$count = 1;
 		while($row = $sth->fetch()) {
@@ -303,57 +324,8 @@
 		else {
 			echo "\nError : No compound...";
 		}
-	}
+	} */
 	
-	function molarmass(&$sth, $moles, $q1, $q2, $q3, &$tempname) {
-                $sumweight = 0;
-		$count = 0;
-		
-		if ($q1 != 1 && $q2 != 1 && $q3 != 1) {
-			$quantity = array($q1, $q2, $q3);
-		}
-		elseif ($q1 != 1 && $q2 != 1) {
-			$quantity = array($q1, $q2, 1);
-		}
-		elseif ($q2 != 1 && $q3 != 1) {
-			$quantity = array(1, $q2, $q3);
-		}
-		elseif($q1 != 1 && $q3 != 1) {
-			$quantity = array($q1, 1, $q3);
-		}
-		elseif($q1 != 1) {
-			$quantity = array($q1, 1, 1);
-		}
-		elseif($q2 != 1) {
-			$quantity = array(1, $q2, 1);
-		}
-		elseif($q3 != 1) {
-			$quantity = array(1, 1, $q3);
-		}
-		else {
-			$quantity = array(1, 1, 1);
-		}
-
-		
-		//Create search results
-		$sth->setFetchMode(PDO:: FETCH_ASSOC);
-                $sth -> execute();
-		while($row = $sth->fetch()) {
-			for ($innercount = 0; $innercount < 3; $innercount++) {
-				if ($row['name'] == $tempname[$innercount] || $row['symbol'] == $tempname[$innercount]) {
-					$sumweight += $row['atmweight']*$quantity[$innercount];
-				}
-			}
-			$count++;
-		}
-		if ($moles != 1) {
-			$sumweight *= $moles;
-			echo "The mass of $moles moles of the element(s) that you entered is " . $sumweight . "g.\n";
-		}
-		else {
-			echo "The sum of the atomic weights is $sumweight.";
-		}
-	}
 		
 
             if (null!==("submit")) {
@@ -365,9 +337,6 @@
                 $abundanceString = "SELECT * FROM Abundance WHERE ";
 		    
 		//Initiate moles in case it isn't used
-		$q1 = 1;
-	    	$q2 = 1;
-	    	$q3 = 1;
 
                 $str1 = $_POST["search1"];
                 $q1 = $_POST["q1"];
@@ -381,37 +350,45 @@
                 $str5 = $_POST["formState"];
                 $str6 = $_POST["formOrder"];
                 $str7 = $_POST["formDirection"];
-		    
-	    	if (empty($_POST["moles"])) {
-			$moles = 1;
-		}
-	    	if (empty($_POST["q1"])) {
-			$q1 = 1;
-		}
-	    	if (empty($_POST["q2"])) {
-			$q2 = 1;
-		}
-	    	if (empty($_POST["q3"])) {
-			$q3 = 1;
-		}
 
-
-                $tempname = array(NULL,NULL,NULL);
+		//This may be depricated in this version of php
+                $qunatities = array();
+	    	$elementOFArr = array();
+		//$qunatities = [];
 			
 	    	if (!empty($_POST["search1"])) {
+			//Create search for either name or symbol in elements
                         $searchString .= " name = '$str1' OR symbol ='$str1' OR";
-			$tempname[0] = $str1;
+			if (!empty($_POST["q1"]) {
+				//Determine the length of the currently empty array [0]
+				$arrlength = count($qunatities);
+				//Set element 0 to quantity 1
+				$qunatities[$arrlength] =  $_POST["q1"];
+				//Determine the length of current counter
+				$arrlength = count($elementOFArr);
+				$elementOFArr[$arrlength] = 1;
+			}
                         $abundanceString .= " name = '$str1' OR symbol ='$str1' OR";
                 }
                 if (!empty($_POST["search2"])) {
                         $searchString .= " name = '$str2' OR symbol ='$str2' OR";
-			$tempname[1] = $str2;
-                        $abundanceString .= " name = '$str2' OR symbol ='$str2' OR";
+			if (!empty($_POST["q2"]) {
+				$arrlength = count($qunatities);
+				$qunatities[$arrlength] =  $_POST["q2"];
+				$arrlength = count($elementOFArr);
+				$elementOFArr[$arrlength] = 2;
+			}
+		    	$abundanceString .= " name = '$str2' OR symbol ='$str2' OR";
                 }
                 if (!empty($_POST["search3"])) {
                         $searchString .= " name = '$str3' OR symbol ='$str3' OR";
-			$tempname[2] = $str3;
-                        $abundanceString .= " name = '$str3' OR symbol ='$str3' OR";
+			if (!empty($_POST["q3"]) {
+				$arrlength = count($qunatities);
+				$qunatities[$arrlength] =  $_POST["q3"];
+				$arrlength = count($elementOFArr);
+				$elementOFArr[$arrlength] = 3;
+			}
+		    $abundanceString .= " name = '$str3' OR symbol ='$str3' OR";
                 }
                 if (!empty($_POST["search4"])) {
                         $searchString .= " CAST(atmweight as CHAR) LIKE '$str3%' OR";
@@ -463,8 +440,13 @@
          <?php
                 //Preparing default search
 		    
-	    	new elements searchbuild($searchString) createtable() elementsoutput($sth);
-		molarmass($sth, $moles, $q1, $q2, $q3, $tempname);
+	    	$elementSearch = new elements();
+		$elementSearch -> searchbuild($searchString);
+	    	$elementSearch -> createtable();
+	    	$elementSearch -> elementsoutput();
+		 
+	    	//Use moles and quantities of each to output atomic weight
+		$elementSearch -> moles($moles, $qunatities, $elementOFArr);
 
 
 		if ($_POST["wantprint"] == "y") {
@@ -474,15 +456,15 @@
                		$sth -> execute();
 			enoutput($sth);
 		}
-                print("</table>");
 		    
+		/* This 
 		if (isset($str1) && isset($str2)) {
 			$compoundsearchString = "SELECT * FROM Charges WHERE name = '$str1' OR symbol = '$str1' OR name = '$str2' OR symbol = '$str2'";
 		        $sth = $con->prepare("$compoundsearchString");
                 	$sth->setFetchMode(PDO:: FETCH_ASSOC);
                 	$sth -> execute();
 			compound($sth);
-		}
+		} */
 
                 $abundanceString = substr($abundanceString, 0, -3);
                 $sth = $con->prepare("$abundanceString");
