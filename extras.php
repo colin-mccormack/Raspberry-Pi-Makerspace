@@ -93,7 +93,7 @@
 
 	class elements {
 		
-		public $searchString = '';
+		public $searchString = "Select * From Elements;";
 		public $mysqlSearch = "Select * From Elements;";
 		public $searchBuild = "False";
 		private $con;
