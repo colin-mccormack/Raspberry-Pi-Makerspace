@@ -100,10 +100,13 @@
 			$this -> mysqlSearch = $mysqlSearch;               
 		}
 				
-		$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
-		$mysqlSearch = $con->prepare("$searchString");
-		$mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
-		$mysqlSearch -> execute();
+		private function writeOut() {
+			$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
+			$mysqlSearch = $con->prepare("$searchString");
+			$mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
+			$mysqlSearch -> execute();
+			return $mysqlSearch;
+		}
 
 		
 		public function createtable(){
@@ -134,7 +137,8 @@
 
 			public function elementsoutput(){
 			//Print elements to the screen in looped array under titles
-				while($row = $mysqlSearch -> fetch())  {
+				$mysqlSearching = writeOut();
+				while($row = $mysqlSearching -> fetch())  {
 				      print("<tr>");
 				      print("<td>" . $row['name'] . "</td>");
 				      print("<td>" . $row['symbol'] ."</td>");
