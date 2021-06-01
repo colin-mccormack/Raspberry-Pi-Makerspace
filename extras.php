@@ -99,7 +99,7 @@
 			$this -> mysqlSearch = $searchString;               
 		}
 				
-		private function writeOut() {
+		public function writeOut() {
 			$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
 			$mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
 			$mysqlSearch -> execute();
