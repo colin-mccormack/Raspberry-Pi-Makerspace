@@ -362,7 +362,7 @@
 	    	if (!empty($_POST["search1"])) {
 			//Create search for either name or symbol in elements
                         $searchString .= " name = '$str1' OR symbol ='$str1' OR";
-			if (!empty($_POST["q1"]) {
+			if (!empty($_POST["q1"])) {
 				//Determine the length of the currently empty array [0]
 				$arrlength = count($qunatities);
 				//Set element 0 to quantity 1
