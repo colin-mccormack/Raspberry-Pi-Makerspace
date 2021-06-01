@@ -93,7 +93,7 @@
 
 	class elements {
 		
-		public $mysqlSearch;
+		public $mysqlSearch = '';
 		private $searchBuild;
 		private $con;
 		
