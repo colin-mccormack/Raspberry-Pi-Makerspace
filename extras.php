@@ -254,7 +254,7 @@
         }
 	
 	
-	function compound(&$sth){
+	/*function compound(&$sth){
 		$count = 1;
 		while($row = $sth->fetch()) {
 			$name[$count] = $row['name'];
@@ -328,8 +328,8 @@
 		else {
 			echo "\nError : No compound...";
 		}
-	} 
-	
+	} */
+	}
 		
 
             if (null!==("submit")) {
