@@ -97,7 +97,7 @@
 		var $con;
 
 		public function __construct($mysqlSearch) {
-			$this- > mysqlSearch = $mysqlSearch;               
+			$this -> mysqlSearch = $mysqlSearch;               
 		}
 				
 		$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
