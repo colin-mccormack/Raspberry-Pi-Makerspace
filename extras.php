@@ -253,7 +253,7 @@
 		print("</table>");
         }
 	
-	/*
+	
 	function compound(&$sth){
 		$count = 1;
 		while($row = $sth->fetch()) {
@@ -328,7 +328,7 @@
 		else {
 			echo "\nError : No compound...";
 		}
-	} */
+	} 
 	
 		
 
