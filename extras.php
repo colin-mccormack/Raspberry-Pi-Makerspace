@@ -222,7 +222,7 @@
 
         
 
-        function createabundance(){
+        function createabundance() {
               print("<br><br><br>");
               print("<table>");
               print("<tr>");
@@ -247,6 +247,7 @@
                       print("<td>" . $row['abundance'] . "</td>");
                       print("</tr>");
                     }
+		print("</table>");
         }
 	
 	/*
@@ -479,15 +480,12 @@
                 <?php
                 createabundance();
                 abundanceoutput($sth);
-                print("</table>");
 
             }
-
-              else
-                {
-                        echo "Error : You need to fill in a feild";
-                }
-
+	      else
+		{
+			echo "Error : You need to fill in a feild";
+		}
 	?>
 	</CENTER>
   </body>
