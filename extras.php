@@ -128,35 +128,35 @@
 			      print("</tr>");
 			}
 
-			public function elementsoutput(){
-			//Print elements to the screen in looped array under titles
-				$mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
-				$mysqlSearch -> execute();
-				$searchBuild = "True";
-				
-				while($row = $mysqlSearching -> fetch())  {
-				      print("<tr>");
-				      print("<td>" . $row['name'] . "</td>");
-				      print("<td>" . $row['symbol'] ."</td>");
-				      print("<td>" . $row['atmnum'] ."</td>");
-				      print("<td>" . $row['atmweight'] . "</td>");
-				      print("<td>" . $row['melting'] . "</td>");
-				      print("<td>" . $row['boiling'] . "</td>");
-				      print("<td>" . $row['density'] . "</td>");
-				      print("<td>" . $row['groupnum'] ."</td>");
-				      print("<td>" . $row['configuration'] ."</td>");
-				      print("<td>" . $row['ie'] . "</td>");
-				      print("<td>" . $row['charge'] . "</td>");
-				      print("<td>" . $row['valences'] . "</td>");
-				      print("<td>" . $row['phase'] . "</td>");
-				      print("<td>" . $row['ar'] ."</td>");
-				      print("<td>" . $row['cr'] ."</td>");
-				      print("<td>" . $row['ea'] . "</td>");
-				      print("<td>" . $row['en'] . "</td>");
-				      print("<td>" . $row['mv'] . "</td>");
-				      print("</tr>");
-				}
-		      print("</table>");
+		public function elementsoutput(){
+		//Print elements to the screen in looped array under titles
+			$mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
+			$mysqlSearch -> execute();
+			$searchBuild = "True";
+
+			while($row = $mysqlSearching -> fetch())  {
+			      print("<tr>");
+			      print("<td>" . $row['name'] . "</td>");
+			      print("<td>" . $row['symbol'] ."</td>");
+			      print("<td>" . $row['atmnum'] ."</td>");
+			      print("<td>" . $row['atmweight'] . "</td>");
+			      print("<td>" . $row['melting'] . "</td>");
+			      print("<td>" . $row['boiling'] . "</td>");
+			      print("<td>" . $row['density'] . "</td>");
+			      print("<td>" . $row['groupnum'] ."</td>");
+			      print("<td>" . $row['configuration'] ."</td>");
+			      print("<td>" . $row['ie'] . "</td>");
+			      print("<td>" . $row['charge'] . "</td>");
+			      print("<td>" . $row['valences'] . "</td>");
+			      print("<td>" . $row['phase'] . "</td>");
+			      print("<td>" . $row['ar'] ."</td>");
+			      print("<td>" . $row['cr'] ."</td>");
+			      print("<td>" . $row['ea'] . "</td>");
+			      print("<td>" . $row['en'] . "</td>");
+			      print("<td>" . $row['mv'] . "</td>");
+			      print("</tr>");
+			}
+		print("</table>");
 		}
 		
 		public function molarmass(&$moles, &$quantities, &$elementOFArr) {
@@ -180,6 +180,7 @@
 				else {
 					echo "The sum of the atomic weights is $sumweight.";
 				}
+			}
 		}
 		
 		public function enoutput(){
