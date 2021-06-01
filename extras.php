@@ -181,46 +181,47 @@
 		
 		public function enoutput(){
   
-                //Set each variable(count1 is +1 so that their is a comparion and both will be incremented equally)
-		$count = 1;
-                $count2 = 0;
+			//Set each variable(count1 is +1 so that their is a comparion and both will be incremented equally)
+			$count = 1;
+			$count2 = 0;
 
-                while($row = $mysqlSearch->fetch()) {
-                        $en[$count] = $row['en'];		
-			if (empty($en[3])) {
-				if (isset($en[$count]) && isset($en[$count2])) {
-					if ($en[$count] > $en[$count2]) {
-						$diff = $en[$count] - $en[$count2];
-						if ($diff<0.4) {
-							print("\nThe bond is nonpolar and covalent.");
+			while($row = $mysqlSearch->fetch()) {
+				$en[$count] = $row['en'];		
+				if (empty($en[3])) {
+					if (isset($en[$count]) && isset($en[$count2])) {
+						if ($en[$count] > $en[$count2]) {
+							$diff = $en[$count] - $en[$count2];
+							if ($diff<0.4) {
+								print("\nThe bond is nonpolar and covalent.");
+							}
+							elseif($diff<1.7) {
+								print("\nThe bond is polar and covalent.");
+							}
+							else {
+								print("\nThe bond is Ionic.");
+							}
+							print("\nThe electronegativity difference is $en[$count] - $en[$count2] = $diff.\n");
 						}
-						elseif($diff<1.7) {
-							print("\nThe bond is polar and covalent.");
+						elseif ($en[$count] < $en[$count2]) {
+							$diff = $en[$count2] - $en[$count];
+							if ($diff<0.4) {
+								print("\nThe bond is nonpolar and covalent.");
+							}
+							elseif($diff<1.7) {
+								print("\nThe bond is polar and covalent.");
+							}
+							else {
+								print("\nThe bond is Ionic.");
+							}
+							print("\nThe electronegativity difference is $en[$count2] - $en[$count] = $diff.\n");
 						}
 						else {
-							print("\nThe bond is Ionic.");
+							echo "No comparison possible.\n";
 						}
-						print("\nThe electronegativity difference is $en[$count] - $en[$count2] = $diff.\n");
-					}
-					elseif ($en[$count] < $en[$count2]) {
-						$diff = $en[$count2] - $en[$count];
-						if ($diff<0.4) {
-							print("\nThe bond is nonpolar and covalent.");
-						}
-						elseif($diff<1.7) {
-							print("\nThe bond is polar and covalent.");
-						}
-						else {
-							print("\nThe bond is Ionic.");
-						}
-						print("\nThe electronegativity difference is $en[$count2] - $en[$count] = $diff.\n");
-					}
-					else {
-						echo "No comparison possible.\n";
 					}
 				}
 			}
-                }
+		}
 	}
 
         
@@ -329,7 +330,7 @@
 			echo "\nError : No compound...";
 		}
 	} */
-	}
+	
 		
 
             if (null!==("submit")) {
