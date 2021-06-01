@@ -93,13 +93,13 @@
 
 	class elements {
 		
-		public $mysqlSearchString = '';
+		public $searchString = '';
 		public $mysqlSearch = '';
 		private $searchBuild;
 		private $con;
 		
 		public function __construct($searchString) {
-			$this -> mysqlSearchString = $searchString;
+			$this -> searchString = $searchString;
 		}
 		
 		public function createtable(){
@@ -133,7 +133,7 @@
 			$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
 
 			//$this -> mysqlSearch = $mysqlSearch;
-			$mysqlSearch = $con->prepare("$mysqlSearchString");
+			$mysqlSearch = $con -> prepare("$searchString");
 
 			$this -> mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
 			$this -> mysqlSearch -> execute();
