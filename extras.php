@@ -95,7 +95,7 @@
 		
 		public $searchString = '';
 		public $mysqlSearch = '';
-		private $searchBuild = "False";
+		public $searchBuild = "False";
 		private $con;
 		
 		public function __construct($searchString) {
@@ -134,7 +134,7 @@
 			$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
 
 			//$this -> mysqlSearch = $mysqlSearch;
-			$mysqlSearch = $con -> prepare("$searchString");
+			$mysqlSearch = $con -> prepare($searchString);
 
 			$this -> mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
 			$this -> mysqlSearch -> execute();
