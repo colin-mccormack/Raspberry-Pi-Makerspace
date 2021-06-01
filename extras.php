@@ -99,7 +99,7 @@
 			$this -> mysqlSearch = $searchString;               
 		}
 				
-		public function writeOut() {
+		private function writeOut() {
 			$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
 			$mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
 			$mysqlSearch -> execute();
@@ -135,7 +135,7 @@
 
 			public function elementsoutput(){
 			//Print elements to the screen in looped array under titles
-				$mysqlSearching = writeOut();
+				$this -> writeOut() = $mysqlSearching;
 				while($row = $mysqlSearching -> fetch())  {
 				      print("<tr>");
 				      print("<td>" . $row['name'] . "</td>");
