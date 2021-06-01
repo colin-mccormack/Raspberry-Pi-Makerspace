@@ -100,7 +100,7 @@
 			$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
 			$mysqlSearch = $con->prepare("$searchString");
 			$mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
-                	$mysqlSearch -> execute();
+                	public $mysqlSearch -> execute();
 		}
 		
 		public function createtable(){
