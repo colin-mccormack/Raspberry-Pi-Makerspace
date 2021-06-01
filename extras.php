@@ -375,7 +375,7 @@
                 }
                 if (!empty($_POST["search2"])) {
                         $searchString .= " name = '$str2' OR symbol ='$str2' OR";
-			if (!empty($_POST["q2"]) {
+			if (!empty($_POST["q2"])) {
 				$arrlength = count($qunatities);
 				$qunatities[$arrlength] =  $_POST["q2"];
 				$arrlength = count($elementOFArr);
@@ -385,7 +385,7 @@
                 }
                 if (!empty($_POST["search3"])) {
                         $searchString .= " name = '$str3' OR symbol ='$str3' OR";
-			if (!empty($_POST["q3"]) {
+			if (!empty($_POST["q3"])) {
 				$arrlength = count($qunatities);
 				$qunatities[$arrlength] =  $_POST["q3"];
 				$arrlength = count($elementOFArr);
