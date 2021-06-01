@@ -95,13 +95,10 @@
 		
 		public $mysqlSearch;
 
-		public function __construct($mysqlSearch)
-		{
+		public function __construct($mysqlSearch) {
 			$this->mysqlSearch = $mysqlSearch;               
 		}
-		
-		public $con;
-		
+				
 		$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
 		$mysqlSearch = $con->prepare("$searchString");
 		$mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
