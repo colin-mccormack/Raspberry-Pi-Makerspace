@@ -93,13 +93,12 @@
 
 	class elements {
 		
-		public $mysqlSearch;
-		public $searchBuild;
-		public $con;
+		private $mysqlSearch;
+		private $searchBuild;
+		private $con;
 		
-		public function getString($searchString) {
+		public function __construct($searchString) {
 			$this -> mysqlSearch = $searchString;
-			$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
 		}
 		
 		public function createtable(){
@@ -130,8 +129,10 @@
 
 		public function elementsoutput(){
 		//Print elements to the screen in looped array under titles
-			$mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
-			$mysqlSearch -> execute();
+			$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
+
+			$this -> mysqlSearch =  setFetchMode(PDO:: FETCH_ASSOC);
+			$this -> mysqlSearch = execute();
 			$searchBuild = "True";
 
 			while($row = $mysqlSearching -> fetch())  {
@@ -450,8 +451,8 @@
          <?php
                 //Preparing default search
 		    
-	    	$elementSearch = new elements();
-		$elementSearch -> getString($searchString);
+	    	$elementSearch = new elements($searchString);
+		//$elementSearch -> getString($searchString);
 	    	$elementSearch -> createtable();
 	    	$elementSearch -> elementsoutput();
 		 
