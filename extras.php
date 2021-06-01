@@ -95,7 +95,7 @@
 		
 		public $searchString = '';
 		public $mysqlSearch = '';
-		private $searchBuild;
+		private $searchBuild = "False";
 		private $con;
 		
 		public function __construct($searchString) {
@@ -130,6 +130,7 @@
 
 		public function elementsoutput(){
 		//Print elements to the screen in looped array under titles
+			echo $searchBuild;
 			$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
 
 			//$this -> mysqlSearch = $mysqlSearch;
@@ -138,6 +139,7 @@
 			$this -> mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
 			$this -> mysqlSearch -> execute();
 			$searchBuild = "True";
+			echo $searchBuild;
 
 			while($row = $mysqlSearching -> fetch())  {
 			      print("<tr>");
