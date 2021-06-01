@@ -89,11 +89,13 @@
 	</form>
 
 <?php
-        
+
+
 	class elements {
 		
 		public $mysqlSearch;
-		
+		$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
+
 		public function searchBuild($searchString) {
 			$mysqlSearch = $con->prepare("$searchString");
 			$mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
@@ -330,8 +332,6 @@
 		
 
             if (null!==("submit")) {
-
-                $con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
 
                 $searchString = "SELECT * FROM Elements WHERE ";
                 $searchStringEmpty = $searchString;
