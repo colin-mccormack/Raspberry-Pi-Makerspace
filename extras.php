@@ -94,6 +94,7 @@
 	class elements {
 		
 		public $mysqlSearch;
+		private $con;
 
 		public function __construct($mysqlSearch) {
 			$this->mysqlSearch = $mysqlSearch;               
