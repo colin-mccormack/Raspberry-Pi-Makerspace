@@ -131,8 +131,10 @@
 		//Print elements to the screen in looped array under titles
 			$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
 
-			$this -> mysqlSearch =  setFetchMode(PDO:: FETCH_ASSOC);
-			$this -> mysqlSearch = execute();
+			$this -> mysqlSearch;
+
+			$mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
+			$mysqlSearch -> execute();
 			$searchBuild = "True";
 
 			while($row = $mysqlSearching -> fetch())  {
