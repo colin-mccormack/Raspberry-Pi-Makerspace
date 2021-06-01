@@ -94,7 +94,7 @@
 	class elements {
 		
 		public $searchString = '';
-		public $mysqlSearch = '';
+		public $mysqlSearch = "Select * From Elements;";
 		public $searchBuild = "False";
 		private $con;
 		
