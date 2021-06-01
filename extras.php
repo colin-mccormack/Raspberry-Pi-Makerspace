@@ -94,15 +94,19 @@
 	class elements {
 		
 		public $mysqlSearch;
-		public $con;
 
-		public function searchBuild($searchString) {
-			$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
-			$mysqlSearch = $con->prepare("$searchString");
-			$mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
-                	$mysqlSearch -> execute();
-			global $mysqlSearch;
+		public function __construct($mysqlSearch)
+		{
+			$this->mysqlSearch = $mysqlSearch;               
 		}
+		
+		public $con;
+		
+		$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
+		$mysqlSearch = $con->prepare("$searchString");
+		$mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
+		$mysqlSearch -> execute();
+
 		
 		public function createtable(){
 			//Create headings for output
@@ -445,7 +449,7 @@
                 //Preparing default search
 		    
 	    	$elementSearch = new elements();
-		$elementSearch -> searchbuild($searchString);
+		$elementSearch -> mysqlSearch = $searchString;
 	    	$elementSearch -> createtable();
 	    	$elementSearch -> elementsoutput();
 		 
