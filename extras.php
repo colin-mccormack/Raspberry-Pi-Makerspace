@@ -130,7 +130,6 @@
 
 		public function elementsoutput(){
 		//Print elements to the screen in looped array under titles
-			echo $this->$searchBuild;
 			$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
 
 			//$this -> mysqlSearch = $mysqlSearch;
@@ -139,7 +138,6 @@
 			$mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
 			$mysqlSearch -> execute();
 			$searchBuild = "True";
-			echo $searchBuild;
 
 			while($row = $mysqlSearching -> fetch())  {
 			      print("<tr>");
