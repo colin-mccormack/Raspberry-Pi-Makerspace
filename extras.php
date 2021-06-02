@@ -252,7 +252,8 @@
          }
 
         function abundanceoutput($sth){
-                $sth->setFetchMode(PDO:: FETCH_ASSOC);
+		$sth -> prepare($sth);
+		$sth->setFetchMode(PDO::FETCH_ASSOC);
                 $sth -> execute();
               while($row = $sth->fetch())
                     {
