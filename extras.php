@@ -98,6 +98,7 @@
 		private $searchResults;
 		private $row;
 		public $con;
+		public $mysqlSearch;
 		
 		public function __construct($searchString) {
 			$this -> searchString = $searchString;
@@ -241,6 +242,7 @@
 			public $searchBuild = "False";
 			private $abundanceSearchResults;
 			private $row = "";
+			public $mysqlSearchT2;
 
 			public function __construct($abundaceSearchString) {
 				$this -> abundaceSearchString = $abundaceSearchString;
@@ -261,12 +263,12 @@
 
 			function abundanceOutput() {
 				
-				$this -> mysqlSearch = $this -> con -> prepare($this -> $abundaceSearchString);
+				$this -> mysqlSearchT2 = $this -> con -> prepare($this -> $abundaceSearchString);
 
-				$this -> mysqlSearch -> execute();
+				$this -> mysqlSearchT2 -> execute();
 
 				//Setting a sepreate variable as the prepared search makes it easier since it is no longer treated as an object
-				$abundanceSearchResults = $this -> mysqlSearch;
+				$abundanceSearchResults = $this -> mysqlSearchT2;
 				while($row = $abundanceSearchResults -> fetch())
 				    {
 
