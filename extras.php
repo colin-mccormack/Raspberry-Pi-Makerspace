@@ -139,11 +139,11 @@
 			//$mysqlSearch -> setFetchMode(PDO::FETCH_ASSOC);
 			$this -> mysqlSearch -> execute();
 			//Setting a sepreate variable as the prepared search makes it easier since it is no longer treated as an object
-			$this -> mysqlSearch = $searchResults;
+			$searchResults = $this -> mysqlSearch;
 			
 			$this -> searchBuild = "True";
 
-			while($row = $searchResults -> fetch())  {
+			while($row == $searchResults -> fetch())  {
 			      print("<tr>");
 			      print("<td>" . $row['name'] . "</td>");
 			      print("<td>" . $row['symbol'] ."</td>");
