@@ -97,6 +97,7 @@
 		public $mysqlSearch = "";
 		public $searchBuild = "False";
 		private $con;
+		private $searchResults;
 		
 		public function __construct($searchString) {
 			$this -> searchString = $searchString;
@@ -137,9 +138,12 @@
 
 			//$mysqlSearch -> setFetchMode(PDO::FETCH_ASSOC);
 			$this -> mysqlSearch -> execute();
+			//Setting a sepreate variable as the prepared search makes it easier since it is no longer treated as an object
+			$searchResults = $mysqlSearch;
+			
 			$this -> searchBuild = "True";
 
-			while($row = $this -> mysqlSearching -> fetch())  {
+			while($row = $searchResults -> fetch())  {
 			      print("<tr>");
 			      print("<td>" . $row['name'] . "</td>");
 			      print("<td>" . $row['symbol'] ."</td>");
