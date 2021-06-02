@@ -95,12 +95,13 @@
 		
 		public $searchString = "";
 		public $searchBuild = "False";
-		public $con;
+		public $con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');;
 		private $searchResults;
 		private $row;
 		
 		public function __construct($searchString) {
 			$this -> searchString = $searchString;
+
 		}
 		
 		public function createtable(){
@@ -131,7 +132,6 @@
 
 		public function elementsoutput(){
 		//Print elements to the screen in looped array under titles
-			$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
 
 			$this -> mysqlSearch = $con -> prepare($this -> searchString);
 
@@ -259,7 +259,7 @@
 			 }
 
 			function abundanceOutput() {
-				$this -> mysqlSearch = $this -> con -> prepare($this -> $abundaceSearchString);
+				$this -> mysqlSearch = $con -> prepare($this -> $abundaceSearchString);
 
 				$this -> mysqlSearch -> execute();
 
