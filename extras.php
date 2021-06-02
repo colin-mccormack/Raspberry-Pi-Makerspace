@@ -235,50 +235,50 @@
 	}
 
         
-	class abundance {
-		
-		public $abundaceSearchString = "";
-		public $searchBuild = "False";
-		private $conDB2 = "";
-		private $abundanceSearchResults;
-		private $row = "";
-		
-		public function __construct($abundaceSearchString) {
-			$this -> abundaceSearchString = $abundaceSearchString;
-		}
-		
-		function createAbundance() {
-		      print("<br><br><br>");
-		      print("<table>");
-		      print("<tr>");
-		      print("<th>Name</th>");
-		      print("<th>Symbol</th>");
-		      print("<th>Average Mass</th>");
-		      print("<th>Mass</th>");
-		      print("<th>Abundance %</th>");
-		      print("</tr>");
-		 }
+		class abundance {
 
-		function abundanceOutput($sth){
-			$this -> mysqlSearch = $conDB2 -> prepare($this -> $abundaceSearchString);
+			public $abundaceSearchString = "";
+			public $searchBuild = "False";
+			private $conDB2 = "";
+			private $abundanceSearchResults;
+			private $row = "";
 
-			$this -> mysqlSearch -> execute();
-
-			//Setting a sepreate variable as the prepared search makes it easier since it is no longer treated as an object
-			$abundanceSearchResults = $this -> mysqlSearch;
-			while($row = $abundanceSearchResults -> fetch())
-			    {
-
-			      print("<tr>");
-			      print("<td>" . $row['name'] . "</td>");
-			      print("<td>" . $row['symbol'] . "</td>");
-			      print("<td>" . $row['avgweight'] . "</td>");
-			      print("<td>" . $row['abundance'] . "</td>");
-			      print("</tr>");
-			    }
-			print("</table>");
+			public function __construct($abundaceSearchString) {
+				$this -> abundaceSearchString = $abundaceSearchString;
 			}
-	}
+
+			function createAbundance() {
+			      print("<br><br><br>");
+			      print("<table>");
+			      print("<tr>");
+			      print("<th>Name</th>");
+			      print("<th>Symbol</th>");
+			      print("<th>Average Mass</th>");
+			      print("<th>Mass</th>");
+			      print("<th>Abundance %</th>");
+			      print("</tr>");
+			 }
+
+			function abundanceOutput($sth){
+				$this -> mysqlSearch = $conDB2 -> prepare($this -> $abundaceSearchString);
+
+				$this -> mysqlSearch -> execute();
+
+				//Setting a sepreate variable as the prepared search makes it easier since it is no longer treated as an object
+				$abundanceSearchResults = $this -> mysqlSearch;
+				while($row = $abundanceSearchResults -> fetch())
+				    {
+
+				      print("<tr>");
+				      print("<td>" . $row['name'] . "</td>");
+				      print("<td>" . $row['symbol'] . "</td>");
+				      print("<td>" . $row['avgweight'] . "</td>");
+				      print("<td>" . $row['abundance'] . "</td>");
+				      print("</tr>");
+				    }
+				print("</table>");
+				}
+		}
 
 	
 		
