@@ -95,7 +95,7 @@
 		
 		public $searchString = "";
 		public $searchBuild = "False";
-		public $con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');;
+		public $con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
 		private $searchResults;
 		private $row;
 		
