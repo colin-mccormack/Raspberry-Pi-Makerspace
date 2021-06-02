@@ -139,7 +139,7 @@
 			$this -> mysqlSearch -> execute();
 			$this -> searchBuild = "True";
 
-			while($row = $mysqlSearching -> fetch())  {
+			while($row = $this -> mysqlSearching -> fetch())  {
 			      print("<tr>");
 			      print("<td>" . $row['name'] . "</td>");
 			      print("<td>" . $row['symbol'] ."</td>");
