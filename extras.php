@@ -133,7 +133,7 @@
 		public function elementsoutput(){
 		//Print elements to the screen in looped array under titles
 
-			$this -> mysqlSearch = $con -> prepare($this -> searchString);
+			$this -> mysqlSearch = $this -> con -> prepare($this -> searchString);
 
 			$this -> mysqlSearch -> execute();
 			
@@ -259,7 +259,7 @@
 			 }
 
 			function abundanceOutput() {
-				$this -> mysqlSearch = $con -> prepare($this -> $abundaceSearchString);
+				$this -> mysqlSearch = $this -> con -> prepare($this -> $abundaceSearchString);
 
 				$this -> mysqlSearch -> execute();
 
