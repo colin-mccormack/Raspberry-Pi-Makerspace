@@ -414,7 +414,7 @@
 		$abundanceString = substr($abundanceString, 0, -3);
                 
 		    
-		$abundanceSearch = new abundace($abundanceString);
+		$abundanceSearch = new abundance($abundanceString);
 	    	$abundanceSearch -> createAbundance();
 	    	$abundanceSearch -> abundanceOutput();    
 
