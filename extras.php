@@ -96,9 +96,9 @@
 		public $searchString = "";
 		public $mysqlSearch = "";
 		public $searchBuild = "False";
-		public $con = "";
+		private $con = "";
 		private $searchResults;
-		public $row = "";
+		private $row = "";
 		
 		public function __construct($searchString) {
 			$this -> searchString = $searchString;
