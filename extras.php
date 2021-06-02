@@ -94,11 +94,10 @@
 	class elements {
 		
 		public $searchString = "";
-		public $mysqlSearch = "";
 		public $searchBuild = "False";
-		private $con = "";
+		private $conDB1;
 		private $searchResults;
-		private $row = "";
+		private $row;
 		
 		public function __construct($searchString) {
 			$this -> searchString = $searchString;
@@ -132,12 +131,10 @@
 
 		public function elementsoutput(){
 		//Print elements to the screen in looped array under titles
-			$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
+			$conDB1 = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
 
-			//$this -> mysqlSearch = $mysqlSearch;
-			$this -> mysqlSearch = $con -> prepare($this -> searchString);
+			$this -> mysqlSearch = $conDB1 -> prepare($this -> searchString);
 
-			//$mysqlSearch -> setFetchMode(PDO::FETCH_ASSOC);
 			$this -> mysqlSearch -> execute();
 			
 			//Setting a sepreate variable as the prepared search makes it easier since it is no longer treated as an object
@@ -238,35 +235,50 @@
 	}
 
         
-
-        function createabundance() {
-              print("<br><br><br>");
-              print("<table>");
-              print("<tr>");
-              print("<th>Name</th>");
-              print("<th>Symbol</th>");
-              print("<th>Average Mass</th>");
-              print("<th>Mass</th>");
-              print("<th>Abundance %</th>");
-              print("</tr>");
-         }
-
-        function abundanceoutput($sth){
-		$sth -> prepare($sth);
-		$sth->setFetchMode(PDO::FETCH_ASSOC);
-                $sth -> execute();
-              while($row = $sth->fetch())
-                    {
-                      
+	class abundance {
+		
+		public $abundaceSearchString = "";
+		public $searchBuild = "False";
+		private $conDB2 = "";
+		private $abundanceSearchResults;
+		private $row = "";
+		
+		public function __construct($abundaceSearchString) {
+			$this -> abundaceSearchString = $abundaceSearchString;
+		}
+		
+		function createAbundance() {
+		      print("<br><br><br>");
+		      print("<table>");
 		      print("<tr>");
-                      print("<td>" . $row['name'] . "</td>");
-                      print("<td>" . $row['symbol'] . "</td>");
-                      print("<td>" . $row['avgweight'] . "</td>");
-                      print("<td>" . $row['abundance'] . "</td>");
-                      print("</tr>");
-                    }
-		print("</table>");
-        }
+		      print("<th>Name</th>");
+		      print("<th>Symbol</th>");
+		      print("<th>Average Mass</th>");
+		      print("<th>Mass</th>");
+		      print("<th>Abundance %</th>");
+		      print("</tr>");
+		 }
+
+		function abundanceOutput($sth){
+			$this -> mysqlSearch = $conDB2 -> prepare($this -> $abundaceSearchString);
+
+			$this -> mysqlSearch -> execute();
+
+			//Setting a sepreate variable as the prepared search makes it easier since it is no longer treated as an object
+			$abundanceSearchResults = $this -> mysqlSearch;
+			while($row = $abundanceSearchResults -> fetch())
+			    {
+
+			      print("<tr>");
+			      print("<td>" . $row['name'] . "</td>");
+			      print("<td>" . $row['symbol'] . "</td>");
+			      print("<td>" . $row['avgweight'] . "</td>");
+			      print("<td>" . $row['abundance'] . "</td>");
+			      print("</tr>");
+			    }
+			print("</table>");
+			}
+	}
 
 	
 		
@@ -379,10 +391,8 @@
                 <h2>Information on Elements</h2>
 
          <?php
-                //Preparing default search
-		    
+                //Preparing default search   
 	    	$elementSearch = new elements($searchString);
-		//$elementSearch -> getString($searchString);
 	    	$elementSearch -> createtable();
 	    	$elementSearch -> elementsoutput();
 		 
@@ -399,9 +409,15 @@
                 <h2>Information on Isotopes</h2>
 
                 <?php
+		    
+	    	//Prepare search for abundace
 		$abundanceString = substr($abundanceString, 0, -3);
-                createabundance();
-                abundanceoutput($abundanceString);
+                
+		    
+		$abundanceSearch = new abundace($abundanceString);
+	    	$abundanceSearch -> createAbundance();
+	    	$abundanceSearch -> abundanceOutput();    
+
 
             }
 	      else
