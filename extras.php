@@ -98,6 +98,7 @@
 		public $searchBuild = "False";
 		private $con;
 		private $searchResults;
+		private $row;
 		
 		public function __construct($searchString) {
 			$this -> searchString = $searchString;
@@ -465,7 +466,7 @@
 	    	$elementSearch -> elementsoutput();
 		 
 	    	//Use moles and quantities of each to output atomic weight
-		$elementSearch -> moles($moles, $qunatities, $elementOFArr);
+		$elementSearch -> molarmass($moles, $qunatities, $elementOFArr);
 
 
 		if ($_POST["wantprint"] == "y") {
