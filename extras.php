@@ -172,13 +172,11 @@
 		public function molarmass(&$moles, &$quantities, &$elementOFArr) {
 			$sumweight = 0;
 			$arrlength = count($quantities);
-			if (!empty($searchBuild)) {
-				while($row = $mysqlSearch->fetch()) {			
-					for ($i = 0; $i < $arrlength; $i++) {
-						for ($j = 0; $j < 3; $j++) {
-							if ($elementOFArr == $j) {
-								$sumweight += $row['atmweight']*$quantities[$j];
-							}
+			while($row = $mysqlSearch->fetch()) {			
+				for ($i = 0; $i < $arrlength; $i++) {
+					for ($j = 0; $j < 3; $j++) {
+						if ($elementOFArr == $j) {
+							$sumweight += $row['atmweight']*$quantities[$j];
 						}
 					}
 				}
@@ -199,41 +197,38 @@
 			$count = 1;
 			$count2 = 0;
 			
-			if (!empty($searchBuild)) {
-
-				while($row = $mysqlSearch->fetch()) {
-					$en[$count] = $row['en'];		
-					if (empty($en[3])) {
-						if (isset($en[$count]) && isset($en[$count2])) {
-							if ($en[$count] > $en[$count2]) {
-								$diff = $en[$count] - $en[$count2];
-								if ($diff<0.4) {
-									print("\nThe bond is nonpolar and covalent.");
-								}
-								elseif($diff<1.7) {
-									print("\nThe bond is polar and covalent.");
-								}
-								else {
-									print("\nThe bond is Ionic.");
-								}
-								print("\nThe electronegativity difference is $en[$count] - $en[$count2] = $diff.\n");
+			while($row = $mysqlSearch->fetch()) {
+				$en[$count] = $row['en'];		
+				if (empty($en[3])) {
+					if (isset($en[$count]) && isset($en[$count2])) {
+						if ($en[$count] > $en[$count2]) {
+							$diff = $en[$count] - $en[$count2];
+							if ($diff<0.4) {
+								print("\nThe bond is nonpolar and covalent.");
 							}
-							elseif ($en[$count] < $en[$count2]) {
-								$diff = $en[$count2] - $en[$count];
-								if ($diff<0.4) {
-									print("\nThe bond is nonpolar and covalent.");
-								}
-								elseif($diff<1.7) {
-									print("\nThe bond is polar and covalent.");
-								}
-								else {
-									print("\nThe bond is Ionic.");
-								}
-								print("\nThe electronegativity difference is $en[$count2] - $en[$count] = $diff.\n");
+							elseif($diff<1.7) {
+								print("\nThe bond is polar and covalent.");
 							}
 							else {
-								echo "No comparison possible.\n";
+								print("\nThe bond is Ionic.");
 							}
+							print("\nThe electronegativity difference is $en[$count] - $en[$count2] = $diff.\n");
+						}
+						elseif ($en[$count] < $en[$count2]) {
+							$diff = $en[$count2] - $en[$count];
+							if ($diff<0.4) {
+								print("\nThe bond is nonpolar and covalent.");
+							}
+							elseif($diff<1.7) {
+								print("\nThe bond is polar and covalent.");
+							}
+							else {
+								print("\nThe bond is Ionic.");
+							}
+							print("\nThe electronegativity difference is $en[$count2] - $en[$count] = $diff.\n");
+						}
+						else {
+							echo "No comparison possible.\n";
 						}
 					}
 				}
@@ -470,11 +465,7 @@
 
 
 		if ($_POST["wantprint"] == "y") {
-			//Preparing EN printing to the screen
-			$sth = $con->prepare("$searchStringEN");
-                	$sth->setFetchMode(PDO:: FETCH_ASSOC);
-               		$sth -> execute();
-			enoutput($sth);
+			$elementSearch -> enoutput();
 		}
 		    
 		/* This 
