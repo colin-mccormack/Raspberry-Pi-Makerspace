@@ -135,7 +135,7 @@
 			//$this -> mysqlSearch = $mysqlSearch;
 			$this -> mysqlSearch = $con -> prepare($this -> searchString);
 
-			$this -> mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
+			$mysqlSearch -> setFetchMode(PDO::FETCH_ASSOC);
 			$this -> mysqlSearch -> execute();
 			$this -> searchBuild = "True";
 
