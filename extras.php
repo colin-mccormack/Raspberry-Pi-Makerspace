@@ -133,7 +133,7 @@
 			$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
 
 			//$this -> mysqlSearch = $mysqlSearch;
-			$mysqlSearch = $con -> prepare($searchString);
+			$this -> mysqlSearch = $con -> prepare($this -> searchString);
 
 			$mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
 			$mysqlSearch -> execute();
