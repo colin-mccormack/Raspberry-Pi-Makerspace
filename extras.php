@@ -259,7 +259,7 @@
 			      print("</tr>");
 			 }
 
-			function abundanceOutput(){
+			function abundanceOutput() {
 				$this -> mysqlSearch = $conDB2 -> prepare($this -> $abundaceSearchString);
 
 				$this -> mysqlSearch -> execute();
@@ -277,7 +277,7 @@
 				      print("</tr>");
 				    }
 				print("</table>");
-				}
+			}
 		}
 
 	
@@ -411,10 +411,10 @@
                 <?php
 		    
 	    	//Prepare search for abundace
-		$abundanceString = substr($abundanceString, 0, -3);
+		$abundaceSearchString = substr($abundanceString, 0, -3);
                 
 		    
-		$abundanceSearch = new abundance($abundanceString);
+		$abundanceSearch = new abundance($abundaceSearchString);
 	    	$abundanceSearch -> createAbundance();
 	    	$abundanceSearch -> abundanceOutput();    
 
