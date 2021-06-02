@@ -95,13 +95,13 @@
 		
 		public $searchString = "";
 		public $searchBuild = "False";
-		public $con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
 		private $searchResults;
 		private $row;
+		public $con;
 		
 		public function __construct($searchString) {
 			$this -> searchString = $searchString;
-
+			$this -> con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
 		}
 		
 		public function createtable(){
