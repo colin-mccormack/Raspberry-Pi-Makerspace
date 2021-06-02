@@ -251,7 +251,7 @@
               print("</tr>");
          }
 
-        function abundanceoutput(&$sth){
+        function abundanceoutput($sth){
                 $sth->setFetchMode(PDO:: FETCH_ASSOC);
                 $sth -> execute();
               while($row = $sth->fetch())
@@ -266,83 +266,7 @@
                     }
 		print("</table>");
         }
-	
-	
-	/*function compound(&$sth){
-		$count = 1;
-		while($row = $sth->fetch()) {
-			$name[$count] = $row['name'];
-			$charge[$count] = $row['charge'];
-			$groupnum[$count] = $row['groupnum'];
-			$count++;	
-		}
-		
-		//This simply checks if there are 3 elemetns entired beccause if so it won't be a binary compound and no reducing can be done
-		if (empty($name[3])) {
-		
-			//Reduce like terms
-			if (isset($charge[1]) && isset($charge[2])) {
-				if ($charge[1] == $charge[2]) {
-					$charge[1] = 0;
-					$charge[2] = 0;
-				}
-				if ($charge[1] != $charge[2] && $charge[1] != 0 && $charge[2] != 0){
-					if ($charge[1] > $charge[2]) {
-						if ($charge[1] % $charge[2] == 0) {
-							$charge[1] = $charge[1]/$charge[2];
-						}
-					}
-					else {
-						if ($charge[2] % $charge[1] == 0) {
-							$charge[2] = $charge[2]/$charge[1];
-						}
-					}
-				}
-			//Call reduction function before exiting
-			reduceprint($charge, $groupnum, $name);
-			}
-		}
-	}
 
-	function reduceprint(&$charge, &$groupnum, &$name) {
-		//Start naming string
-		$binarynaming = "The binary compound created by the elements will reduce to ";
-		
-		
-		if ($groupnum[1] < $groupnum[2]) {
-			$binarynaming .= "$name[1]";
-			if ($charge[2] != 0 && $charge[2] != 1) {
-				$binarynaming .= "$charge[2] "; 
-			}
-			$binarynaming .= "  $name[2]";
-			$binarynaming = substr($binarynaming, 0, -3);
-			$binarynaming .= "ide";	
-			if ($charge[1] != 0 && $charge[1] != 1) {
-				$binarynaming .= "$charge[1] "; 
-			}
-
-			echo "$binarynaming.\n";
-		}
-		elseif ($groupnum[1] > $groupnum[2]) {
-			$binarynaming .= " $name[2]";
-			if ($charge[1] != 0 && $charge[1] != 1) {
-				$binarynaming .= "$charge[1] "; 
-			}
-			$binarynaming .= " $name[1]";
-			$binarynaming = substr($binarynaming, 0, -3);
-			$binarynaming .= "ide";
-			if ($charge[2] != 0 && $charge[2] != 1) {
-				$binarynaming .= "$charge[2] "; 
-			}
-			echo "$binarynaming.\n";
-		}
-		elseif ($groupnum[1] == $groupnum[2]) {
-			echo "Same group so no naming possible.";
-		}
-		else {
-			echo "\nError : No compound...";
-		}
-	} */
 	
 		
 
@@ -469,28 +393,14 @@
 			$elementSearch -> enoutput();
 		}
 		    
-		/* This 
-		if (isset($str1) && isset($str2)) {
-			$compoundsearchString = "SELECT * FROM Charges WHERE name = '$str1' OR symbol = '$str1' OR name = '$str2' OR symbol = '$str2'";
-		        $sth = $con->prepare("$compoundsearchString");
-                	$sth->setFetchMode(PDO:: FETCH_ASSOC);
-                	$sth -> execute();
-			compound($sth);
-		} */
-
-                $abundanceString = substr($abundanceString, 0, -3);
-                $sth = $con->prepare("$abundanceString");
-
-                $sth->setFetchMode(PDO:: FETCH_ASSOC);
-                $sth -> execute();
-
                 ?>
 
                 <h2>Information on Isotopes</h2>
 
                 <?php
+		$abundanceString = substr($abundanceString, 0, -3);
                 createabundance();
-                abundanceoutput($sth);
+                abundanceoutput($abundanceString);
 
             }
 	      else
