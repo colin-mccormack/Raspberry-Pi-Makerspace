@@ -96,9 +96,9 @@
 		public $searchString = "";
 		public $mysqlSearch = "";
 		public $searchBuild = "False";
-		private $con;
+		public $con = "";
 		private $searchResults;
-		private $row;
+		public $row = "";
 		
 		public function __construct($searchString) {
 			$this -> searchString = $searchString;
@@ -144,7 +144,7 @@
 			
 			$this -> searchBuild = "True";
 
-			while($row == $searchResults -> fetch())  {
+			while($row = $searchResults -> fetch())  {
 			      print("<tr>");
 			      print("<td>" . $row['name'] . "</td>");
 			      print("<td>" . $row['symbol'] ."</td>");
