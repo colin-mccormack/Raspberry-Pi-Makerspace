@@ -133,7 +133,7 @@
 		//Print elements to the screen in looped array under titles
 			$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
 
-			$this -> mysqlSearch = $conDB1 -> prepare($this -> searchString);
+			$this -> mysqlSearch = $con -> prepare($this -> searchString);
 
 			$this -> mysqlSearch -> execute();
 			
