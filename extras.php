@@ -95,7 +95,7 @@
 		
 		public $searchString = "";
 		public $searchBuild = "False";
-		private $conDB1;
+		public $con;
 		private $searchResults;
 		private $row;
 		
@@ -131,7 +131,7 @@
 
 		public function elementsoutput(){
 		//Print elements to the screen in looped array under titles
-			$conDB1 = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
+			$con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
 
 			$this -> mysqlSearch = $conDB1 -> prepare($this -> searchString);
 
@@ -235,11 +235,10 @@
 	}
 
         
-		class abundance {
+		class abundance extends elements {
 
 			public $abundaceSearchString = "";
 			public $searchBuild = "False";
-			private $conDB2 = "";
 			private $abundanceSearchResults;
 			private $row = "";
 
@@ -260,7 +259,7 @@
 			 }
 
 			function abundanceOutput() {
-				$this -> mysqlSearch = $conDB2 -> prepare($this -> $abundaceSearchString);
+				$this -> mysqlSearch = $con -> prepare($this -> $abundaceSearchString);
 
 				$this -> mysqlSearch -> execute();
 
