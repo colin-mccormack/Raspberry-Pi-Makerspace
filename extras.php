@@ -244,6 +244,7 @@
 
 			public function __construct($abundaceSearchString) {
 				$this -> abundaceSearchString = $abundaceSearchString;
+				$this -> con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
 			}
 
 			function createAbundance() {
@@ -259,6 +260,7 @@
 			 }
 
 			function abundanceOutput() {
+				
 				$this -> mysqlSearch = $this -> con -> prepare($this -> $abundaceSearchString);
 
 				$this -> mysqlSearch -> execute();
