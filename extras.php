@@ -139,6 +139,7 @@
 
 			//$mysqlSearch -> setFetchMode(PDO::FETCH_ASSOC);
 			$this -> mysqlSearch -> execute();
+			
 			//Setting a sepreate variable as the prepared search makes it easier since it is no longer treated as an object
 			$searchResults = $this -> mysqlSearch;
 			
@@ -197,7 +198,7 @@
 			$count = 1;
 			$count2 = 0;
 			
-			while($row = $mysqlSearch->fetch()) {
+			while($row = $this -> mysqlSearch -> fetch()) {
 				$en[$count] = $row['en'];		
 				if (empty($en[3])) {
 					if (isset($en[$count]) && isset($en[$count2])) {
