@@ -259,7 +259,7 @@
 			 }
 
 			function abundanceOutput() {
-				$this -> mysqlSearch = $con -> prepare($this -> $abundaceSearchString);
+				$this -> mysqlSearch = $this -> con -> prepare($this -> $abundaceSearchString);
 
 				$this -> mysqlSearch -> execute();
 
