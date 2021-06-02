@@ -259,7 +259,7 @@
 			      print("</tr>");
 			 }
 
-			function abundanceOutput($sth){
+			function abundanceOutput(){
 				$this -> mysqlSearch = $conDB2 -> prepare($this -> $abundaceSearchString);
 
 				$this -> mysqlSearch -> execute();
