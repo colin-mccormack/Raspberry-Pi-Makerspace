@@ -183,7 +183,7 @@
 					for ($j = 0; $j < 3; $j++) {
 						echo "..in inner mass loop";
 						if ($elementOFArr[$i] == $j) {
-							echo "adding ". $row['atmweight'] ." to ". $quantities[$j] ."...";
+							echo "...multiplying ". $row['atmweight'] ." by ". $quantities[$j] ."...";
 							$sumweight += $row['atmweight']*$quantities[$j];
 						}
 					}
