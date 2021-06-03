@@ -104,6 +104,7 @@
 			$this -> con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
 			
 			$this -> mysqlSearch = $this -> con -> prepare($this -> searchString);
+			$this -> mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
 			$this -> mysqlSearch -> execute();
 		}
 		
@@ -169,8 +170,9 @@
 			$sumweight = 0;
 			$arrlength = count($quantities);
 			
-			$this -> mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
-                	$this -> mysqlSearch -> execute();
+			//$this -> mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
+                	//$this -> mysqlSearch -> execute();
+			
 			echo "...still in molar mass...";
 			
 
@@ -184,7 +186,7 @@
 					}
 				}
 
-				if ($moles != 1) {
+				if (isset($moles) {
 					$sumweight *= $moles;
 					echo "The mass of $moles moles of the element(s) that you entered is " . $sumweight . "g.\n";
 				}
@@ -200,6 +202,9 @@
 			$count = 1;
 			$count2 = 0;
 			echo "\n In en output...";
+			
+			$this -> mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
+                	$this -> mysqlSearch -> execute();
 			
 			while($row = $this -> mysqlSearch -> fetch()) {
 				echo "in en loop...";
