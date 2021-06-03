@@ -165,7 +165,7 @@
 		print("</table>");
 		}
 		
-		public function molarmass(&$moles, &$quantities, &$elementOFArr) {
+		public function molarmass($moles, &$quantities, &$elementOFArr) {
 			echo "In molar mass";
 			$sumweight = 0;
 			$arrlength = count($quantities);
