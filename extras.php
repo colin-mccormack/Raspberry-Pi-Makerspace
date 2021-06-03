@@ -171,7 +171,7 @@
 			$arrlength = count($quantities);
 			
 			//$this -> mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
-                	//$this -> mysqlSearch -> execute();
+                	$this -> mysqlSearch -> execute();
 			
 			echo "...still in molar mass...";
 			
