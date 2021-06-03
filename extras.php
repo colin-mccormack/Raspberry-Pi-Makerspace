@@ -168,7 +168,11 @@
 			echo "In molar mass";
 			$sumweight = 0;
 			$arrlength = count($quantities);
+			
+			$this -> mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
+                	$this -> mysqlSearch -> execute();
 			echo "...still in molar mass...";
+			
 
 			while($row = $this -> mysqlSearch -> fetch()) {	
 				echo "..in molar mass loop";
