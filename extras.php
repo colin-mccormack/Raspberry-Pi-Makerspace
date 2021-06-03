@@ -169,9 +169,11 @@
 		}
 		
 		public function molarmass(&$moles, &$quantities, &$elementOFArr) {
+			echo "In molar mass";
 			$sumweight = 0;
 			$arrlength = count($quantities);
-			while($row = $this -> mysqlSearch -> fetch()) {			
+			while($row = $this -> mysqlSearch -> fetch()) {	
+				echo "\n In molar mass loop"
 				for ($i = 0; $i < $arrlength; $i++) {
 					for ($j = 0; $j < 3; $j++) {
 						if ($elementOFArr == $j) {
@@ -409,7 +411,8 @@
 		    
                 ?>
 
-                <h2>Information on Isotopes</h2>
+                <br><br>
+		<h2>Information on Isotopes</h2>
 
                 <?php
 		    
