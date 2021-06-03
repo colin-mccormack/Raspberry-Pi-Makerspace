@@ -186,7 +186,7 @@
 					}
 				}
 
-				if (isset($moles)) {
+				if ($moles != 1) {
 					$sumweight *= $moles;
 					echo "The mass of $moles moles of the element(s) that you entered is " . $sumweight . "g.\n";
 				}
@@ -311,7 +311,6 @@
                 $q2 = $_POST["q2"];
                 $str3 = $_POST["search3"];
                 $q3 = $_POST["q3"];
-		$moles = $_POST["moles"];
                 $str4 = $_POST["search4"];
 		$str5 = $_POST["search5"];
                 $str5 = $_POST["formState"];
@@ -321,7 +320,7 @@
 		//This may be depricated in this version of php
                 $qunatities = array();
 	    	$elementOFArr = array();
-		//$qunatities = [];
+		
 			
 	    	if (!empty($_POST["search1"])) {
 			//Create search for either name or symbol in elements
@@ -396,7 +395,15 @@
 			else {
                                 $searchString .= " ORDER BY CAST($str6 AS UNSIGNED) DESC";
 			}
-                }		    
+                }
+		    
+		if (isset($moles) {
+			$moles = $_POST["moles"];
+		}
+		else {
+			//numeric fail-safe to avoid jibberjabber
+			$moles = 1;
+		}
 
         ?>
 
