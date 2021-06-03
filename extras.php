@@ -168,8 +168,10 @@
 			echo "In molar mass";
 			$sumweight = 0;
 			$arrlength = count($quantities);
+			echo "...still in molar mass...";
+
 			while($row = $this -> mysqlSearch -> fetch()) {	
-				echo "\n In molar mass loop";
+				echo "..in molar mass loop";
 				for ($i = 0; $i < $arrlength; $i++) {
 					for ($j = 0; $j < 3; $j++) {
 						if ($elementOFArr == $j) {
@@ -193,8 +195,10 @@
 			//Set each variable(count1 is +1 so that their is a comparion and both will be incremented equally)
 			$count = 1;
 			$count2 = 0;
+			echo "\n In en output...";
 			
 			while($row = $this -> mysqlSearch -> fetch()) {
+				echo "in en loop...";
 				$en[$count] = $row['en'];		
 				if (empty($en[3])) {
 					if (isset($en[$count]) && isset($en[$count2])) {
