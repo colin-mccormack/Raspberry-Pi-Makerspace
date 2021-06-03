@@ -186,7 +186,7 @@
 					}
 				}
 
-				if (isset($moles) {
+				if (isset($moles)) {
 					$sumweight *= $moles;
 					echo "The mass of $moles moles of the element(s) that you entered is " . $sumweight . "g.\n";
 				}
