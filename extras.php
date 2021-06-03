@@ -96,7 +96,6 @@
 		public $searchString = "";
 		public $searchBuild = "False";
 		private $searchResults;
-		private $row;
 		public $con;
 		public $mysqlSearch;
 		
