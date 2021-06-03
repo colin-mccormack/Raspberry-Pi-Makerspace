@@ -173,7 +173,7 @@
 			$sumweight = 0;
 			$arrlength = count($quantities);
 			while($row = $this -> mysqlSearch -> fetch()) {	
-				echo "\n In molar mass loop"
+				echo "\n In molar mass loop";
 				for ($i = 0; $i < $arrlength; $i++) {
 					for ($j = 0; $j < 3; $j++) {
 						if ($elementOFArr == $j) {
