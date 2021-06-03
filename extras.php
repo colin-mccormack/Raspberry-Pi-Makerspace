@@ -179,20 +179,21 @@
 			while($row = $this -> mysqlSearch -> fetch()) {	
 				echo "..in molar mass loop";
 				for ($i = 0; $i < $arrlength; $i++) {
+					echo "..in arrlength mass loop";
 					for ($j = 0; $j < 3; $j++) {
+						echo "..in inner mass loop";
 						if ($elementOFArr == $j) {
 							$sumweight += $row['atmweight']*$quantities[$j];
 						}
 					}
 				}
-
-				if ($moles != 1) {
-					$sumweight *= $moles;
-					echo "The mass of $moles moles of the element(s) that you entered is " . $sumweight . "g.\n";
-				}
-				else {
-					echo "The sum of the atomic weights is $sumweight.";
-				}
+			}
+			if ($moles != 1) {
+				$sumweight *= $moles;
+				echo "The mass of $moles moles of the element(s) that you entered is " . $sumweight . "g.\n";
+			}
+			else {
+				echo "The sum of the atomic weights is $sumweight.";
 			}
 		}
 		
