@@ -136,12 +136,10 @@
 		public function elementsoutput(){
 		//Print elements to the screen in looped array under titles
 			
-			//Setting a sepreate variable as the prepared search makes it easier since it is no longer treated as an object
-			$searchResults = $this -> mysqlSearch;
-			
+			//Setting a sepreate variable as the prepared search makes it easier since it is no longer treated as an object			
 			$this -> searchBuild = "True";
 
-			while($row = $searchResults -> fetch())  {
+			while($row = $this -> mysqlSearch -> fetch())  {
 			      print("<tr>");
 			      print("<td>" . $row['name'] . "</td>");
 			      print("<td>" . $row['symbol'] ."</td>");
