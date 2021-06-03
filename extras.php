@@ -421,7 +421,7 @@
 	    	$elementSearch -> elementsoutput();
 		 
 	    	//Use moles and quantities of each to output atomic weight
-		$elementSearch -> molarmass($moles, $qunatities, $elementOFArr);
+		$elementSearch -> molarmass($moles, $quantities, $elementOFArr);
 
 
 		if ($_POST["wantprint"] == "y") {
