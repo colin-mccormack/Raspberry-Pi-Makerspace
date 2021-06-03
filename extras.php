@@ -102,6 +102,9 @@
 		public function __construct($searchString) {
 			$this -> searchString = $searchString;
 			$this -> con = new PDO("mysql:host=localhost;dbname=Chemistry;charset=utf8",'viewChem','mysql');
+			
+			$this -> mysqlSearch = $this -> con -> prepare($this -> searchString);
+			$this -> mysqlSearch -> execute();
 		}
 		
 		public function createtable(){
@@ -132,10 +135,6 @@
 
 		public function elementsoutput(){
 		//Print elements to the screen in looped array under titles
-
-			$this -> mysqlSearch = $this -> con -> prepare($this -> searchString);
-
-			$this -> mysqlSearch -> execute();
 			
 			//Setting a sepreate variable as the prepared search makes it easier since it is no longer treated as an object
 			$searchResults = $this -> mysqlSearch;
