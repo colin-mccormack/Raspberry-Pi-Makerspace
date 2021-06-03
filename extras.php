@@ -331,7 +331,7 @@
 				//Determine the length of the currently empty array [0]
 				$arrlength = count($qunatities);
 				//Set element 0 to quantity 1
-				$qunatities[$arrlength] =  $_POST["q1"];
+				$quantities[$arrlength] =  $_POST["q1"];
 				//Determine the length of current counter
 				$arrlength = count($elementOFArr);
 				$elementOFArr[$arrlength] = 1;
@@ -342,7 +342,7 @@
                         $searchString .= " name = '$str2' OR symbol ='$str2' OR";
 			if (!empty($_POST["q2"])) {
 				$arrlength = count($qunatities);
-				$qunatities[$arrlength] =  $_POST["q2"];
+				$quantities[$arrlength] =  $_POST["q2"];
 				$arrlength = count($elementOFArr);
 				$elementOFArr[$arrlength] = 2;
 			}
@@ -352,7 +352,7 @@
                         $searchString .= " name = '$str3' OR symbol ='$str3' OR";
 			if (!empty($_POST["q3"])) {
 				$arrlength = count($qunatities);
-				$qunatities[$arrlength] =  $_POST["q3"];
+				$quantities[$arrlength] =  $_POST["q3"];
 				$arrlength = count($elementOFArr);
 				$elementOFArr[$arrlength] = 3;
 			}
