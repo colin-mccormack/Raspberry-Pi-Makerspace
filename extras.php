@@ -330,11 +330,11 @@
                         $searchString .= " name = '$str1' OR symbol ='$str1' OR";
 			if (!empty($_POST["q1"])) {
 				//Determine the length of the currently empty array [0]
-				$arrlength = count($qunatities);
+				$arrlength = sizeof($qunatities);
 				//Set element 0 to quantity 1
 				$quantities[$arrlength] =  $_POST["q1"];
 				//Determine the length of current counter
-				$arrlength = count($elementOFArr);
+				$arrlength = sizeof($elementOFArr);
 				$elementOFArr[$arrlength] = 1;
 			}
                         $abundanceString .= " name = '$str1' OR symbol ='$str1' OR";
@@ -342,9 +342,9 @@
                 if (!empty($_POST["search2"])) {
                         $searchString .= " name = '$str2' OR symbol ='$str2' OR";
 			if (!empty($_POST["q2"])) {
-				$arrlength = count($qunatities);
+				$arrlength = sizeof($qunatities);
 				$quantities[$arrlength] =  $_POST["q2"];
-				$arrlength = count($elementOFArr);
+				$arrlength = sizeof($elementOFArr);
 				$elementOFArr[$arrlength] = 2;
 			}
 		    	$abundanceString .= " name = '$str2' OR symbol ='$str2' OR";
@@ -352,9 +352,9 @@
                 if (!empty($_POST["search3"])) {
                         $searchString .= " name = '$str3' OR symbol ='$str3' OR";
 			if (!empty($_POST["q3"])) {
-				$arrlength = count($qunatities);
+				$arrlength = sizeof($qunatities);
 				$quantities[$arrlength] =  $_POST["q3"];
-				$arrlength = count($elementOFArr);
+				$arrlength = sizeof($elementOFArr);
 				$elementOFArr[$arrlength] = 3;
 			}
 		    $abundanceString .= " name = '$str3' OR symbol ='$str3' OR";
