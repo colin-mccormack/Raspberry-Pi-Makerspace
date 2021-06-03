@@ -397,7 +397,7 @@
 			}
                 }
 		    
-		if (isset($moles) {
+		if (isset($moles)) {
 			$moles = $_POST["moles"];
 		}
 		else {
