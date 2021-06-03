@@ -169,6 +169,7 @@
 			echo "In molar mass";
 			$sumweight = 0;
 			$arrlength = count($quantities);
+			echo $arrlength;
 			
 			//$this -> mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
                 	$this -> mysqlSearch -> execute();
