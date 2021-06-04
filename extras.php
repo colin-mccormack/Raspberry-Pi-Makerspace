@@ -308,6 +308,9 @@
                 $str5 = $_POST["formState"];
                 $str6 = $_POST["formOrder"];
                 $str7 = $_POST["formDirection"];
+		    
+		    
+	    	$tempname = array();
 		
 			
 	    	if (!empty($_POST["search1"])) {
