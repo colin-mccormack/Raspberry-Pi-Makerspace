@@ -178,27 +178,7 @@
 				}
 				$count++;
 			}
-			
-/*
-			$sumweight = 0;
-			$arrlength = sizeof($quantities);
-			echo $arrlength;
-			
-			while($row = $this -> mysqlSearch -> fetch()) {	
-				echo "..in molar mass loop";
-				for ($i = 0; $i < $arrlength; $i++) {
-					echo "..in arrlength mass loop";
-					for ($j = 0; $j < 3; $j++) {
-						echo "..in inner mass loop";
-						if ($elementOFArr[$i] == $j) {
-							echo "...multiplying ". $row['atmweight'] ." by ". $quantities[$j] ."...";
-							$sumweight += $row['atmweight']*$quantities[$j];
-						}
-					}
-				}
-			} 
-			
-			*/
+
 			if ($moles != 1) {
 				$sumweight *= $moles;
 				echo "The mass of $moles moles of the element(s) that you entered is " . $sumweight . "g.\n";
@@ -328,35 +308,6 @@
                 $str5 = $_POST["formState"];
                 $str6 = $_POST["formOrder"];
                 $str7 = $_POST["formDirection"];
-		
-	    	if (isset($_POST[$q1 != 1 && $q2 != 1 && $q3 != 1) {
-			$quantity = array($q1, $q2, $q3);
-		}
-		elseif ($q1 != 1 && $q2 != 1) {
-			$quantity = array($q1, $q2, 1);
-		}
-		elseif ($q2 != 1 && $q3 != 1) {
-			$quantity = array(1, $q2, $q3);
-		}
-		elseif($q1 != 1 && $q3 != 1) {
-			$quantity = array($q1, 1, $q3);
-		}
-		elseif($q1 != 1) {
-			$quantity = array($q1, 1, 1);
-		}
-		elseif($q2 != 1) {
-			$quantity = array(1, $q2, 1);
-		}
-		elseif($q3 != 1) {
-			$quantity = array(1, 1, $q3);
-		}
-		else {
-			$quantity = array(1, 1, 1);
-		}
-
-		//This may be depricated in this version of php
-                //$qunatities = array();
-	    	$elementOFArr = array();
 		
 			
 	    	if (!empty($_POST["search1"])) {
