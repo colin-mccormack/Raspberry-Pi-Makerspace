@@ -176,7 +176,6 @@
 						$sumweight += $row['atmweight']*$quantity[$innercount];
 					}
 				}
-				$count++;
 			}
 
 			if ($moles != 1) {
