@@ -319,7 +319,7 @@
 	    	if (!empty($_POST["search1"])) {
 			//Create search for either name or symbol in elements
                         $searchString .= " name = '$str1' OR symbol ='$str1' OR";
-			$tempname[0] = $q1;
+			$tempname[0] = $str1;
 
 			if (!empty($q1)) {
 				$quantity = array($q1, 1, 1);
@@ -331,7 +331,7 @@
                 }
                 if (!empty($_POST["search2"])) {
                         $searchString .= " name = '$str2' OR symbol ='$str2' OR";
-			$tempname[1] = $q2;
+			$tempname[1] = $str2;
 			
 			if (!empty($_POST["q2"])) {
 				$quantity[1] = $q2;
@@ -340,7 +340,7 @@
                 }
                 if (!empty($_POST["search3"])) {
                         $searchString .= " name = '$str3' OR symbol ='$str3' OR";
-			$tempname[2] = $q3;
+			$tempname[2] = $str3;
 			
 			if (!empty($_POST["q3"])) {
 				$quantity[2] = $q3;
