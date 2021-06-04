@@ -310,7 +310,8 @@
                 $str7 = $_POST["formDirection"];
 		    
 		    
-	    	$tempname = array();
+	    	$tempname = array("NULL", "NULL", "NULL");
+	    	
 		
 			
 	    	if (!empty($_POST["search1"])) {
