@@ -162,21 +162,28 @@
 			      print("<td>" . $row['mv'] . "</td>");
 			      print("</tr>");
 			}
-		print("</table>");
+			print("</table>");
 		}
 		
-		public function molarmass($moles, &$quantities, &$elementOFArr) {
-			echo "In molar mass";
+		public function molarmass($moles, &$tempname, &$quantity) {
+			
+			//$this -> mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
+                	$this -> mysqlSearch -> execute();
+						
+			while($row = $this -> mysqlSearch -> fetch()) {
+				for ($innercount = 0; $innercount < 3; $innercount++) {
+					if ($row['name'] == $tempname[$innercount] || $row['symbol'] == $tempname[$innercount]) {
+						$sumweight += $row['atmweight']*$quantity[$innercount];
+					}
+				}
+				$count++;
+			}
+			
+/*
 			$sumweight = 0;
 			$arrlength = sizeof($quantities);
 			echo $arrlength;
 			
-			//$this -> mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
-                	$this -> mysqlSearch -> execute();
-			
-			echo "...still in molar mass...";
-			
-
 			while($row = $this -> mysqlSearch -> fetch()) {	
 				echo "..in molar mass loop";
 				for ($i = 0; $i < $arrlength; $i++) {
@@ -189,7 +196,9 @@
 						}
 					}
 				}
-			}
+			} 
+			
+			*/
 			if ($moles != 1) {
 				$sumweight *= $moles;
 				echo "The mass of $moles moles of the element(s) that you entered is " . $sumweight . "g.\n";
@@ -319,43 +328,65 @@
                 $str5 = $_POST["formState"];
                 $str6 = $_POST["formOrder"];
                 $str7 = $_POST["formDirection"];
+		
+	    	if (isset($_POST[$q1 != 1 && $q2 != 1 && $q3 != 1) {
+			$quantity = array($q1, $q2, $q3);
+		}
+		elseif ($q1 != 1 && $q2 != 1) {
+			$quantity = array($q1, $q2, 1);
+		}
+		elseif ($q2 != 1 && $q3 != 1) {
+			$quantity = array(1, $q2, $q3);
+		}
+		elseif($q1 != 1 && $q3 != 1) {
+			$quantity = array($q1, 1, $q3);
+		}
+		elseif($q1 != 1) {
+			$quantity = array($q1, 1, 1);
+		}
+		elseif($q2 != 1) {
+			$quantity = array(1, $q2, 1);
+		}
+		elseif($q3 != 1) {
+			$quantity = array(1, 1, $q3);
+		}
+		else {
+			$quantity = array(1, 1, 1);
+		}
 
 		//This may be depricated in this version of php
-                $qunatities = array();
+                //$qunatities = array();
 	    	$elementOFArr = array();
 		
 			
 	    	if (!empty($_POST["search1"])) {
 			//Create search for either name or symbol in elements
                         $searchString .= " name = '$str1' OR symbol ='$str1' OR";
-			if (!empty($_POST["q1"])) {
-				//Determine the length of the currently empty array [0]
-				$arrlength = sizeof($qunatities);
-				//Set element 0 to quantity 1
-				$quantities[$arrlength] =  $_POST["q1"];
-				//Determine the length of current counter
-				$arrlength = sizeof($elementOFArr);
-				$elementOFArr[$arrlength] = 1;
+			$tempname[0] = $q1;
+
+			if (!empty($q1)) {
+				$quantity = array($q1, 1, 1);
+			}
+			else {
+				$quantity = array(1, 1, 1);
 			}
                         $abundanceString .= " name = '$str1' OR symbol ='$str1' OR";
                 }
                 if (!empty($_POST["search2"])) {
                         $searchString .= " name = '$str2' OR symbol ='$str2' OR";
+			$tempname[1] = $q2;
+			
 			if (!empty($_POST["q2"])) {
-				$arrlength = sizeof($qunatities);
-				$quantities[$arrlength] =  $_POST["q2"];
-				$arrlength = sizeof($elementOFArr);
-				$elementOFArr[$arrlength] = 2;
+				$quantity[1] = $q2;
 			}
 		    	$abundanceString .= " name = '$str2' OR symbol ='$str2' OR";
                 }
                 if (!empty($_POST["search3"])) {
                         $searchString .= " name = '$str3' OR symbol ='$str3' OR";
+			$tempname[2] = $q3;
+			
 			if (!empty($_POST["q3"])) {
-				$arrlength = sizeof($qunatities);
-				$quantities[$arrlength] =  $_POST["q3"];
-				$arrlength = sizeof($elementOFArr);
-				$elementOFArr[$arrlength] = 3;
+				$quantity[2] = $q3;
 			}
 		    $abundanceString .= " name = '$str3' OR symbol ='$str3' OR";
                 }
@@ -421,7 +452,7 @@
 	    	$elementSearch -> elementsoutput();
 		 
 	    	//Use moles and quantities of each to output atomic weight
-		$elementSearch -> molarmass($moles, $quantities, $elementOFArr);
+		$elementSearch -> molarmass($moles, $tempname, $quantity);
 
 
 		if ($_POST["wantprint"] == "y") {
