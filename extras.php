@@ -174,6 +174,7 @@
 			while($row = $this -> mysqlSearch -> fetch()) {
 				for ($innercount = 0; $innercount < 3; $innercount++) {
 					if ($row['name'] == $tempname[$innercount] || $row['symbol'] == $tempname[$innercount]) {
+						echo "$sumweight is ". $row['atmweight'] ." * ". $quantity[$innercount] ." ... ";
 						$sumweight += $row['atmweight']*$quantity[$innercount];
 					}
 				}
