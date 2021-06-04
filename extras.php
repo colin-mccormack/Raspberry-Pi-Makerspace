@@ -169,6 +169,7 @@
 			
 			//$this -> mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
                 	$this -> mysqlSearch -> execute();
+			$sumweight = 0;
 						
 			while($row = $this -> mysqlSearch -> fetch()) {
 				for ($innercount = 0; $innercount < 3; $innercount++) {
