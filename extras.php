@@ -311,11 +311,10 @@
                 $str6 = $_POST["formOrder"];
                 $str7 = $_POST["formDirection"];
 		    
-		    
 	    	$tempname = array("NULL", "NULL", "NULL");
-	    	
+		 
+		$quantity = array(1, 1, 1);
 		
-			
 	    	if (!empty($_POST["search1"])) {
 			//Create search for either name or symbol in elements
                         $searchString .= " name = '$str1' OR symbol ='$str1' OR";
@@ -324,9 +323,7 @@
 			if (!empty($q1)) {
 				$quantity = array($q1, 1, 1);
 			}
-			else {
-				$quantity = array(1, 1, 1);
-			}
+	
                         $abundanceString .= " name = '$str1' OR symbol ='$str1' OR";
                 }
                 if (!empty($_POST["search2"])) {
