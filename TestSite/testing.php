@@ -8,7 +8,7 @@
     <body>    
         <h2>Login Page</h2><br>    
         <div class="login">    
-            <form id="login" method="post" action="login.php">    
+            <form id="login" method="post">    
                 <label><b>User Name</b></label>    
                 <input type="text" name="Uname" placeholder="Username">    
                 <br><br>    
