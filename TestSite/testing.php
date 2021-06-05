@@ -15,7 +15,7 @@
                 <label><b>Password</b></label>    
                 <input type="Password" name="Pass" placeholder="Password">    
                 <br><br>    
-                <input type="button" name="login" value="Log In Here">       
+                <input type="submit" name="submit" value="Submit">       
                 <br><br>    
                 <input type="checkbox" id="check">    
                 <span>Remember me</span>    
@@ -25,7 +25,7 @@
         </div>    
         <?php
 
-	    if (null!==($_POST["login"]) && !empty($_POST["Uname"]) && !empty($_POST["Pass"])) {
+	    if (null!==($_POST["submit"]) && !empty($_POST["Uname"]) && !empty($_POST["Pass"])) {
 				
                if ($_POST['Uname'] == 'tutorialspoint' && $_POST['Pass'] == '1234') {
                   $_SESSION['valid'] = true;
