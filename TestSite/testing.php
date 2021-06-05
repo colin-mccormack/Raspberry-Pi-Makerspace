@@ -20,11 +20,12 @@
                 <input type="checkbox" id="check">    
                 <span>Remember me</span>    
                 <br><br>    
-                Forgot <a href="#">Password</a>    
+                <a href="https://raspberrypimakerspace.ca/contact.html">Forgot Password</a>    
             </form>     
-        </div>    
+  
         <?php
-
+	    
+	    $msg = '';
 	    if (isset($_POST["submit"]) && !empty($_POST["Uname"]) && !empty($_POST["Pass"])) {
 				
                if ($_POST['Uname'] == 'tutorialspoint' && $_POST['Pass'] == '1234') {
@@ -38,6 +39,8 @@
                   $msg = 'Wrong username or password';
                }
             }
+	echo $msg;
         ?>
+	</div>    
     </body>    
 </html>    
