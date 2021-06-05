@@ -24,7 +24,7 @@
             </form>     
         </div>    
         <?php
-            
+            echo 'in php';
             if (isset($_POST['login']) && !empty($_POST['Uname']) && !empty($_POST['Pass'])) {
 				
                if ($_POST['Uname'] == 'tutorialspoint' && $_POST['Pass'] == '1234') {
