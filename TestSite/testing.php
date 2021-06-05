@@ -32,10 +32,10 @@
                   $_SESSION['timeout'] = time();
                   $_SESSION['username'] = 'tutorialspoint';
                   
-                  echo 'You have entered valid use name and password';
+                  $msg = 'You have entered valid use name and password';
                }
             else {
-                  echo 'Wrong username or password';
+                  $msg = 'Wrong username or password';
                }
             }
         ?>
