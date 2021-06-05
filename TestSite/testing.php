@@ -25,7 +25,7 @@
         </div>    
         <?php
 
-	    if (null!==($_POST["submit"]) && !empty($_POST["Uname"]) && !empty($_POST["Pass"])) {
+	    if (isset($_POST["submit"]) && !empty($_POST["Uname"]) && !empty($_POST["Pass"])) {
 				
                if ($_POST['Uname'] == 'tutorialspoint' && $_POST['Pass'] == '1234') {
                   $_SESSION['valid'] = true;
