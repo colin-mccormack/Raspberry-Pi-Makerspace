@@ -10,12 +10,12 @@
         <div class="login">    
             <form id="login" method="post" action="login.php">    
                 <label><b>User Name</b></label>    
-                <input type="text" name="Uname" id="Uname" placeholder="Username">    
+                <input type="text" name="Uname" placeholder="Username">    
                 <br><br>    
                 <label><b>Password</b></label>    
-                <input type="Password" name="Pass" id="Pass" placeholder="Password">    
+                <input type="Password" name="Pass" placeholder="Password">    
                 <br><br>    
-                <input type="button" name="login" id="login" value="Log In Here">       
+                <input type="button" name="login" value="Log In Here">       
                 <br><br>    
                 <input type="checkbox" id="check">    
                 <span>Remember me</span>    
