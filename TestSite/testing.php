@@ -15,7 +15,7 @@
                 <label><b>Password</b></label>    
                 <input type="Password" name="Pass" placeholder="Password">    
                 <br><br>    
-                <input type="submit" name="submit" value="Submit">       
+                <input type="submit" name="submit" placeholder="Submit">       
                 <br><br>    
                 <input type="checkbox" id="check">    
                 <span>Remember me</span>    
