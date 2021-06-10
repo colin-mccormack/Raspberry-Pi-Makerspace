@@ -8,7 +8,5 @@ The idea for this particular project came from the pointless repetition and sear
 Check out my website here : https://raspberrypimakerspace.ca/
 
 Next steps for this project : 
-  Information on compounds created by elements; 
   Single search bar for multiple elements or at least streamlining the process; 
-  Set up unit testing;
   Updating repetitive code in adherence with DRY (don't repeat yourself);
