@@ -202,7 +202,8 @@
                 	$this -> mysqlSearch -> execute();
 			
 			while($row = $this -> mysqlSearch -> fetch()) {
-				echo "in en loop...";
+				echo "...in en loop and current count is...";
+				echo $count;
 				$en[$count] = $row['en'];
 				$previous = $count-1;
 				if (isset($en[$previous]) && isset($en[$count])) {
