@@ -237,8 +237,8 @@
 					else {
 						echo "No comparison possible.\n";
 					}
-					$count++;
 				}
+				$count++;
 			}
 		}
 	}
