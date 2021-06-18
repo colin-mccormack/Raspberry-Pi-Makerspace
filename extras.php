@@ -195,19 +195,15 @@
   
 			//Set each variable(count1 is +1 so that their is a comparion and both will be incremented equally)
 			$count = 1;
-			
-			echo "\n In en output...";
-			
+
 			//$this -> mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
                 	$this -> mysqlSearch -> execute();
 			
 			while($row = $this -> mysqlSearch -> fetch()) {
-				echo "...in en loop and current count is...";
-				echo $count;
+
 				$en[$count] = $row['en'];
 				$previous = $count-1;
-				if (isset($en[$previous]) && isset($en[$count])) {
-					echo "isset...";
+				if (isset($en[$previous]) && isset($en[$count]) && !isset($diff)) {
 					if ($en[$previous] > $en[$count]) {
 						$diff = $en[$previous] - $en[$count];
 						if ($diff<0.4) {
