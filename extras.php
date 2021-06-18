@@ -204,7 +204,7 @@
 			while($row = $this -> mysqlSearch -> fetch()) {
 				echo "in en loop...";
 				$en[$count] = $row['en'];		
-				if (empty($en[3])) {
+				if (isset($en[3])) {
 					if (isset($en[$count]) && isset($en[$count2])) {
 						if ($en[$count] > $en[$count2]) {
 							$diff = $en[$count] - $en[$count2];
