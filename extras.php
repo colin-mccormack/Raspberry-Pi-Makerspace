@@ -8,15 +8,18 @@
 	</head>
 	
 	<body>
-<!-- 		<div class="header"> -->
-			<a href="index.html" class="logo">Raspberry Pi Makerspace</a>
-			<div class="header-right">
-				<a href="index.html">Home</a>
-				<a href="contact.html">Contact</a>
-				<a href="products.html">Products</a>
-				<a class="active" href="extras.php">Other projects</a>
+		<div class="top">
+			<div class="header">
+				<a href="index.html" class="logo">Raspberry Pi Makerspace</a>
+				<div class="header-right">
+					<a href="index.html">Home</a>
+					<a href="contact.html">Contact</a>
+					<a href="products.html">Products</a>
+					<a class="active" href="extras.php">Other projects</a>
+				</div>
 			</div>
 		</div>
+
 		<div class="container">
 			<div style="text-align:center">
 				<h1>Extras</h1>
