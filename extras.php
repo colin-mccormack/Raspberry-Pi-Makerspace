@@ -195,18 +195,18 @@
   
 			//Set each variable(count1 is +1 so that their is a comparion and both will be incremented equally)
 			$count = 1;
-			$count2 = 0;
+			
 			echo "\n In en output...";
 			
-			$this -> mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
+			//$this -> mysqlSearch -> setFetchMode(PDO:: FETCH_ASSOC);
                 	$this -> mysqlSearch -> execute();
 			
 			while($row = $this -> mysqlSearch -> fetch()) {
 				echo "in en loop...";
 				$en[$count] = $row['en'];		
-				if (isset($en[$count]) && isset($en[$count2])) {
-					if ($en[$count] > $en[$count2]) {
-						$diff = $en[$count] - $en[$count2];
+				if (isset($en[1]) && isset($en[2])) {
+					if ($en[1] > $en[2]) {
+						$diff = $en[1] - $en[2];
 						if ($diff<0.4) {
 							print("\nThe bond is nonpolar and covalent.");
 						}
@@ -216,10 +216,10 @@
 						else {
 							print("\nThe bond is Ionic.");
 						}
-						print("\nThe electronegativity difference is $en[$count] - $en[$count2] = $diff.\n");
+						print("\nThe electronegativity difference is $en[1] - $en[2] = $diff.\n");
 					}
-					elseif ($en[$count] < $en[$count2]) {
-						$diff = $en[$count2] - $en[$count];
+					elseif ($en[1] < $en[2]) {
+						$diff = $en[2] - $en[1];
 						if ($diff<0.4) {
 							print("\nThe bond is nonpolar and covalent.");
 						}
@@ -229,11 +229,12 @@
 						else {
 							print("\nThe bond is Ionic.");
 						}
-						print("\nThe electronegativity difference is $en[$count2] - $en[$count] = $diff.\n");
+						print("\nThe electronegativity difference is $en[2] - $en[1] = $diff.\n");
 					}
 					else {
 						echo "No comparison possible.\n";
 					}
+					$count++;
 				}
 			}
 		}
