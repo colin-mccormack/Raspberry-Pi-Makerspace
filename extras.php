@@ -204,9 +204,9 @@
 			while($row = $this -> mysqlSearch -> fetch()) {
 				echo "in en loop...";
 				$en[$count] = $row['en'];		
-				if (isset($en[1]) && isset($en[2])) {
-					if ($en[1] > $en[2]) {
-						$diff = $en[1] - $en[2];
+				if (isset($en[$count-1]) && isset($en[$count])) {
+					if ($en[$count-1] > $en[$count]) {
+						$diff = $en[$count-1] - $en[$count];
 						if ($diff<0.4) {
 							print("\nThe bond is nonpolar and covalent.");
 						}
@@ -216,9 +216,9 @@
 						else {
 							print("\nThe bond is Ionic.");
 						}
-						print("\nThe electronegativity difference is $en[1] - $en[2] = $diff.\n");
+						print("\nThe electronegativity difference is $en[$count-1] - $en[$count] = $diff.\n");
 					}
-					elseif ($en[1] < $en[2]) {
+					elseif ($en[$count-1] < $en[$count]) {
 						$diff = $en[2] - $en[1];
 						if ($diff<0.4) {
 							print("\nThe bond is nonpolar and covalent.");
@@ -229,7 +229,7 @@
 						else {
 							print("\nThe bond is Ionic.");
 						}
-						print("\nThe electronegativity difference is $en[2] - $en[1] = $diff.\n");
+						print("\nThe electronegativity difference is $en[$count] - $en[$count-1] = $diff.\n");
 					}
 					else {
 						echo "No comparison possible.\n";
