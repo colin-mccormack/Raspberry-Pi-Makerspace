@@ -206,6 +206,7 @@
 				$en[$count] = $row['en'];
 				$previous = $count-1;
 				if (isset($en[$previous]) && isset($en[$count])) {
+					echo "isset...";
 					if ($en[$previous] > $en[$count]) {
 						$diff = $en[$previous] - $en[$count];
 						if ($diff<0.4) {
