@@ -273,6 +273,8 @@
 
 				//Setting a sepreate variable as the prepared search makes it easier since it is no longer treated as an object
 				$abundanceSearchResults = $this -> mysqlSearchT2;
+				print("in abundance search results");
+				print($abundanceSearchResults)
 				while($row = $abundanceSearchResults -> fetch())
 				    {
 
