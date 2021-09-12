@@ -266,11 +266,8 @@
 				$this -> mysqlSearchT2 -> execute();
 
 				//Setting a sepreate variable as the prepared search makes it easier since it is no longer treated as an object
-				$abundanceSearchResults = $this -> mysqlSearchT2;
-				print("in abundance search results");
-				$rowDisplay = $abundanceSearchResults -> fetch();
-				echo($rowDisplay);
-				while($row = $abundanceSearchResults -> fetch())
+					
+				while($row = $this -> mysqlSearchT2 -> fetch())
 				    {
 				      print("<tr>");
 				      print("<td>" . $row['name'] . "</td>");
