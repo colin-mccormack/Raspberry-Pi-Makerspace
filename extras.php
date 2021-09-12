@@ -316,7 +316,7 @@
 				$quantity = array($q1, 1, 1);
 			}
 	
-                        $abundanceString .= " name = '$str1' OR symbol ='$str1' OR";
+                        $abundanceString .= " name = '$str1' OR shortSymbol ='$str1' OR";
                 }
                 if (!empty($_POST["search2"])) {
                         $searchString .= " name = '$str2' OR symbol ='$str2' OR";
@@ -325,7 +325,7 @@
 			if (!empty($_POST["q2"])) {
 				$quantity[1] = $q2;
 			}
-		    	$abundanceString .= " name = '$str2' OR symbol ='$str2' OR";
+		    	$abundanceString .= " name = '$str2' OR shortSymbol ='$str2' OR";
                 }
                 if (!empty($_POST["search3"])) {
                         $searchString .= " name = '$str3' OR symbol ='$str3' OR";
@@ -334,7 +334,7 @@
 			if (!empty($_POST["q3"])) {
 				$quantity[2] = $q3;
 			}
-		    $abundanceString .= " name = '$str3' OR symbol ='$str3' OR";
+		    $abundanceString .= " name = '$str3' OR shortSymbol ='$str3' OR";
                 }
                 if (!empty($_POST["search4"])) {
                         $searchString .= " CAST(atmweight as CHAR) LIKE '$str3%' OR";
