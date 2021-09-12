@@ -269,7 +269,7 @@
 				$abundanceSearchResults = $this -> mysqlSearchT2;
 				print("in abundance search results");
 				$rowDisplay = $abundanceSearchResults -> fetch();
-				print($rowDisplay);
+				echo($rowDisplay);
 				while($row = $abundanceSearchResults -> fetch())
 				    {
 				      print("<tr>");
