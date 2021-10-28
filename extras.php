@@ -54,6 +54,7 @@
 			       </tr>
 			</TD></TR>
 			<TR><TD>
+				<!--
 				<tr valign="TOP">
 				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"><label>Search By Atomic Weight:</label></td>
 				    <td WIDTH="75%" align="LEFT" valign="TOP"><input type="text" name="search4"></td>
@@ -66,6 +67,7 @@
 				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"><label>Search By State</label></td>
 				    <td WIDTH="75%" align="LEFT" valign="TOP"><select name="formState"> <option>Select...</option> <option value="Solid">Solid</option> <option value="Liquid">Liquid</option> <option value="Gas">Gas</option> </select> </td>
 				</tr>
+				-->
 				<tr valign="TOP">
 				    <td WIDTH="25%" align="RIGHT" valign="MIDDLE"><label>Order by Data</label></td>
 				    <td WIDTH="75%" align="LEFT" valign="TOP"><select name="formOrder"> <option>Select...</option> <option value="ar">Atomic Radius</option> <option value="ie">Ionization Energy</option> <option value="en">Electronegativity</option> <option value="ea">Electron Affinity</option> </select></td>
