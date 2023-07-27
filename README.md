@@ -1,4 +1,4 @@
-# Raspberry-Pi-Makerspace [DEPRICATED]
+# Raspberry-Pi-Makerspace [DEPRECATED]
 Raspberry Pi SD cards online store and Online Chemistry resource
 I have created my first site and am runnig it on a vps that is linked to this github repository. The website is built primairly to sell pre-formatted sd cards using an HTML and CSS framework.
 
